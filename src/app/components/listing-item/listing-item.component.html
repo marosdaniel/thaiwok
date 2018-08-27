@@ -1,0 +1,54 @@
+<div class="card" [ngClass]="variant">
+  <div class="card-image">
+    <img materialize="materialbox" class="card-image materialboxed" [src]="item.img" alt="no image :(">
+    <span class="card-title" style="width:100%; background: rgba(0, 0, 0, 0.3);">{{item.name}}</span>
+  </div>
+  <div class="card-content">
+    <h6 class="card-subtitle mb-2 text-muted">id: {{item.id}}</h6>
+    <p class="card-text">{{item.details}}</p>
+  </div>
+  <div class="card-action">
+    <a
+      href="#modal-{{item.id}}"
+      type="button"
+      class="waves-effect waves-light modal-trigger modal-trigger"
+      (click)="openModal()">{{'listingItem.details' | translate}}
+    </a>
+  </div>
+</div>
+
+
+<!--MODAL WRAPPER -->
+<div id="modal-{{item.id}}" class="modal"
+     materialize="modal"
+     [materializeActions]="modalActions"
+     [materializeParams]="[{dismissible: true}]">
+
+  <!--MODAL CONTENT -->
+  <div class="modal-content">
+    <h4>{{item.name}}</h4>
+    <p>{{item.details_hu}}</p>
+    <p>{{item.details}}</p>
+
+    <div *ngFor="let type of item.price; let index = index">
+      <p *ngIf="type">
+        <input type="radio" name="priceOptions"
+               class="with-gap"
+               (click)="setIndex(index)"
+               id="{{item.category}}-{{item.id}}-{{type.name}}">
+        <label
+          (click)="selectItem()"
+          for="{{item.category}}-{{item.id}}-{{type.name}}">{{type.name}}: {{type.price}}.- HUF</label>
+      </p>
+    </div>
+  </div>
+
+  <!--MODAL - FOOTER-->
+  <div class="modal-footer">
+    <a class="waves-effect waves-red btn-flat s-left modal-footer-btn__back" (click)="backToItems()">{{'listingItem.back'
+      | translate}}</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat s-right modal-footer-btn__go"
+       (click)="addToCart()">{{'listingItem.addToCart' | translate}}</a>
+  </div>
+</div>
+

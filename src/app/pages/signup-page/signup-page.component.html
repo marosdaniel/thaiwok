@@ -1,0 +1,66 @@
+<div class=" row" translate>
+  <div class="card-panel col m4 offset-l1 offset-l4 s12 z-depth-4">
+
+    <h3 class="center">{{'signup.signupTitle' | translate }}</h3>
+
+    <form [formGroup]="userForm" (ngSubmit)="signup()">
+
+
+      <!--EMAIL-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <input type="email" id="email" class="validate" required="" aria-required="true" formControlName="email" autocomplete="new-password">
+          <label for="email">{{'signup.email' | translate}}</label>
+
+          <div *ngIf="formErrors.email" class="helper-text red-text" data-error="wrong" data-success="right">
+            {{ formErrors.email }}
+          </div>
+        </div>
+      </div>
+
+      <!--PASSWORD-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input [(ngModel)]="password" type="password" id="password" class="validate" required="" aria-required="true" formControlName="password" autocomplete="new-password">
+          <label for="password">{{'signup.password' | translate}}</label>
+          <div *ngIf="formErrors.password" class="helper-text red-text" data-error="wrong" data-success="right">
+            {{ formErrors.password }}
+          </div>
+        </div>
+      </div>
+
+      <!--PASSWORD AGAIN-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input [(ngModel)]="passwordAgain" type="password" id="password-again" class="validate" required="" aria-required="true" formControlName="password" autocomplete="new-password">
+          <label for="password-again">{{'signup.passwordAgain' | translate}}</label>
+          <div *ngIf="formErrors.password" class="helper-text red-text" data-error="wrong" data-success="right">
+            {{ formErrors.password }}
+          </div>
+        </div>
+      </div>
+
+
+      <!--SIGNUP BUTTON-->
+      <!--<button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>-->
+      <div class="row">
+        <div class="col input-field offset-s2 s8">
+          <button type="submit" class="btn waves-effect waves-light col s12">{{'signup.signupButton' | translate}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<ng-template #alreadyLoggedIn>
+  <p class="text-success">
+    You are logged in <i class="fa fa-thumbs-up"></i>
+  </p>
+</ng-template>
+
+
+

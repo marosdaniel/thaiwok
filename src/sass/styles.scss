@@ -1,0 +1,166 @@
+//@import './_variables';
+//@import './_mixins';
+@import "variables";
+@import "mixins";
+
+
+//
+//COMMON CSS RULES - OVERWRITE MATERIALIZE CSS
+//
+
+body {
+  color: $tw-grey;
+  font-family: $raleway-font;
+}
+
+.btn {
+  background-color: $tw-grey;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+.inline-block {
+  display: inline-block;
+}
+.clickable {
+  cursor: pointer;
+}
+
+//
+//  COMMON COLORS
+//
+.tw-yellow-text {
+  color: $tw-yellow;
+}
+
+a {
+
+  transition: color 0.4s ease-out;
+  &:hover {
+    color: $tw-dark-blue;
+  }
+}
+
+//
+//  COMMON FONTS
+//
+.great-vibe-font {
+  font-family: $great-vibes-font;
+}
+
+.main-title {
+  font-size: 7rem;
+}
+
+
+//ARROWS
+.profile-nav-arrow__left,
+.profile-nav-arrow__right{
+  cursor: pointer;
+
+  &:hover {
+    color: $tw-teal;
+  }
+}
+
+h3.inline-block {
+  padding: 0 12px;
+  margin-bottom: 3rem;
+}
+
+//
+//CHECKBOX, RADIO
+//
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+  background-color: $tw-yellow;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:checked+label:after
+//[type="radio"].with-gap:checked+label:before,
+//[type="radio"].with-gap:checked+label:after
+{
+  border: 2px solid $tw-yellow !important;
+}
+
+[type=radio].with-gap:checked+label:after, [type=radio]:checked+label:after {
+  background-color: $tw-yellow !important;
+}
+
+
+//
+//COMMON TOASTER
+//
+.fulfilledToaster {
+  //background-color: lightgreen;
+}
+
+.errorToaster {
+  //background-color: lightcoral;
+}
+
+
+//
+//  COMMON MODAL
+//
+
+.modal-footer{
+
+  &-btn__back{
+    &:hover{
+      color: red;
+    }
+  }
+  &-btn__go{
+    &:hover{
+      color: $tw-teal;
+    }
+  }
+}
+
+//
+//COMMON MEDIA QUERIES
+//
+
+@media only screen and (max-width: 1024px) {
+  .s-left {
+    float: left;
+  }
+  .s-right {
+    float: right;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .s-block {
+    display: block !important;
+  }
+
+  .s-center {
+    text-align: center;
+  }
+
+  //ARROWS
+  .profile-nav-arrow__left,
+  .profile-nav-arrow__right{
+    position: absolute;
+    top: 75px;
+  }
+
+  .profile-nav-arrow__left {
+    left: 4px;
+  }
+
+  .profile-nav-arrow__right {
+    right: 4px;
+  }
+
+  h3.inline-block {
+    //padding: inherit;
+  }
+
+}

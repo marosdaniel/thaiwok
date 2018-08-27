@@ -1,0 +1,29 @@
+@import "../../../sass/variables";
+
+#pills-tab {
+
+  .nav-item {
+
+    &:hover {
+      //border-bottom: 1px solid $tw-grey;
+      opacity: 0.6;
+    }
+  }
+}
+
+
+.nav-item a {
+  color: $tw-grey;
+}
+
+#pills-tab .nav-link.active {
+  background-color: $tw-grey;
+  color: $tw-yellow;
+  //border: 1px solid $tw-yellow;
+
+}
+@media screen and (max-width: 510px) {
+  #pills-tab li {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,65 @@
+<div id="personal-info-tab" class="row">
+
+
+  <!--PERSONAL INFO-->
+    <i routerLink="/profile/previous-orders" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
+    <h3 class="center inline-block"> {{'profile.personalInfo' | translate}} </h3>
+    <i routerLink="/profile/delivery-info"  class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
+
+
+  <!--FIRST NAME-->
+  <div class="row">
+    <div class="input-field col m6 s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input [(ngModel)]="user.firstName" type="text" id="first-name" class="validate" required="required" aria-required="true" [attr.disabled] = "!isEditable ? 'disabled' : null">
+      <label class="active" for="first-name">{{'profile.firstName' | translate}}</label>
+    </div>
+  </div>
+    <!--LAST NAME-->
+  <div class="row">
+    <div class="input-field col m6 s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input [(ngModel)]="user.lastName" type="text" id="last-name" class="validate" [attr.disabled] = "!isEditable ? 'disabled' : null">
+      <label class="active" for="last-name">{{'profile.lastName' | translate}}</label>
+    </div>
+  </div>
+
+  <!--PHONE NUMBER-->
+  <div class="row">
+    <div class="input-field col m6 s12">
+      <i class="material-icons prefix">phone</i>
+      <input [(ngModel)]="user.phoneNumber" type="tel" id="phone-number"
+             class="validate" required="required"
+             pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
+             aria-required="true" [attr.disabled] = "!isEditable ? 'disabled' : null">
+      <label class="active" for="phone-number">{{'profile.phoneNumber' | translate}}</label>
+    </div>
+  </div>
+
+
+
+
+  <button class="btn  waves-teal left" (click)="editUser()" [attr.disabled] = "isEditable ? 'disabled' : null">{{'profile.edit' | translate}}</button>
+  <button class="btn  waves-teal right" (click)="updateUser()" [attr.disabled] = "!isEditable ? 'disabled' : null">{{'profile.save' | translate}}</button>
+
+
+  <!--EMAIL ADDRESS-->
+  <div class="row clearfix">
+    <div class="input-field col m6 s12">
+      <p>{{currentUser.email}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col m6 s8">
+      <i class="material-icons prefix">email</i>
+      <input [(ngModel)]="newEmail" type="email" id="new-email" class="validate" required="required"
+             aria-required="true" >
+      <label class="active" for="new-email">Új email cím megadása</label>
+    </div>
+    <div *ngIf="validMailFormat" class="col m6 s4">
+      <i (click)="updateEmail(newEmail)" class="fa fa-check clickable"></i>
+    </div>
+  </div>
+
+</div>

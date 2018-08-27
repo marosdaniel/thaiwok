@@ -1,0 +1,14 @@
+#delivery-info-tab {
+  overflow-y: -webkit-paged-y;
+}
+
+.delivery-address {
+  i.fa {
+    font-size: 18px;
+    transition: font-size 0.1s ease-in;
+
+    &:hover {
+      font-size: 2rem;
+    }
+  }
+}

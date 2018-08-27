@@ -1,0 +1,27 @@
+<!--YOUR CART IS EMPTY-->
+<div *ngIf="cartItems.length==0" class="s-center">
+  <h3>{{'cart.yourCartIsEmpty' | translate}}</h3>
+  <button class="btn waves-teal" routerLink="/menu/appetizers">{{'cart.checkTheMeals' | translate}}</button>
+</div>
+
+<!--YOUR CART IS NOT EMPTY-->
+<div *ngIf="cartItems.length!=0" class="cart-items">
+  <h3 class="s-center">{{'cart.shoppingCart' | translate}}</h3>
+  <ul>
+    <li *ngFor="let cartItem of cartItems; let index = index">
+      <p>{{cartItem.details.name}} - {{cartItem.details.meatType}} -
+      {{cartItem.details.price}}.- HUF
+        <i class="fa fa-trash-o red-text clickable right" (click)="removeCartItem(index)"></i></p>
+    </li>
+  </ul>
+  <hr>
+  <p>{{'cart.orderedMeals' | translate}}: {{cartItemSummary()}}.- HUF</p>
+  <p>{{'cart.shippingFee' | translate}}: {{shippingFee}}.- HUF</p>
+  <hr>
+  <p>{{'cart.summary' | translate}}: {{cartItemSummary()+shippingFee}}.- HUF</p>
+
+  <div class="s-center btn-container s-block">
+    <button class="btn red waves-red" (click)="removeCartItems()">{{'cart.clearCart' | translate}}</button>
+    <button class="btn green waves-teal" routerLink="/order-summary">{{'cart.goToConfirmation' | translate}}</button>
+  </div>
+</div>

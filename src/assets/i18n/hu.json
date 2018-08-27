@@ -1,0 +1,117 @@
+{
+  "navbar": {
+    "home": "Kezdőlap",
+    "menu": "Étlap",
+    "deliveryAndPayment": "Szállítás és fizetés",
+    "aboutUs": "Rólunk",
+    "contact": "Kapcsolat",
+    "selectYourLanguage": "Válassz nyelvet",
+    "en": "Angol",
+    "hun": "Magyar",
+    "login": "Bejelentkezés",
+    "logout":"Kijelentkezés",
+    "profile": "Profil",
+    "personalInfo": "Személyes adatok",
+    "deliveryInfo": "Szállítási adatok",
+    "history": "Korábbi rendelések",
+    "cart": "Kosár"
+  },
+  "menu-tab": {
+    "appetizers": "Előételek",
+    "soups": "Levesek",
+    "friedRiceAndNoodles": "Sült rizs, sült tészták",
+    "mainDishesWithRice": "Rizsköretes ételek",
+    "desserts": "Desszertek"
+  },
+  "login": {
+    "login": "Bejelentkezés",
+    "singup": "Regisztráció",
+    "email": "E-mail",
+    "password": "Jelszó",
+    "rememberMe": "Emlékezz rám",
+    "forgotPassword": "Elfelejtette jelszavát ?",
+    "socialLoginTitle": "Szósöl bejelentkezés",
+    "registerNow": "Regisztrálj most !",
+    "alreadyLoggedIn": "Sikeresen bejelentkeztél :)",
+    "goToProfile": "Tovább a profilodra"
+  },
+  "signup": {
+    "signupTitle": "Regisztráció",
+    "signupButton": "Regisztrálok",
+    "email": "E-mail",
+    "emailAgain": "E-mail újra",
+    "password": "Jelszó",
+    "passwordAgain": "Jelszó újra"
+  },
+  "contactus": {
+    "contactTitle": "Kapcsolat"
+  },
+  "aboutus": {
+    "aboutusTitle": "Rólunk"
+  },
+  "delivery": {
+    "deliveryTitle": "Szállítás és fizetés",
+    "delivery": "Szállítás",
+    "payment": "Fizetés"
+  },
+  "profile": {
+    "welcome": "Üdvözlünk",
+    "guest": "Vendég",
+    "profile": "Profil",
+    "personalInfo": "Személyes adatok",
+    "history": "Korábbi rendelések",
+    "firstName": "Keresztnév",
+    "lastName": "Vezetéknév",
+    "email": "E-mail",
+    "emailAgain": "E-mail újra",
+    "password": "Jelszó",
+    "passwordAgain": "Jelszó újra",
+    "phoneNumber": "Telefonszám",
+    "deliveryInfo": "Szállítási adatok",
+    "country": "Ország",
+    "county": "Megye",
+    "city": "Város",
+    "zipCode": "Irányítószám",
+    "street": "Utca",
+    "houseNumber": "Házszám",
+    "floor": "Emelet",
+    "door": "Ajtó",
+    "bell": "Csengő",
+    "save":"Mentés",
+    "edit": "Szerkeszt",
+    "addNewAddress": "Cím hozzáadása",
+    "deliveryAddresses": "Szállítási címek",
+    "noSetDeliveryAddress": "Még nincs mentett szállítási címe"
+  },
+  "listingItem": {
+    "details": "Részletek",
+    "back": "Vissza",
+    "addToCart": "Kosárhoz ad",
+    "price": "Ár"
+  },
+  "common": {
+    "cancel": "Mégse"
+  },
+  "cart": {
+    "yourCartIsEmpty": "A kosarad jelenleg üres",
+    "shoppingCart": "A kosár tartalma",
+    "orderedMeals": "Megrendelt ételek",
+    "shippingFee": "Szállítási díj",
+    "summary": "Összesen",
+    "clearCart": "Kosár ürítése",
+    "goToConfirmation": "Tovább a megrendeléshez",
+    "checkTheMeals": "Megnézem az ételeket"
+  },
+  "summary": {
+    "yourCartIsEmpty": "A kosarad jelenleg üres",
+    "confirmationOfOrder": "Megrendelés megerősítése",
+    "paymentBy": "Fizetési módok",
+    "iHaveRead": "Elolvastam",
+    "selectShippingAddress": "Szállítási cím kiválasztása",
+    "addNewShippingAddress": "Adj meg egy szállítási címet",
+    "noSavedAddress": "Nincs mentett szállítási címed",
+    "cash": "Készpénz",
+    "backToChangeCart": "Vissza a kosár módosításához",
+    "order": "Megrendelem"
+  }
+}

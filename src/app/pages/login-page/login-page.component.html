@@ -1,0 +1,89 @@
+<div class="row" *ngIf="!(auth.user | async); else alreadyLoggedIn" translate>
+  <div class="card-panel col m4 offset-l1 offset-l4 s12 z-depth-4">
+
+    <h3 class="center">{{'login.socialLoginTitle' | translate }}</h3>
+
+    <!--GOOGLE LOGIN-->
+    <div class="row">
+      <div class="col s12">
+        <a class="waves-effect waves-light btn-large social google" (click)="signInWithGoogle()" style="width: 100%">
+          <i class="fa fa-google left"></i> Sign in with google</a>
+      </div>
+    </div>
+
+    <!--FACEBOOK LOGIN-->
+    <div class="row">
+      <div class="col s12">
+        <a class="waves-effect waves-light btn-large social facebook" (click)="signInWithFacebook()" style="width: 100%">
+          <i class="fa fa-facebook left"></i> Sign in with facebook</a>
+      </div>
+    </div>
+
+    <!--EXISTING USER-->
+    <form [formGroup]="userForm" (ngSubmit)="login()">
+
+      <!--EMAIL-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <input type="email" id="email" class="validate" required="" aria-required="true" formControlName="email" autocomplete="new-password">
+          <label for="email">{{'login.email' | translate}}</label>
+
+          <div *ngIf="formErrors.email" class="helper-text red-text" data-error="wrong" data-success="right">
+            {{ formErrors.email }}
+          </div>
+        </div>
+      </div>
+
+      <!--PASSWORD-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input type="password" id="password" class="validate" required="" aria-required="true" formControlName="password" autocomplete="new-password">
+          <label for="password">{{'login.password' | translate}}</label>
+          <div *ngIf="formErrors.password" class="helper-text red-text" data-error="wrong" data-success="right">
+            {{ formErrors.password }}
+          </div>
+        </div>
+      </div>
+
+      <!--LOGIN BUTTON-->
+      <!--<button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>-->
+      <div class="row">
+        <div class="col input-field offset-s2 s8">
+          <button type="submit" class="btn waves-effect waves-light col s12">{{'login.login' | translate}}</button>
+        </div>
+      </div>
+
+
+      <!--<span *ngIf="userForm.valid" class="help is-success light-green-text">Form Looks Valid</span>-->
+
+      <!--<a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset-->
+        <!--Password for {{userForm.value.email}}?</a>-->
+      <!--<p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>-->
+
+      <div class="row">
+        <!--REGISTER NOW-->
+        <div class="col input-field s6">
+          <p class="center"><a routerLink="/signup">{{'login.registerNow' | translate}}</a></p>
+        </div>
+
+        <!--FORGOT PASSWORD-->
+        <div class="col input-field s6">
+          <p class="center"><a class="clickable" (click)="resetPassword()">{{'login.forgotPassword' | translate}}</a></p>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<ng-template #alreadyLoggedIn>
+  <h3 class="teal-text accent-4">{{'login.alreadyLoggedIn' | translate}}</h3>
+  <!--<a class="btn-large waves-effect waves-light" href="" routerLink="/profile">{{'login.goToProfile' | translate}} <i class="material-icons prefix">send</i></a>-->
+  <a class="waves-effect waves-light btn-large cyan" routerLink="/profile"><i class="material-icons right">send</i>{{'login.goToProfile' | translate}}</a>
+
+</ng-template>

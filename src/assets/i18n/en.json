@@ -1,0 +1,117 @@
+{
+  "navbar": {
+    "home": "Home",
+    "menu": "Menu",
+    "deliveryAndPayment": "Delivery and payment",
+    "aboutUs": "About us",
+    "contact": "Contact",
+    "selectYourLanguage": "Select your language",
+    "en": "English",
+    "hun": "Hungarian",
+    "login": "Login",
+    "logout":"Logout",
+    "profile": "Profile",
+    "personalInfo": "Personal info",
+    "deliveryInfo": "Delivery info",
+    "history": "Previous orders",
+    "cart": "Cart"
+  },
+  "menu-tab": {
+    "appetizers": "Appetizers",
+    "soups": "Soups",
+    "friedRiceAndNoodles": "Fried rice and noodles",
+    "mainDishesWithRice": "Main dishes with rice",
+    "desserts": "Desserts"
+  },
+  "login": {
+    "login": "Login",
+    "singup": "Registration",
+    "email": "E-mail",
+    "password": "Password",
+    "rememberMe": "Rememeber me",
+    "forgotPassword": "Forgot password ?",
+    "socialLoginTitle": "Social Login",
+    "registerNow": "Register now !",
+    "alreadyLoggedIn": "You are logged in :)",
+    "goToProfile": "Go to the profile"
+  },
+  "signup": {
+    "signupTitle": "Registration",
+    "signupButton": "Registrate",
+    "email": "Email",
+    "emailAgain": "Email again",
+    "password": "Password",
+    "passwordAgain": "Password again"
+  },
+  "contactus": {
+    "contactTitle": "Contact"
+  },
+  "aboutus": {
+    "aboutusTitle": "About us"
+  },
+  "delivery": {
+    "deliveryTitle": "Delivery & payment",
+    "delivery": "Delivery",
+    "payment": "Payment"
+  },
+  "profile": {
+    "welcome": "Welcome",
+    "guest": "Guest",
+    "profile": "Profile",
+    "personalInfo": "Personal informations",
+    "history": "Previous orders",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "emailAgain": "Email again",
+    "password": "Password",
+    "passwordAgain": "Password again",
+    "phoneNumber": "Phone number",
+    "deliveryInfo": "Delivery information",
+    "country": "Country",
+    "county": "County",
+    "city": "City",
+    "zipCode": "Zip code",
+    "street": "Street",
+    "houseNumber": "House number",
+    "floor": "Floor",
+    "door": "Door",
+    "bell": "Bell",
+    "save":"Save",
+    "edit": "Edit",
+    "addNewAddress": "Add new address",
+    "deliveryAddresses": "Delivery addresses",
+    "noSetDeliveryAddress": "There is no saved delivery address yet"
+  },
+  "listingItem": {
+    "details": "Details",
+    "back": "Back",
+    "addToCart": "Add to cart",
+    "price": "Price"
+  },
+  "common": {
+    "cancel": "Cancel"
+  },
+  "cart": {
+    "yourCartIsEmpty": "Your cart is empty",
+    "shoppingCart": "Shopping cart",
+    "orderedMeals": "Ordered meals",
+    "shippingFee": "Shipping fee",
+    "summary": "Summary",
+    "clearCart": "Clear your cart",
+    "goToConfirmation": "Go to confirmation",
+    "checkTheMeals": "Check the meals"
+  },
+  "summary": {
+    "yourCartIsEmpty": "Your cart is empty",
+    "confirmationOfOrder": "Conformation of order",
+    "paymentBy": "Payment by",
+    "iHaveRead": "I have read",
+    "selectShippingAddress": "Select shipping address",
+    "addNewShippingAddress": "Add shipping address",
+    "noSavedAddress": "There is no saved shipping address",
+    "cash": "Cash",
+    "backToChangeCart": "Back to change your cart",
+    "order": "Order"
+  }
+}

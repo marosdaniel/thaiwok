@@ -1,0 +1,59 @@
+@import "../../../sass/variables";
+
+nav {
+  background-color: $tw-grey !important;
+
+  a.brand-logo {
+    color: $tw-yellow !important;
+    width: fit-content;
+    padding: 0 0 0 1rem;
+  }
+
+  .hide-on-med-and-down {
+    li {
+      a {
+        color: $tw-light-grey;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
+
+nav a.navbar-active {
+  color: $tw-yellow !important;
+}
+
+.button-collapse {
+  color: $tw-yellow;
+}
+
+.dropdown-content li {
+  min-height: inherit;
+    border-top: 1px solid $tw-light-grey;
+
+  a {
+    color: $tw-yellow;
+    background-color: $tw-grey;
+    opacity: 0.9;
+  }
+}
+
+.side-nav .material-icons {
+  margin: 0;
+}
+
+.side-nav-language-selector {
+  display: block;
+  width: fit-content;
+  margin-left: 32px;
+  margin-top: 12px;
+}
+
+
+@media screen and (max-width: 340px) {
+
+}
+
+
