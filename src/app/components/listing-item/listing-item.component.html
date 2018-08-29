@@ -5,7 +5,7 @@
   </div>
   <div class="card-content">
     <h6 class="card-subtitle mb-2 text-muted">id: {{item.id}}</h6>
-    <p class="card-text">{{item.details}}</p>
+    <p class="card-text">{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
   </div>
   <div class="card-action">
     <a
@@ -27,18 +27,17 @@
   <!--MODAL CONTENT -->
   <div class="modal-content">
     <h4>{{item.name}}</h4>
-    <p>{{item.details_hu}}</p>
-    <p>{{item.details}}</p>
+    <p>{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
 
     <div *ngFor="let type of item.price; let index = index">
       <p *ngIf="type">
         <input type="radio" name="priceOptions"
                class="with-gap"
                (click)="setIndex(index)"
-               id="{{item.category}}-{{item.id}}-{{type.name}}">
+               id="{{item.category}}-{{item.id}}-{{type.name.en}}">
         <label
           (click)="selectItem()"
-          for="{{item.category}}-{{item.id}}-{{type.name}}">{{type.name}}: {{type.price}}.- HUF</label>
+          for="{{item.category}}-{{item.id}}-{{type.name.en}}">{{languageService.actualLanguage === 'en' ? type.name.en : type.name.hu}}: {{type.price}}.- HUF</label>
       </p>
     </div>
   </div>

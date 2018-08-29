@@ -6,6 +6,7 @@ import {errorNoSelectedItemToaster} from '../../common/toasters/toasters';
 import {CommonService} from '../../services/common/common.service';
 import {Item} from '../../models/item.model';
 import {MeatTypeEnum} from '../../models/meatType.enum';
+import {LanguageService} from '../../services/language/language.service';
 declare var $:any;
 
 
@@ -24,8 +25,9 @@ export class ListingItemComponent implements OnInit {
   public meatType: MeatTypeEnum;
   public selectedItem: boolean;
   public indexer: number;
+  // public currentLanguage: string;
 
-  constructor(private cartService: CartService, private commonService: CommonService) {
+  constructor(private cartService: CartService, private commonService: CommonService, private languageService: LanguageService) {
   }
 
   ngOnInit() {
@@ -35,8 +37,9 @@ export class ListingItemComponent implements OnInit {
         name: '',
         meatType: '',
         price: 0
-    }
+    };
     this.indexer = 0;
+    // this.currentLanguage = this.languageService.actualLanguage;
   }
 
   modalActions = new EventEmitter<string|MaterializeAction>();
