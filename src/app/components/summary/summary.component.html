@@ -10,7 +10,7 @@
 
   <div *ngIf="cartItems" class="cart-items">
     <ul>
-      <li *ngFor="let cartItem of cartItems">{{cartItem.details.name}} - {{cartItem.details.meatType}} -
+      <li *ngFor="let cartItem of cartItems">{{cartItem.details.name}} - {{languageService.actualLanguage === 'en' ? cartItem.details.meatType.en : cartItem.details.meatType.hu}} -
         {{cartItem.details.price}}.- HUF
       </li>
     </ul>
@@ -216,11 +216,28 @@
 
   <div class="row">
     <button class="btn col m3 s12  waves-teal left" routerLink="/cart">{{'summary.backToChangeCart' | translate}}</button>
-    <button class="btn col m3 green right s12 waves-teal" (click)="finishOrderProcess()"
+    <button class="btn col m3 green right s12 waves-teal"
+
+            (click)="finishOrderProcess()"
             [disabled]="!isCheckedASZF && !isSelectedAddress">{{'summary.order' | translate}}
     </button>
   </div>
 </div>
 
+
+<!--MODAL WRAPPER -->
+<div id="modal-success-order" class="modal center"
+     [materializeParams]="[{dismissible: false}]"
+     materialize="modal">
+  <!--MODAL CONTENT -->
+  <div class="modal-content">
+    <h3>{{'summary.successOrder' | translate}}</h3>
+  </div>
+  <!--MODAL - FOOTER-->
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat"
+       (click)="auth.navigateToHome()">{{'summary.backToTheHomePage' | translate}}</a>
+  </div>
+</div>
 
 

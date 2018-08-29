@@ -112,6 +112,8 @@
     "noSavedAddress": "There is no saved shipping address",
     "cash": "Cash",
     "backToChangeCart": "Back to change your cart",
-    "order": "Order"
+    "order": "Order",
+    "successOrder": "Success order",
+    "backToTheHomePage": "Back to the home page"
   }
 }

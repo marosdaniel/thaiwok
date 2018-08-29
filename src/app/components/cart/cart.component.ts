@@ -3,6 +3,7 @@ import {CartService} from '../../services/cart/cart.service';
 import {CommonService} from '../../services/common/common.service';
 import {StorageService} from '../../services/storage/storage.service';
 import {CartItem} from '../../models/cartItem.model';
+import {LanguageService} from '../../services/language/language.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit {
   public cartItems: CartItem[];
   public shippingFee: number;
 
-  constructor(private cartService: CartService, private commonService: CommonService, private storageService: StorageService) {
+  constructor(private cartService: CartService, private commonService: CommonService, private storageService: StorageService, private languageService: LanguageService) {
 
   }
 

@@ -112,6 +112,8 @@
     "noSavedAddress": "Nincs mentett szállítási címed",
     "cash": "Készpénz",
     "backToChangeCart": "Vissza a kosár módosításához",
-    "order": "Megrendelem"
+    "order": "Megrendelem",
+    "successOrder": "Sikeres rendelés",
+    "backToTheHomePage": "Vissza a főoldalra"
   }
 }

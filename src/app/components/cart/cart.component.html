@@ -9,7 +9,7 @@
   <h3 class="s-center">{{'cart.shoppingCart' | translate}}</h3>
   <ul>
     <li *ngFor="let cartItem of cartItems; let index = index">
-      <p>{{cartItem.details.name}} - {{cartItem.details.meatType}} -
+      <p>{{cartItem.details.name}} - {{languageService.actualLanguage === 'en' ? cartItem.details.meatType.en : cartItem.details.meatType.hu}} -
       {{cartItem.details.price}}.- HUF
         <i class="fa fa-trash-o red-text clickable right" (click)="removeCartItem(index)"></i></p>
     </li>

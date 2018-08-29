@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth/auth.service';
 import {CartService} from '../../services/cart/cart.service';
 import * as Izitoast from 'izitoast';
@@ -10,6 +10,8 @@ import {User} from '../../models/user.model';
 import {CartItem} from '../../models/cartItem.model';
 import {ShippingInfo} from '../../models/shippingInfo.model';
 import * as firebase from 'firebase';
+import {MaterializeAction} from 'angular2-materialize';
+import {LanguageService} from '../../services/language/language.service';
 
 @Component({
   selector: 'app-summary',
@@ -32,11 +34,13 @@ export class SummaryComponent implements OnInit {
   public tempFirstName: string;
   public tempLastName: string;
   public tempPhoneNumber: string | number;
+  public modalActions = new EventEmitter<string|MaterializeAction>();
 
   constructor(private auth: AuthService,
               private cartService: CartService,
               private commonService: CommonService,
-              private storageService: StorageService) {
+              private storageService: StorageService,
+              private languageService: LanguageService) {
   }
 
   ngOnInit() {
@@ -94,23 +98,20 @@ export class SummaryComponent implements OnInit {
       {id: 1, name: 'Szeged'},
       {id: 2, name: 'Tápé'}
     ];
+    ($('#modal-success-order')as any).modal();
   }
 
   public finishOrderProcess() {
     // if everything is OK
     if (this.user) {
       // add ordered items to database -> clear localstorage -> send email notification
-      // Izitoast.default.show(successOrderToaster);
     } else {
 
     }
     // send email notification
-    // this.storageService.clearThaiWokLocalStorages();
     this.storageService.clearLocalStorageVariable('shippingInfo');
     this.storageService.clearLocalStorageVariable('cartItems');
-
-    this.auth.navigateToHome();
-    Izitoast.default.show(successOrderToaster);
+    this.openModal();
   }
 
   cartItemSummary = () => {
@@ -154,6 +155,11 @@ export class SummaryComponent implements OnInit {
     this.shippingInfo.firstName = this.user && this.user.firstName ? this.user.firstName : this.tempFirstName;
     this.shippingInfo.lastName = this.user && this.user.lastName ? this.user.lastName : this.tempLastName;
     this.shippingInfo.phoneNumber = this.user && this.user.phoneNumber ? this.user.phoneNumber : this.tempPhoneNumber;
+  }
+
+  private openModal() {
+    // this.modalActions.emit({action:"modal",params:['open']});
+    ($('#modal-success-order')as any).modal('open');
   }
 
 
