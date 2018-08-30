@@ -61,7 +61,7 @@
       <h5>{{'summary.selectShippingAddress' | translate}}:</h5>
       <p *ngFor="let address of addresses" class="row">
         <input type="radio" name="addresses" class="with-gap" id="{{address.street}}-{{address.houseNumber}}">
-        <label (click)="selectAddress()"
+        <label (click)="selectAddress(address)"
                for="{{address.street}}-{{address.houseNumber}}">{{address.country}} - {{address.county}} -
           {{address.city}} - {{address.street}} - {{address.houseNumber}} - {{address.floor}}. {{'profile.floor' |
           translate}} - {{address.door}}. {{'profile.door' | translate}} - {{address.bell}}. {{'profile.bell' |
@@ -181,7 +181,7 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="note-for-meal" class="materialize-textarea validate" data-length="200" [(ngModel)]="shippingInfo.noteForMeal"></textarea>
-          <label for="note-for-meal">Megjegyzés a rendeléshez</label>
+          <label for="note-for-meal">{{'summary.noteForOrder' | translate}}</label>
         </div>
       </div>
     </div>
@@ -189,7 +189,7 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="note-for-shipping" class="materialize-textarea validate" data-length="200" [(ngModel)]="shippingInfo.noteForShipping"></textarea>
-          <label for="note-for-shipping">Megjegyzés a szállításhoz</label>
+          <label for="note-for-shipping">{{'summary.noteForShipping' | translate}}</label>
         </div>
       </div>
     </div>

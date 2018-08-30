@@ -27,7 +27,7 @@ export class ListingItemComponent implements OnInit {
   public indexer: number;
   // public currentLanguage: string;
 
-  constructor(private cartService: CartService, private commonService: CommonService, private languageService: LanguageService) {
+  constructor(private cartService: CartService, private commonService: CommonService, public languageService: LanguageService) {
   }
 
   ngOnInit() {

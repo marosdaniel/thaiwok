@@ -17,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MaterializeModule } from 'angular2-materialize';
 import {UserIdleModule} from 'angular-user-idle';
 import {AgmCoreModule} from '@agm/core';
+import {apiKey} from '../environments/google.apikey';
 
 // _
 // | |
@@ -43,6 +44,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { ParallaxComponent } from './components/parallax/parallax.component';
 import { MapComponent } from './components/map/map.component';
+import { OpenHoursComponent } from './components/open-hours/open-hours.component';
 
 
 // PAGES
@@ -75,7 +77,7 @@ import {LanguageService} from './services/language/language.service';
 import {CartService} from './services/cart/cart.service';
 import {CommonService} from './services/common/common.service';
 import {StorageService} from './services/storage/storage.service';
-import {apiKey} from '../environments/google.apikey';
+import {OpenHoursService} from './services/open-hours/open-hours.service';
 
 
 
@@ -117,7 +119,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CartPageComponent,
     ParallaxComponent,
     SummaryPageComponent,
-    MapComponent
+    MapComponent,
+    OpenHoursComponent
   ],
   imports: [
     BrowserModule,
@@ -152,7 +155,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthGuard,
     CommonService,
     StorageService,
-    Location, {provide: LocationStrategy, useClass: PathLocationStrategy}
+    Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
+    OpenHoursService
   ],
   bootstrap: [AppComponent]
 })

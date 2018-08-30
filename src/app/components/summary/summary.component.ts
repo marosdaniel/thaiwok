@@ -36,11 +36,11 @@ export class SummaryComponent implements OnInit {
   public tempPhoneNumber: string | number;
   public modalActions = new EventEmitter<string|MaterializeAction>();
 
-  constructor(private auth: AuthService,
+  constructor(public auth: AuthService,
               private cartService: CartService,
               private commonService: CommonService,
               private storageService: StorageService,
-              private languageService: LanguageService) {
+              public languageService: LanguageService) {
   }
 
   ngOnInit() {
@@ -105,6 +105,7 @@ export class SummaryComponent implements OnInit {
     // if everything is OK
     if (this.user) {
       // add ordered items to database -> clear localstorage -> send email notification
+
     } else {
 
     }
@@ -123,8 +124,10 @@ export class SummaryComponent implements OnInit {
     return summ;
   };
 
-  selectAddress() {
+  selectAddress(address) {
     this.isSelectedAddress = true;
+    // add to shippinginfo
+    this.shippingInfo.shippingAddress = address;
   }
 
   addNewAddress() {
@@ -138,8 +141,23 @@ export class SummaryComponent implements OnInit {
     this.cartService.addToShippingInfo(this.shippingInfo);
   }
 
+  private addToHistory() {
+    if(this.user) {
+
+      if(typeof this.user.history === 'undefined'){
+        this.user.history = [];
+      }
+      this.user.history.push(this.shippingInfo);
+      this.auth.updateUser(this.user);
+    }
+    else {
+
+    }
+  }
+
   test() {
     this.addShippingInfo();
+    this.addToHistory();
   }
 
   private setOrderDate() {

@@ -1,4 +1,5 @@
 import {Address} from './address.model';
+import {ShippingInfo} from './shippingInfo.model';
 
 export class User {
   uid: string;
@@ -10,4 +11,5 @@ export class User {
   lastName?: string;
   paymentOption?: string;
   addresses?: Address[];
+  history?: ShippingInfo[];
 }

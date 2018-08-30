@@ -44,7 +44,8 @@
     "passwordAgain": "Jelszó újra"
   },
   "contactus": {
-    "contactTitle": "Kapcsolat"
+    "contactTitle": "Kapcsolat",
+    "openHoursTitle": "Nyitvatartás"
   },
   "aboutus": {
     "aboutusTitle": "Rólunk"
@@ -114,6 +115,8 @@
     "backToChangeCart": "Vissza a kosár módosításához",
     "order": "Megrendelem",
     "successOrder": "Sikeres rendelés",
-    "backToTheHomePage": "Vissza a főoldalra"
+    "backToTheHomePage": "Vissza a főoldalra",
+    "noteForOrder": "Megjegyzés a rendeléshez",
+    "noteForShipping": "Megjegyzés a szállításhoz"
   }
 }

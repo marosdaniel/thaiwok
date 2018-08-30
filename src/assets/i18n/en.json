@@ -44,7 +44,8 @@
     "passwordAgain": "Password again"
   },
   "contactus": {
-    "contactTitle": "Contact"
+    "contactTitle": "Contact",
+    "openHoursTitle": "Opening hours"
   },
   "aboutus": {
     "aboutusTitle": "About us"
@@ -114,6 +115,8 @@
     "backToChangeCart": "Back to change your cart",
     "order": "Order",
     "successOrder": "Success order",
-    "backToTheHomePage": "Back to the home page"
+    "backToTheHomePage": "Back to the home page",
+    "noteForOrder": "Note for order",
+    "noteForShipping": "Note for shipping"
   }
 }

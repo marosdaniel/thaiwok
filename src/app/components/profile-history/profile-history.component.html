@@ -1,10 +1,33 @@
-<div id="personal-info-tab" class="row">
+<div class="profile-history-container">
+  <!--PERSONAL INFO NAVIGATOR-->
+  <div id="personal-info-tab" class="row">
+    <i routerLink="/profile/delivery-info" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
+    <h3 class="center inline-block"> {{'profile.history' | translate}} </h3>
+    <i routerLink="/profile/personal-info" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
+  </div>
 
-  <i routerLink="/profile/delivery-info" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
-  <h3 class="center inline-block"> {{'profile.history' | translate}} </h3>
-  <i routerLink="/profile/personal-info" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
+  <!--ORDER HISTORY LIST-->
+  <div class="history-list">
+    <ul class="collapsible" *ngIf="user && user.history?.length > 0" materialize="collapsible">
+      <li *ngFor="let historyItem of user.history">
+        <div class="collapsible-header">
+          <p>{{historyItem.orderDate}}</p>
+        </div>
+        <div class="collapsible-body">
+          <ul>
+            <li>Date: {{historyItem.orderDate}}</li>
+            <li>Név: {{historyItem.firstName}} {{historyItem.lastName}}</li>
+            <li>Cím: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>
+            <li>Tel: {{historyItem.phoneNumber}}</li>
+            <li>Ár: {{historyItem.fullPrice}} Ft</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
 
+  </div>
 </div>
+
 
 
 
