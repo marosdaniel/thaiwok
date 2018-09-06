@@ -7,6 +7,7 @@
   </div>
 
   <!--ORDER HISTORY LIST-->
+  <!--if has history-->
   <div class="history-list">
     <ul class="collapsible" *ngIf="user && user.history?.length > 0" materialize="collapsible">
       <li *ngFor="let historyItem of user.history">
@@ -15,6 +16,7 @@
         </div>
         <div class="collapsible-body">
           <ul>
+            <!--translate-->
             <li>Date: {{historyItem.orderDate}}</li>
             <li>Név: {{historyItem.firstName}} {{historyItem.lastName}}</li>
             <li>Cím: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>

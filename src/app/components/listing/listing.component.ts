@@ -6,13 +6,12 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./listing.component.scss']
 })
 export class ListingComponent implements OnInit {
-  @Input() data: any[];
+  @Input() data: any[]; // model kellene?
   @Input() variant: String;
 
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.variant);
   }
 
 }

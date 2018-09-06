@@ -34,7 +34,6 @@ import {HeaderComponent} from './common/header/header.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { MenuTabComponent } from './components/menu-tab/menu-tab.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { ListingItemComponent } from './components/listing-item/listing-item.component';
 import { ProfilePersonalInfoComponent } from './components/profile-personal-info/profile-personal-info.component';
@@ -100,7 +99,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeliveryAndPaymentPageComponent,
     HomePageComponent,
     MenuPageComponent,
-    MenuTabComponent,
     LoginPageComponent,
     SignupPageComponent,
     ProfilePageComponent,

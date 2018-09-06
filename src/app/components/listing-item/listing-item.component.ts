@@ -16,7 +16,7 @@ declare var $:any;
   styleUrls: ['./listing-item.component.scss']
 })
 export class ListingItemComponent implements OnInit {
-  @Input() item: any;
+  @Input() item: any;  // model kellene?
   @Input() variant: String;
 
   public cartItem: Item = {};

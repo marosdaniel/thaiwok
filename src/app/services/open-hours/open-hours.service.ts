@@ -1,16 +1,27 @@
 import { Injectable } from '@angular/core';
+import {FirebaseService} from '../firebase/firebase.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpenHoursService {
 
+  private openHours: any[];
+  private exceptionalDays: any[];
   private date;
   private day;
   private hours;
 
-  constructor() {
+  constructor(private firebaseService: FirebaseService) {
     this.date = new Date();
+  }
+
+  getOpenHours() {
+    return this.firebaseService.getOpenHoursObservable();
+  }
+
+  private getExceptionalDays() {
+
   }
 
   getDateData() {
