@@ -5,7 +5,7 @@ import * as Izitoast from 'izitoast';
 import {errorNoSelectedItemToaster} from '../../common/toasters/toasters';
 import {CommonService} from '../../services/common/common.service';
 import {Item} from '../../models/item.model';
-import {MeatTypeEnum} from '../../models/meatType.enum';
+import {MeatTypeEnum} from '../../models/enums/meatType.enum';
 import {LanguageService} from '../../services/language/language.service';
 declare var $:any;
 
