@@ -28,22 +28,22 @@ import {apiKey} from '../environments/google.apikey';
 // | |
 // |_|
 
-import {FooterComponent} from './common/footer/footer.component';
-import {MainComponent} from './common/main/main.component';
-import {HeaderComponent} from './common/header/header.component';
-import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
+import {FooterComponent} from './footer/footer.component';
+import {MainComponent} from './main/main.component';
+import {HeaderComponent} from './header/header.component';
+import {NotFoundPageComponent} from './modules/common/not-found-page/not-found-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { ListingComponent } from './components/listing/listing.component';
-import { ListingItemComponent } from './components/listing-item/listing-item.component';
-import { ProfilePersonalInfoComponent } from './components/profile-personal-info/profile-personal-info.component';
-import { ProfileDeliveryInfoComponent } from './components/profile-delivery-info/profile-delivery-info.component';
-import { ProfileHistoryComponent } from './components/profile-history/profile-history.component';
-import { CartComponent } from './components/cart/cart.component';
-import { SummaryComponent } from './components/summary/summary.component';
-import { ParallaxComponent } from './components/parallax/parallax.component';
-import { MapComponent } from './components/map/map.component';
-import { OpenHoursComponent } from './components/open-hours/open-hours.component';
+import { CarouselComponent } from './modules/common/home-page/carousel/carousel.component';
+import { ListingComponent } from './modules/menu/listing/listing.component';
+import { ListingItemComponent } from './modules/menu/listing/listing-item/listing-item.component';
+import { ProfilePersonalInfoComponent } from './modules/user/profile-page/profile-personal-info/profile-personal-info.component';
+import { ProfileDeliveryInfoComponent } from './modules/user/profile-page/profile-delivery-info/profile-delivery-info.component';
+import { ProfileHistoryComponent } from './modules/user/profile-page/profile-history/profile-history.component';
+import { CartComponent } from './modules/order/cart-page/cart/cart.component';
+import { SummaryComponent } from './modules/order/summary-page/summary/summary.component';
+import { ParallaxComponent } from './modules/common/home-page/parallax/parallax.component';
+import { MapComponent } from './modules/common/contact-page/map/map.component';
+import { OpenHoursComponent } from './modules/common/contact-page/open-hours/open-hours.component';
 
 
 // MODULES
@@ -53,21 +53,21 @@ import { OpenHoursComponent } from './components/open-hours/open-hours.component
 
 // PAGES
 
-import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
-import { ContactPageComponent } from './pages/contact-page/contact-page.component';
-import { DeliveryAndPaymentPageComponent } from './pages/delivery-and-payment-page/delivery-and-payment-page.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { MenuPageComponent } from './pages/menu-page/menu-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SignupPageComponent } from './pages/signup-page/signup-page.component';
-import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
-import { AppetizersPageComponent } from './pages/menu-page/appetizers-page/appetizers-page.component';
-import { SoupsPageComponent } from './pages/menu-page/soups-page/soups-page.component';
-import { FriedRiceAndNoodlesPageComponent } from './pages/menu-page/fried-rice-and-noodles-page/fried-rice-and-noodles-page.component';
-import { MainDishesWithRicePageComponent } from './pages/menu-page/main-dishes-with-rice-page/main-dishes-with-rice-page.component';
-import { DessertsPageComponent } from './pages/menu-page/desserts-page/desserts-page.component';
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { SummaryPageComponent } from './pages/summary-page/summary-page.component';
+import { AboutUsPageComponent } from './modules/common/about-us-page/about-us-page.component';
+import { ContactPageComponent } from './modules/common/contact-page/contact-page.component';
+import { DeliveryAndPaymentPageComponent } from './modules/common/delivery-and-payment-page/delivery-and-payment-page.component';
+import { HomePageComponent } from './modules/common/home-page/home-page.component';
+import { MenuPageComponent } from './modules/menu/menu-page/menu-page.component';
+import { LoginPageComponent } from './modules/auth/login-page/login-page.component';
+import { SignupPageComponent } from './modules/auth/signup-page/signup-page.component';
+import { ProfilePageComponent } from './modules/user/profile-page/profile-page.component';
+import { AppetizersPageComponent } from './modules/menu/menu-page/appetizers-page/appetizers-page.component';
+import { SoupsPageComponent } from './modules/menu/menu-page/soups-page/soups-page.component';
+import { FriedRiceAndNoodlesPageComponent } from './modules/menu/menu-page/fried-rice-and-noodles-page/fried-rice-and-noodles-page.component';
+import { MainDishesWithRicePageComponent } from './modules/menu/menu-page/main-dishes-with-rice-page/main-dishes-with-rice-page.component';
+import { DessertsPageComponent } from './modules/menu/menu-page/desserts-page/desserts-page.component';
+import { CartPageComponent } from './modules/order/cart-page/cart-page.component';
+import { SummaryPageComponent } from './modules/order/summary-page/summary-page.component';
 
 
 
