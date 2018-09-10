@@ -46,6 +46,11 @@ import { MapComponent } from './components/map/map.component';
 import { OpenHoursComponent } from './components/open-hours/open-hours.component';
 
 
+// MODULES
+
+
+
+
 // PAGES
 
 import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
