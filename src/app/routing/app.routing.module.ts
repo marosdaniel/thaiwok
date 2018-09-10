@@ -10,8 +10,6 @@ import {AuthGuard} from '../services/auth/auth.guard';
 import {ProfilePersonalInfoComponent} from '../modules/user/profile-page/profile-personal-info/profile-personal-info.component';
 import {ProfileDeliveryInfoComponent} from '../modules/user/profile-page/profile-delivery-info/profile-delivery-info.component';
 import {ProfileHistoryComponent} from '../modules/user/profile-page/profile-history/profile-history.component';
-import {CartPageComponent} from '../modules/order/cart-page/cart-page.component';
-import {SummaryPageComponent} from '../modules/order/summary-page/summary-page.component';
 
 
 const routes: Routes = [
@@ -32,8 +30,7 @@ const routes: Routes = [
       {path: 'previous-orders', component: ProfileHistoryComponent, canActivate: [AuthGuard]}
     ]
   },
-  {path: 'cart', component: CartPageComponent},
-  {path: 'order-summary', component: SummaryPageComponent},
+
   {path: '**', component: NotFoundPageComponent},
 ];
 

@@ -19,15 +19,7 @@ import {UserIdleModule} from 'angular-user-idle';
 import {AgmCoreModule} from '@agm/core';
 import {apiKey} from '../environments/google.apikey';
 
-// _
-// | |
-// ___ ___  _ __ ___  _ __   ___  _ __   ___ _ __ | |_ ___
-// / __/ _ \| '_ ` _ \| '_ \ / _ \| '_ \ / _ \ '_ \| __/ __|
-// | (_| (_) | | | | | | |_) | (_) | | | |  __/ | | | |_\__ \
-// \___\___/|_| |_| |_| .__/ \___/|_| |_|\___|_| |_|\__|___/
-// | |
-// |_|
-
+// COMPONENTS
 import {FooterComponent} from './footer/footer.component';
 import {MainComponent} from './main/main.component';
 import {HeaderComponent} from './header/header.component';
@@ -37,8 +29,6 @@ import { CarouselComponent } from './modules/common/home-page/carousel/carousel.
 import { ProfilePersonalInfoComponent } from './modules/user/profile-page/profile-personal-info/profile-personal-info.component';
 import { ProfileDeliveryInfoComponent } from './modules/user/profile-page/profile-delivery-info/profile-delivery-info.component';
 import { ProfileHistoryComponent } from './modules/user/profile-page/profile-history/profile-history.component';
-import { CartComponent } from './modules/order/cart-page/cart/cart.component';
-import { SummaryComponent } from './modules/order/summary-page/summary/summary.component';
 import { ParallaxComponent } from './modules/common/home-page/parallax/parallax.component';
 import { MapComponent } from './modules/common/contact-page/map/map.component';
 import { OpenHoursComponent } from './modules/common/contact-page/open-hours/open-hours.component';
@@ -47,25 +37,18 @@ import { OpenHoursComponent } from './modules/common/contact-page/open-hours/ope
 // MODULES
 import {AuthModule} from './modules/auth/auth.module';
 import {MenuModule} from './modules/menu/menu.module';
-
-
+import {OrderModule} from './modules/order/order.module';
 
 
 // PAGES
-
 import { AboutUsPageComponent } from './modules/common/about-us-page/about-us-page.component';
 import { ContactPageComponent } from './modules/common/contact-page/contact-page.component';
 import { DeliveryAndPaymentPageComponent } from './modules/common/delivery-and-payment-page/delivery-and-payment-page.component';
 import { HomePageComponent } from './modules/common/home-page/home-page.component';
 import { ProfilePageComponent } from './modules/user/profile-page/profile-page.component';
-import { CartPageComponent } from './modules/order/cart-page/cart-page.component';
-import { SummaryPageComponent } from './modules/order/summary-page/summary-page.component';
-
-
 
 
 // SERVICES
-
 import {FirebaseService} from './services/firebase/firebase.service';
 import {AuthService} from './services/auth/auth.service';
 import {AuthGuard} from './services/auth/auth.guard';
@@ -74,8 +57,6 @@ import {CartService} from './services/cart/cart.service';
 import {CommonService} from './services/common/common.service';
 import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
-import {MenuRoutingModule} from './routing/menu.routing.module';
-
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -100,11 +81,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProfilePersonalInfoComponent,
     ProfileDeliveryInfoComponent,
     ProfileHistoryComponent,
-    CartComponent,
-    SummaryComponent,
-    CartPageComponent,
     ParallaxComponent,
-    SummaryPageComponent,
     MapComponent,
     OpenHoursComponent
   ],
@@ -121,6 +98,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // OWN MODULES
     AuthModule,
     MenuModule,
+    OrderModule,
 
     MaterializeModule,
     ReactiveFormsModule,

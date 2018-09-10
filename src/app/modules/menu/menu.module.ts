@@ -6,8 +6,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
 import {MaterializeModule} from 'angular2-materialize';
-import {RouterModule} from '@angular/router';
-
 
 // COMPONENTS
 import {MenuPageComponent} from './menu-page/menu-page.component';
