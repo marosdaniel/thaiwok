@@ -47,6 +47,7 @@ import { OpenHoursComponent } from './modules/common/contact-page/open-hours/ope
 
 
 // MODULES
+import {AuthModule} from './modules/auth/auth.module';
 
 
 
@@ -58,8 +59,6 @@ import { ContactPageComponent } from './modules/common/contact-page/contact-page
 import { DeliveryAndPaymentPageComponent } from './modules/common/delivery-and-payment-page/delivery-and-payment-page.component';
 import { HomePageComponent } from './modules/common/home-page/home-page.component';
 import { MenuPageComponent } from './modules/menu/menu-page/menu-page.component';
-import { LoginPageComponent } from './modules/auth/login-page/login-page.component';
-import { SignupPageComponent } from './modules/auth/signup-page/signup-page.component';
 import { ProfilePageComponent } from './modules/user/profile-page/profile-page.component';
 import { AppetizersPageComponent } from './modules/menu/menu-page/appetizers-page/appetizers-page.component';
 import { SoupsPageComponent } from './modules/menu/menu-page/soups-page/soups-page.component';
@@ -104,8 +103,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeliveryAndPaymentPageComponent,
     HomePageComponent,
     MenuPageComponent,
-    LoginPageComponent,
-    SignupPageComponent,
     ProfilePageComponent,
     AppetizersPageComponent,
     SoupsPageComponent,
@@ -138,6 +135,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MaterializeModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({apiKey} ),
+
+    // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
+    // Default values: `idle` is 600 (10 minutes), `timeout` is 600 (10 minutes)
+    // and `ping` is 120 (2 minutes).
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -145,10 +146,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
-    // Default values: `idle` is 600 (10 minutes), `timeout` is 600 (10 minutes)
-    // and `ping` is 120 (2 minutes).
-    UserIdleModule.forRoot({idle: 6, timeout: 600, ping: 12}) // initialized in app.component
+
+    UserIdleModule.forRoot({idle: 6, timeout: 600, ping: 12}), // initialized in app.component
+
+
+    AuthModule // own modules,
   ],
   providers: [
     FirebaseService,

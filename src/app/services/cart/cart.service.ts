@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import * as Izitoast from 'izitoast';
-import {successAddToCartToaster} from '../../common/toasters/toasters';
+import {successAddToCartToaster} from '../../config/toasters/toasters';
 import {CartItem} from '../../models/cartItem.model';
 import {ShippingInfo} from '../../models/shippingInfo.model';
 

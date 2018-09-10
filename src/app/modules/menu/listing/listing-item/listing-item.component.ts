@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {MaterializeAction} from 'angular2-materialize';
 import {CartService} from '../../../../services/cart/cart.service';
 import * as Izitoast from 'izitoast';
-import {errorNoSelectedItemToaster} from '../../../../common/toasters/toasters';
+import {errorNoSelectedItemToaster} from '../../../../config/toasters/toasters';
 import {CommonService} from '../../../../services/common/common.service';
 import {Item} from '../../../../models/item.model';
 import {MeatTypeEnum} from '../../../../models/enums/meatType.enum';

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 import * as Izitoast from 'izitoast';
-import {errorSaveToaster, successSaveToaster} from '../../../../common/toasters/toasters';
+import {errorSaveToaster, successSaveToaster} from '../../../../config/toasters/toasters';
 import {LocationService} from '../../../../services/location/location.service';
 import * as Materialize from 'materialize-css';
 import {User} from '../../../../models/user.model';

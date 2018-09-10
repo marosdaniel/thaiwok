@@ -6,7 +6,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as Izitoast from 'izitoast';
 import {AuthService} from '../../../services/auth/auth.service';
 import {CommonService} from '../../../services/common/common.service';
-import {errorEmailFormat, errorNoEmail, errorPassReset} from '../../../common/toasters/toasters';
+import {errorEmailFormat, errorNoEmail, errorPassReset} from '../../../config/toasters/toasters';
 
 
 type FormErrors = { [u in UserFields]: string };

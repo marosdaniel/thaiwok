@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 import * as Izitoast from 'iziToast';
-import {errorSaveToaster, successSaveToaster} from '../../../../common/toasters/toasters';
+import {errorSaveToaster, successSaveToaster} from '../../../../config/toasters/toasters';
 import * as firebase from 'firebase';
 import {CommonService} from '../../../../services/common/common.service';
 import {User} from '../../../../models/user.model';

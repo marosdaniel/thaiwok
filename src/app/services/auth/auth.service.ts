@@ -10,7 +10,7 @@ import {switchMap} from 'rxjs/operators';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import * as Izitoast from 'iziToast';
-import {successLoginToaster, successPasswordUpdateToaster, successSignupToaster} from '../../common/toasters/toasters';
+import {successLoginToaster, successPasswordUpdateToaster, successSignupToaster} from '../../config/toasters/toasters';
 import {CartService} from '../cart/cart.service';
 import {StorageService} from '../storage/storage.service';
 import {CommonService} from '../common/common.service';
