@@ -23,12 +23,7 @@ import {apiKey} from '../environments/google.apikey';
 import {FooterComponent} from './footer/footer.component';
 import {MainComponent} from './main/main.component';
 import {HeaderComponent} from './header/header.component';
-import {NotFoundPageComponent} from './modules/common/not-found-page/not-found-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CarouselComponent } from './modules/common/home-page/carousel/carousel.component';
-import { ParallaxComponent } from './modules/common/home-page/parallax/parallax.component';
-import { MapComponent } from './modules/common/contact-page/map/map.component';
-import { OpenHoursComponent } from './modules/common/contact-page/open-hours/open-hours.component';
 
 
 // MODULES
@@ -36,13 +31,11 @@ import {AuthModule} from './modules/auth/auth.module';
 import {MenuModule} from './modules/menu/menu.module';
 import {OrderModule} from './modules/order/order.module';
 import {UserModule} from './modules/user/user.module';
+import {OwnCommonModule} from './modules/common/own-common.module';
 
 
 // PAGES
-import { AboutUsPageComponent } from './modules/common/about-us-page/about-us-page.component';
-import { ContactPageComponent } from './modules/common/contact-page/contact-page.component';
-import { DeliveryAndPaymentPageComponent } from './modules/common/delivery-and-payment-page/delivery-and-payment-page.component';
-import { HomePageComponent } from './modules/common/home-page/home-page.component';
+import {NotFoundPageComponent} from './modules/common/not-found-page/not-found-page.component';
 
 
 // SERVICES
@@ -67,16 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     MainComponent,
     HeaderComponent,
-    NotFoundPageComponent,
     NavbarComponent,
-    CarouselComponent,
-    AboutUsPageComponent,
-    ContactPageComponent,
-    DeliveryAndPaymentPageComponent,
-    HomePageComponent,
-    ParallaxComponent,
-    MapComponent,
-    OpenHoursComponent
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MenuModule,
     OrderModule,
     UserModule,
+    OwnCommonModule,
 
     MaterializeModule,
     ReactiveFormsModule,
