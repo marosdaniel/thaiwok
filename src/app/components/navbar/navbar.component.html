@@ -95,9 +95,9 @@
      data-activates='dropdown-mobile'><span class="flag-icon flag-icon-hu"></span></a>
   <!-- Dropdown Structure -->
   <ul id='dropdown-mobile' class='dropdown-content'>
-    <li *ngIf="language.actualLanguage!=='en'"><a class="center" (click)="language.switchLanguage('en')"><span
+    <li class="sidenav-close" *ngIf="language.actualLanguage!=='en'"><a class="center" (click)="language.switchLanguage('en')"><span
       class="flag-icon flag-icon-gb"></span></a></li>
-    <li *ngIf="language.actualLanguage!=='hu'"><a class="center" (click)="language.switchLanguage('hu')"><span
+    <li class="sidenav-close" *ngIf="language.actualLanguage!=='hu'"><a class="center" (click)="language.switchLanguage('hu')"><span
       class="flag-icon flag-icon-hu"></span></a></li>
   </ul>
 </ul>
@@ -114,11 +114,11 @@
   </li>
 
   <ul id="dropdown-profile" class="dropdown-content">
-    <li><a routerLink="/profile/personal-info" class="" routerLinkActive="navbar-active sidenav-close">{{'navbar.personalInfo' |
+    <li><a routerLink="/profile/personal-info" class="" routerLinkActive="navbar-active">{{'navbar.personalInfo' |
       translate}}</a></li>
-    <li><a routerLink="/profile/delivery-info" class="" routerLinkActive="navbar-active sidenav-close">{{'navbar.deliveryInfo' |
+    <li><a routerLink="/profile/delivery-info" class="" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
       translate}}</a></li>
-    <li><a routerLink="/profile/previous-orders" class="" routerLinkActive="navbar-active sidenav-close">{{'navbar.history' |
+    <li><a routerLink="/profile/previous-orders" class="" routerLinkActive="navbar-active">{{'navbar.history' |
       translate}}</a></li>
     <li *ngIf="auth.user"><a (click)="logout()" class="tooltipped" routerLinkActive="navbar-active sidenav-close" data-tooltip="Click here to log out"><i style="margin: 0" class="fa fa-sign-out"></i> {{'navbar.logout' |
       translate}}</a></li>
@@ -144,7 +144,7 @@
       translate}}</a></li>
     <li><a routerLink="/profile/delivery-info" class="sidenav-close" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
       translate}}</a></li>
-    <li *ngIf="auth.user"><a routerLink="/profile/previous-orders" class="sidenav-close" routerLinkActive="navbar-active">{{'navbar.history' |
+    <li><a routerLink="/profile/previous-orders" class="sidenav-close" routerLinkActive="navbar-active">{{'navbar.history' |
       translate}}</a></li>
   </ul>
 </ng-template>

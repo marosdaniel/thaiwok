@@ -122,11 +122,14 @@ h3.inline-block {
 //
 // COMMON FOR MENU-PAGES
 //
-.menu-category-title {
-  width: 100%;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
+.menu-category {
+
+  &-title {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+  }
 }
 
 

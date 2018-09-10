@@ -26,9 +26,6 @@ import {HeaderComponent} from './header/header.component';
 import {NotFoundPageComponent} from './modules/common/not-found-page/not-found-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarouselComponent } from './modules/common/home-page/carousel/carousel.component';
-import { ProfilePersonalInfoComponent } from './modules/user/profile-page/profile-personal-info/profile-personal-info.component';
-import { ProfileDeliveryInfoComponent } from './modules/user/profile-page/profile-delivery-info/profile-delivery-info.component';
-import { ProfileHistoryComponent } from './modules/user/profile-page/profile-history/profile-history.component';
 import { ParallaxComponent } from './modules/common/home-page/parallax/parallax.component';
 import { MapComponent } from './modules/common/contact-page/map/map.component';
 import { OpenHoursComponent } from './modules/common/contact-page/open-hours/open-hours.component';
@@ -38,6 +35,7 @@ import { OpenHoursComponent } from './modules/common/contact-page/open-hours/ope
 import {AuthModule} from './modules/auth/auth.module';
 import {MenuModule} from './modules/menu/menu.module';
 import {OrderModule} from './modules/order/order.module';
+import {UserModule} from './modules/user/user.module';
 
 
 // PAGES
@@ -45,7 +43,6 @@ import { AboutUsPageComponent } from './modules/common/about-us-page/about-us-pa
 import { ContactPageComponent } from './modules/common/contact-page/contact-page.component';
 import { DeliveryAndPaymentPageComponent } from './modules/common/delivery-and-payment-page/delivery-and-payment-page.component';
 import { HomePageComponent } from './modules/common/home-page/home-page.component';
-import { ProfilePageComponent } from './modules/user/profile-page/profile-page.component';
 
 
 // SERVICES
@@ -77,10 +74,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactPageComponent,
     DeliveryAndPaymentPageComponent,
     HomePageComponent,
-    ProfilePageComponent,
-    ProfilePersonalInfoComponent,
-    ProfileDeliveryInfoComponent,
-    ProfileHistoryComponent,
     ParallaxComponent,
     MapComponent,
     OpenHoursComponent
@@ -99,6 +92,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthModule,
     MenuModule,
     OrderModule,
+    UserModule,
 
     MaterializeModule,
     ReactiveFormsModule,

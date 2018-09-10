@@ -1,8 +1,8 @@
 import {LanguageService} from '../../services/language/language.service';
-import {Component, EventEmitter, OnInit} from '@angular/core';
-import * as M from 'materialize-css';
+import {AfterContentInit, AfterViewChecked, AfterViewInit, Component, EventEmitter, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth/auth.service';
 import {MaterializeAction} from 'angular2-materialize';
+
 declare var $:any;
 
 @Component({
@@ -10,7 +10,7 @@ declare var $:any;
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewChecked{
 
   constructor(public auth: AuthService, public language: LanguageService) {
   }
@@ -25,9 +25,9 @@ export class NavbarComponent implements OnInit {
       // closeOnClick: true
     });
 
-    $('.sidenav-close').click( () => {
-      $('.button-collapse').sideNav('hide');
-    });
+    // $('.sidenav-close').click( () => {
+    //   $('.button-collapse').sideNav('hide');
+    // });
 
     $('.dropdown-menu-types-desktop').dropdown({
         inDuration: 300,
@@ -39,6 +39,14 @@ export class NavbarComponent implements OnInit {
     );
 
   }
+
+  ngAfterViewChecked() {
+    $('.sidenav-close').click( () => {
+      $('.button-collapse').sideNav('hide');
+    });
+  }
+
+
   modalActions = new EventEmitter<string|MaterializeAction>();
   openModal() {
     this.modalActions.emit({action:"modal",params:['open']});

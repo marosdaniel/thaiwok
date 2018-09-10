@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-
 import {CartPageComponent} from '../modules/order/cart-page/cart-page.component';
 import {SummaryPageComponent} from '../modules/order/summary-page/summary-page.component';
 
