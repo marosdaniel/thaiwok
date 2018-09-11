@@ -9,9 +9,9 @@ import {MainDishesWithRicePageComponent} from '../modules/menu/menu-page/main-di
 import {DessertsPageComponent} from '../modules/menu/menu-page/desserts-page/desserts-page.component';
 
 const menuRoutes: Routes = [
-  {path: 'menu', component: MenuPageComponent,
+  {path: '', component: MenuPageComponent,
     children: [
-      {path: '', redirectTo: '/menu/appetizers', pathMatch: 'full'},
+      {path: '', redirectTo: '/appetizers', pathMatch: 'full'},
       {path: 'appetizers', component: AppetizersPageComponent},
       {path: 'soups', component: SoupsPageComponent},
       {path: 'fried-rice-and-noodles', component: FriedRiceAndNoodlesPageComponent},

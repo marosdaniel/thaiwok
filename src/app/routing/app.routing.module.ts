@@ -6,6 +6,7 @@ import {NotFoundPageComponent} from '../modules/common/not-found-page/not-found-
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'profile', loadChildren: '../modules/user/user.module#UserModule'},  // lazy loading
+  {path: 'menu', loadChildren: '../modules/menu/menu.module#MenuModule'},  // lazy loading
   {path: '**', component: NotFoundPageComponent},
 
 ];
