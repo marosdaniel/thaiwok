@@ -9,9 +9,9 @@ import {ProfileHistoryComponent} from '../modules/user/profile-page/profile-hist
 
 const userRoutes: Routes = [
   {
-    path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard],
+    path: '', component: ProfilePageComponent, canActivate: [AuthGuard],
     children: [
-      {path: '', redirectTo: '/profile/personal-info', pathMatch: 'full'},
+      {path: '', redirectTo: '/personal-info', pathMatch: 'full'},
       {path: 'personal-info', component: ProfilePersonalInfoComponent, canActivate: [AuthGuard]},
       {path: 'delivery-info', component: ProfileDeliveryInfoComponent, canActivate: [AuthGuard]},
       {path: 'previous-orders', component: ProfileHistoryComponent, canActivate: [AuthGuard]}

@@ -77,7 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthModule,
     MenuModule,
     OrderModule,
-    UserModule,
+    // UserModule,  // it will be lazy loaded
     OwnCommonModule,
 
     MaterializeModule,
