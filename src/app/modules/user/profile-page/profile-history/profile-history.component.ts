@@ -10,16 +10,15 @@ import {AuthService} from '../../../../services/auth/auth.service';
 export class ProfileHistoryComponent implements OnInit {
 
   public user: User;
+  public hasHistory: boolean;
 
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
     this.auth.user.subscribe(user => {
       this.user = user;
+      this.hasHistory = this.user.history.length>0;
     });
   }
-  // ngAfterViewInit() {
-  //   ($('.collapsible') as any).collapsible();
-  // }
 
 }

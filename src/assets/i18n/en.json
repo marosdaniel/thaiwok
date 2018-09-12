@@ -82,7 +82,12 @@
     "edit": "Edit",
     "addNewAddress": "Add new address",
     "deliveryAddresses": "Delivery addresses",
-    "noSetDeliveryAddress": "There is no saved delivery address yet"
+    "noSetDeliveryAddress": "There is no saved delivery address yet",
+    "date": "Date",
+    "name": "Name",
+    "address": "Address",
+    "phone": "Phone",
+    "price": "Price"
   },
   "listingItem": {
     "details": "Details",

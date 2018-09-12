@@ -7,8 +7,8 @@
   </div>
 
   <!--ORDER HISTORY LIST-->
-  <!--if has history-->
-  <div class="history-list">
+  <!-- has history-->
+  <div *ngIf="hasHistory" class="history-list">
     <ul class="collapsible" *ngIf="user && user.history?.length > 0" materialize="collapsible">
       <li *ngFor="let historyItem of user.history">
         <div class="collapsible-header">
@@ -17,18 +17,24 @@
         <div class="collapsible-body">
           <ul>
             <!--translate-->
-            <li>Date: {{historyItem.orderDate}}</li>
-            <li>Név: {{historyItem.firstName}} {{historyItem.lastName}}</li>
-            <li>Cím: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>
-            <li>Tel: {{historyItem.phoneNumber}}</li>
-            <li>Ár: {{historyItem.fullPrice}} Ft</li>
+            <li>{{'profile.date' | translate}}: {{historyItem.orderDate}}</li>
+            <li>{{'profile.name' | translate}}: {{historyItem.firstName}} {{historyItem.lastName}}</li>
+            <li>{{'profile.address' | translate}}: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>
+            <li>{{'profile.phone' | translate}}: {{historyItem.phoneNumber}}</li>
+            <li>{{'profile.price' | translate}}: {{historyItem.fullPrice}} Ft</li>
           </ul>
         </div>
       </li>
     </ul>
-
   </div>
+
+  <!--no history-->
+  <div *ngIf="!hasHistory">
+    <h3>Még nem rendelt semmit :/</h3>
+  </div>
+
 </div>
+
 
 
 

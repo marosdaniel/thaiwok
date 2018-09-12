@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {FirebaseService} from '../firebase/firebase.service';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,16 @@ import {FirebaseService} from '../firebase/firebase.service';
 export class OpenHoursService {
 
   private openHours: any[];
-  private exceptionalDays: any[];
+  private exceptionalDays: Observable<{}[]>;
+  private month;
   private date;
   private day;
   private hours;
 
   constructor(private firebaseService: FirebaseService) {
     this.date = new Date();
+    this.getDateData();
+    this.exceptionalDays = this.getExceptionalDays();
   }
 
   getOpenHours() {
@@ -21,16 +25,22 @@ export class OpenHoursService {
   }
 
   private getExceptionalDays() {
-
+    return this.firebaseService.getExceptionalDaysObservable();
   }
 
-  getDateData() {
-    this.day = this.date.getDay();
-    this.hours = this.date.getDay();
+  private getDateData() {
+    this.month = this.date.getMonth() + 1;  // months start from 0
+    this.day = this.date.getDate();
+    this.hours = this.date.getHours();
+  }
+
+
+  isExceptionalDay(){
+
   }
 
   isItOpen() {
-    this.getDateData();
+    // this.getDateData();
     if(this.day>=0 && this.day<7) {
       if(this.hours>=11 && this.hours<22){
         return true;

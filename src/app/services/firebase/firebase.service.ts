@@ -17,4 +17,8 @@ export class FirebaseService {
   public getOpenHoursObservable() {
     return this.db.list(`${urls.OPEN_HOURS}`).valueChanges();
   }
+
+  public getExceptionalDaysObservable() {
+    return this.db.list(`${urls.EXCEPTIONAL_DAYS}`).valueChanges();
+  }
 }

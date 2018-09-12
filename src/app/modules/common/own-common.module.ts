@@ -5,6 +5,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
 import {MaterializeModule} from 'angular2-materialize';
+import {OwnCommonRoutingModule} from '../../routing/own-common.routing.module';
 
 import {AboutUsPageComponent} from './about-us-page/about-us-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
@@ -13,7 +14,7 @@ import {DeliveryAndPaymentPageComponent} from './delivery-and-payment-page/deliv
 import {HomePageComponent} from './home-page/home-page.component';
 import {CarouselComponent} from './home-page/carousel/carousel.component';
 import {ParallaxComponent} from './home-page/parallax/parallax.component';
-import {OwnCommonRoutingModule} from '../../routing/own-common.routing.module';
+import { MapComponent } from './contact-page/map/map.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {OwnCommonRoutingModule} from '../../routing/own-common.routing.module';
     DeliveryAndPaymentPageComponent,
     HomePageComponent,
     CarouselComponent,
-    ParallaxComponent
+    ParallaxComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,

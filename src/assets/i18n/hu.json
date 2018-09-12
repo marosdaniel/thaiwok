@@ -82,7 +82,12 @@
     "edit": "Szerkeszt",
     "addNewAddress": "Cím hozzáadása",
     "deliveryAddresses": "Szállítási címek",
-    "noSetDeliveryAddress": "Még nincs mentett szállítási címe"
+    "noSetDeliveryAddress": "Még nincs mentett szállítási címe",
+    "date": "Dátum",
+    "name": "Név",
+    "address": "Cím",
+    "phone": "Tel",
+    "price": "Ár"
   },
   "listingItem": {
     "details": "Részletek",
