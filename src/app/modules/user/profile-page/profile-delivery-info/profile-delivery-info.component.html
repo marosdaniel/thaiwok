@@ -9,7 +9,7 @@
     <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
     <ul *ngIf="user && user.addresses?.length > 0" class="">
       <li *ngFor="let address of user.addresses; let index = index" class="row">
-        {{address.country}} - {{address.county}} - {{address.city}} - {{address.street}} - {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő
+        {{address.street}} - {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő
         <i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>
         <i class="fa fa-edit tooltipped clickable right" (click)="editAddress(index)" data-tooltip="Click here to edit your address"></i>
       </li>

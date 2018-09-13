@@ -3,8 +3,8 @@ import {AuthService} from '../../../../services/auth/auth.service';
 import * as Izitoast from 'izitoast';
 import {errorSaveToaster, successSaveToaster} from '../../../../config/toasters/toasters';
 import {LocationService} from '../../../../services/location/location.service';
-import * as Materialize from 'materialize-css';
 import {User} from '../../../../models/user.model';
+import {Address} from '../../../../models/address.model';
 // import * as $ from 'jquery';
 declare var $: any;
 
@@ -22,8 +22,9 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
   public isAddingNewAddress: boolean = false;
   public isEditingAddress: boolean = false;
   public indexOfAddress: number;
-  public newAddress: any;
+  public newAddress: Address;
   public cities: any[];
+  public address: Address;
 
   constructor(
     public auth: AuthService,
@@ -45,17 +46,8 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
       this.user = user;
       this.isLoading = false;
     });
-
-    this.newAddress = {
-      country: 'Magyarország',
-      county: 'Csongrád megye',
-      city: 'Szeged',
-      street: '',
-      houseNumber: '',
-      floor: '',
-      door: '',
-      bell: ''
-    };
+    this.address = new Address();
+    this.newAddress = new Address();
     this.indexOfAddress = 0;
   }
 
@@ -94,7 +86,6 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
     this.isEditingAddress = true;
     this.indexOfAddress = index;
     this.isEditable = true;
-    // alert(index)
   }
 
   public deleteAddress(index) {
@@ -114,16 +105,7 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
 
     this.isAddingNewAddress = false;
     this.updateUser();
-    this.newAddress = {
-      country: 'Magyarország',
-      county: 'Csongrád megye',
-      city: 'Szeged',
-      street: '',
-      houseNumber: '',
-      floor: '',
-      door: '',
-      bell: ''
-    };
+    this.newAddress = this.address;
   }
 
   public cancel() {

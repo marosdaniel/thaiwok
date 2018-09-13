@@ -55,12 +55,17 @@ a {
 
 
 //ARROWS
-.profile-nav-arrow__left,
-.profile-nav-arrow__right{
-  cursor: pointer;
 
-  &:hover {
-    color: $tw-teal;
+.profile-nav-arrow {
+
+  &__left,
+  &__right{
+    cursor: pointer;
+    padding: 0 8px;
+
+    &:hover {
+      color: $tw-teal;
+    }
   }
 }
 
