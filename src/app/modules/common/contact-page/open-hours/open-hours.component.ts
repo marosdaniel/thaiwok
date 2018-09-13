@@ -12,6 +12,8 @@ import {FirebaseService} from '../../../../services/firebase/firebase.service';
 })
 export class OpenHoursComponent implements OnInit {
   openHours;
+  exceptionalDays;
+  isLoading: boolean = true;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -24,6 +26,11 @@ export class OpenHoursComponent implements OnInit {
       .subscribe(result => {
         this.openHours = result;
       });
+    this.exceptionalDays = this.openHoursService.getExceptionalDays()
+      .subscribe(result => {
+        this.exceptionalDays = result;
+      });
+    this.isLoading = false;
   }
 
 }

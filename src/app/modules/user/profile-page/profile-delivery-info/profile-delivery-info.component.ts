@@ -45,7 +45,6 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
       this.user = user;
       this.isLoading = false;
     });
-    // Materialize.updateTextFields();
 
     this.newAddress = {
       country: 'Magyarország',
@@ -65,13 +64,9 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
       ($('.autocomplete') as any).autocomplete({
         data: streets,
         limit: 8,
-        minlength: 3
+        minlength: 3,
+        onAutocomplete: (street) => { this.user.addresses[this.indexOfAddress].street = street; }
       });
-    });
-
-    // PRÓBA CSERESZNYE
-    $('.autocomplete-content').on('click', event => {
-      // console.log(event.currentTarget);
     });
   }
 
@@ -93,8 +88,6 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
 
   public editUser() {
     this.isEditable = true;
-    // Materialize.updateTextFields();
-    // $('label').addClass('active')
   }
 
   public editAddress(index) {

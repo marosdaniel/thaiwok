@@ -8,7 +8,6 @@ import {Observable} from 'rxjs';
 export class OpenHoursService {
 
   private openHours: any[];
-  private exceptionalDays: Observable<{}[]>;
   private month;
   private date;
   private day;
@@ -17,14 +16,13 @@ export class OpenHoursService {
   constructor(private firebaseService: FirebaseService) {
     this.date = new Date();
     this.getDateData();
-    this.exceptionalDays = this.getExceptionalDays();
   }
 
   getOpenHours() {
     return this.firebaseService.getOpenHoursObservable();
   }
 
-  private getExceptionalDays() {
+  getExceptionalDays() {
     return this.firebaseService.getExceptionalDaysObservable();
   }
 
@@ -35,12 +33,11 @@ export class OpenHoursService {
   }
 
 
-  isExceptionalDay(){
+  isExceptionalDay(exceptionalDays: any[]){
 
   }
 
   isItOpen() {
-    // this.getDateData();
     if(this.day>=0 && this.day<7) {
       if(this.hours>=11 && this.hours<22){
         return true;
