@@ -15,11 +15,11 @@ export class DeliveryListingComponent implements OnInit {
 
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Output() emitAddressEvent = new EventEmitter<Address>();
+  @Output() emitAddressNumber = new EventEmitter<Number>();
 
   public user: User;
   public isEditable = false;
   public newAddress: Address;
-  public canIAddNewAddress = true;
 
   constructor(private auth: AuthService) { }
 
@@ -46,15 +46,13 @@ export class DeliveryListingComponent implements OnInit {
     this.updateUser();
   }
 
-  public showEditAddressField(address: Address) {
-    this.canIAddNewAddress = false;
+  public showEditAddressField(address: Address, index) {
     this.isEditingAddress.emit(true);
+    this.emitAddressNumber.emit(index);
     this.emitAddressEvent.emit(address);
-
   }
 
   public closeEditAddressField() {
     this.isEditingAddress.emit(false);
   }
-
 }

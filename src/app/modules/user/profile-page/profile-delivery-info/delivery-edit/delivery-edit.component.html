@@ -1,8 +1,4 @@
 <div>
-  <p>
-    delivery-edit works!
-  </p>
-
   <!--COUNTRY-->
   <div class="row">
     <div class="input-field col m6 s12">
@@ -16,8 +12,8 @@
     </div>
   </div>
 
+  <!--COUNTY-->
   <div class="row">
-    <!--COUNTY-->
     <div class="input-field col m6 s12">
       <input [(ngModel)]="addressToShare.county"
              type="text" id="edit_county"
@@ -73,7 +69,7 @@
              required="" aria-required="true"
              minlength="1" maxlength="8"
              [(ngModel)]="addressToShare.houseNumber">
-      <label [ngClass]="{'active': addressToShare.houseNumber }"
+      <label [ngClass]="{'active': addressToShare.houseNumber != '' }"
              for="edit_house-number">{{'profile.houseNumber' | translate}}</label>
     </div>
   </div>
@@ -111,6 +107,11 @@
              for="edit_bell">{{'profile.bell' | translate}}</label>
     </div>
   </div>
+
+  <!--SAVE BUTTON-->
+  <button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" >{{'profile.save' |
+    translate}}
+  </button>
 
   <button class="btn orange-text" (click)="closeEditAddressField()">MÉGSE</button>
 </div>
