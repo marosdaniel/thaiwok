@@ -62,7 +62,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   resetPassword() {
-    if (this.userForm.value['email'] == '') {
+    if (this.userForm.value['email'] === '') {
       Izitoast.default.show(errorNoEmail);
 
     } else {
@@ -72,8 +72,7 @@ export class LoginPageComponent implements OnInit {
 
           this.auth.resetPassword(this.userForm.value['email'])
             .then(() => this.passReset = true);
-        }
-        else {
+        } else {
           Izitoast.default.show(errorPassReset);
           return;
         }

@@ -13,7 +13,7 @@ export class CartService {
   constructor() {
     let cartItems = this.getCartItems();
 
-    if (cartItems.length == 0) {
+    if (cartItems.length === 0) {
       this.nextId = 0;
     } else {
       let maxId = cartItems[cartItems.length - 1].id;
@@ -35,12 +35,12 @@ export class CartService {
   }
 
   public getCartItems(): CartItem[] {
-    let localStorageItem = JSON.parse(localStorage.getItem('cartItems'));
+    const localStorageItem = JSON.parse(localStorage.getItem('cartItems'));
     return localStorageItem == null ? [] : localStorageItem.cartItems;
   }
 
   public deleteCartItem(indexOfItem: number) {
-    let cartItems = this.getCartItems();
+    const cartItems = this.getCartItems();
     cartItems.splice(indexOfItem, 1);
     this.setLocalStorageCartItems(cartItems);
   }
@@ -50,7 +50,7 @@ export class CartService {
   public removeCartItem(id: number): void {
     let cartItems = this.getCartItems();
     cartItems = cartItems.filter((cartItem) => {
-      cartItem.id != id;
+      return cartItem.id !== id;
     });
     this.setLocalStorageCartItems(cartItems);
   }
@@ -64,25 +64,12 @@ export class CartService {
   }
 
   public getShippingInfo(): ShippingInfo {
-    let localStorageShippingInfo = JSON.parse((localStorage.getItem('shippingInfo')));
+    const localStorageShippingInfo = JSON.parse((localStorage.getItem('shippingInfo')));
     return localStorageShippingInfo == null ? {} : localStorageShippingInfo;
   }
 
   public addToShippingInfo(shippingInfoObject: ShippingInfo) {
-
-    let info = new ShippingInfo(
-      shippingInfoObject.firstName,
-      shippingInfoObject.lastName,
-      shippingInfoObject.phoneNumber,
-      shippingInfoObject.shippingAddress,
-      shippingInfoObject.paymentOption,
-      shippingInfoObject.noteForMeal,
-      shippingInfoObject.noteForShipping,
-      shippingInfoObject.shippingPrice,
-      shippingInfoObject.orderPrice,
-      shippingInfoObject.fullPrice,
-      shippingInfoObject.orderDate);
-    this.setLocalStorageShippingInfo(info);
+    this.setLocalStorageShippingInfo(new ShippingInfo(shippingInfoObject));
   }
 
 }

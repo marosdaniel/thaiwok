@@ -5,7 +5,7 @@ import 'here-js-api/scripts/mapsjs-ui';
 import 'here-js-api/scripts/mapsjs-mapevents';
 import 'here-js-api/scripts/mapsjs-clustering';
 import 'here-js-api/scripts/mapsjs-places';
-import {appCode, appId} from '../../../../../environments/map.apikey';
+import {appCode, appId} from '../../../../../environments/apikeys';
 
 declare var H: any;
 

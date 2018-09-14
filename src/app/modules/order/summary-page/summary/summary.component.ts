@@ -12,6 +12,7 @@ import {ShippingInfo} from '../../../../models/shippingInfo.model';
 import * as firebase from 'firebase';
 import {MaterializeAction} from 'angular2-materialize';
 import {LanguageService} from '../../../../services/language/language.service';
+import {Address} from '../../../../models/address.model';
 
 @Component({
   selector: 'app-summary',
@@ -84,16 +85,7 @@ export class SummaryComponent implements OnInit {
       fullPrice: 0,
       orderDate: ''
     };
-    this.newAddress = {
-      country: 'Magyarország',
-      county: 'Csongrád megye',
-      city: 'Szeged',
-      street: '',
-      houseNumber: '',
-      floor: '',
-      door: '',
-      bell: ''
-    };
+    this.newAddress = new Address();
     this.cities = [
       {id: 1, name: 'Szeged'},
       {id: 2, name: 'Tápé'}
@@ -116,7 +108,7 @@ export class SummaryComponent implements OnInit {
   }
 
   cartItemSummary = () => {
-    let summ: number = 0;
+    let summ = 0;
     let cartItems = this.cartService.getCartItems();
     for (let i = 0; i < cartItems.length; i++) {
       summ += cartItems[i].details['price'];

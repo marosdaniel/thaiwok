@@ -17,7 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MaterializeModule } from 'angular2-materialize';
 import {UserIdleModule} from 'angular-user-idle';
 import {AgmCoreModule} from '@agm/core';
-import {apiKey} from '../environments/map.apikey';
+import {apiKey} from '../environments/apikeys';
 
 // COMPONENTS
 import {FooterComponent} from './footer/footer.component';

@@ -134,7 +134,7 @@ export class AuthService {
   }
 
   updateEmail (newEmail) {
-   let user = firebase.auth().currentUser;
+   const user = firebase.auth().currentUser;
     user.updateEmail(newEmail).then(function() {
       // Update successful.
     }).catch(error => this.handleError(error));
@@ -142,7 +142,7 @@ export class AuthService {
 
 
   private navigateToProfile() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/profile/personal-info']);
   }
 
   public navigateToHome() {

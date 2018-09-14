@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 import * as Izitoast from 'izitoast';
 import {errorSaveToaster, successSaveToaster} from '../../../../config/toasters/toasters';
@@ -16,11 +16,18 @@ declare var $: any;
 })
 export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('listing') listing;
+  @ViewChild('edit') edit;
+  @Input() sharedAddress: Address;
+
+  public addressToShare: Address;
   public user: User;
-  public isLoading: boolean = true;
-  public isEditable: boolean = false;
-  public isAddingNewAddress: boolean = false;
-  public isEditingAddress: boolean = false;
+  public isLoading = true;
+  public isEditable = false;
+  public isAddingNewAddress = false;
+
+  public isEditingAddress = false;
+
   public indexOfAddress: number;
   public newAddress: Address;
   public cities: any[];
@@ -46,6 +53,7 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
       this.user = user;
       this.isLoading = false;
     });
+    // this.addressToShare = new Address();
     this.address = new Address();
     this.newAddress = new Address();
     this.indexOfAddress = 0;
@@ -60,6 +68,13 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
         onAutocomplete: (street) => { this.user.addresses[this.indexOfAddress].street = street; }
       });
     });
+  }
+
+  getListingAddress(address: Address) {
+    this.listing.address = address;
+  }
+  getEditAddress(address: Address) {
+    this.edit.address = address;
   }
 
 
@@ -111,5 +126,13 @@ export class ProfileDeliveryInfoComponent implements OnInit, AfterViewInit {
   public cancel() {
     this.isAddingNewAddress = false;
     this.isEditingAddress = false;
+  }
+
+  receiveEvent($event) {
+    this.isEditingAddress = $event;
+  }
+
+  receiveAddress($event) {
+    this.addressToShare = $event;
   }
 }

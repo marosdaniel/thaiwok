@@ -11,18 +11,18 @@ export class ShippingInfo {
   fullPrice: number;
   orderDate: string;
 
-  constructor(firstName, lastName, phoneNumber, shippingAddress, paymentOption, noteForMeal, noteForShipping, shippingPrce, orderPrice, fullPrice, orderDate) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phoneNumber;
-    this.shippingAddress = shippingAddress;
-    this.paymentOption = paymentOption;
-    this.noteForMeal = noteForMeal;
-    this.noteForShipping = noteForShipping;
-    this.shippingPrice = shippingPrce;
-    this.orderPrice = orderPrice;
-    this.fullPrice = fullPrice;
-    this.orderDate = orderDate;
+  constructor(shippingInfoObject) {
+    this.firstName = shippingInfoObject.firstName;
+    this.lastName = shippingInfoObject.lastName;
+    this.phoneNumber = shippingInfoObject.phoneNumber;
+    this.shippingAddress = shippingInfoObject.shippingAddress;
+    this.paymentOption = shippingInfoObject.paymentOption;
+    this.noteForMeal = shippingInfoObject.noteForMeal;
+    this.noteForShipping = shippingInfoObject.noteForShipping;
+    this.shippingPrice = shippingInfoObject.shippingPrice;
+    this.orderPrice = shippingInfoObject.orderPrice;
+    this.fullPrice = shippingInfoObject.fullPrice;
+    this.orderDate = shippingInfoObject.orderDate;
   }
 
 

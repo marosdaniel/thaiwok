@@ -12,13 +12,17 @@ import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {ProfilePersonalInfoComponent} from './profile-page/profile-personal-info/profile-personal-info.component';
 import {ProfileDeliveryInfoComponent} from './profile-page/profile-delivery-info/profile-delivery-info.component';
 import {ProfileHistoryComponent} from './profile-page/profile-history/profile-history.component';
+import { DeliveryListingComponent } from './profile-page/profile-delivery-info/delivery-listing/delivery-listing.component';
+import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delivery-edit/delivery-edit.component';
 
 @NgModule({
   declarations: [
     ProfilePageComponent,
     ProfilePersonalInfoComponent,
     ProfileDeliveryInfoComponent,
-    ProfileHistoryComponent
+    ProfileHistoryComponent,
+    DeliveryListingComponent,
+    DeliveryEditComponent
   ],
   imports: [
     CommonModule,

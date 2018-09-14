@@ -1,239 +1,242 @@
 <div id="delivery-info-tab" class="row">
-  <!--DELIVERY INFO-->
-  <i routerLink="/profile/personal-info" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
-  <h3 class="center inline-block"> {{'profile.deliveryInfo' | translate}} </h3>
-  <i routerLink="/profile/previous-orders" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
+<i routerLink="/profile/personal-info" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
+<h3 class="center inline-block"> {{'profile.deliveryInfo' | translate}} </h3>
+<i routerLink="/profile/previous-orders" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
+<!--<div id="delivery-info-tab" class="row">-->
+  <!--&lt;!&ndash;DELIVERY INFO&ndash;&gt;-->
+  <!---->
 
-  <div class="col s12 delivery-address">
-    <h4 class="s-center">{{'profile.deliveryAddresses' | translate}}</h4>
-    <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
-    <ul *ngIf="user && user.addresses?.length > 0" class="">
-      <li *ngFor="let address of user.addresses; let index = index" class="row">
-        {{address.street}} - {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő
-        <i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>
-        <i class="fa fa-edit tooltipped clickable right" (click)="editAddress(index)" data-tooltip="Click here to edit your address"></i>
-      </li>
+  <!--&lt;!&ndash;ADDING NEW ADDRESS&ndash;&gt;-->
+  <!--<div class="new-address" [hidden]="!isAddingNewAddress">-->
 
-    </ul>
-    <a *ngIf="!isAddingNewAddress && !isEditingAddress" class="clickable s-center" (click)="createNewAddress()"><i class="fa fa-plus"></i>  {{'profile.addNewAddress' | translate}}</a>
-  </div>
+    <!--&lt;!&ndash;COUNTRY&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input [(ngModel)]="newAddress.country"-->
+               <!--type="text" id="country"-->
+               <!--class="validate"-->
+               <!--required="required" aria-required="true"-->
+               <!--placeholder="newAddress.country">-->
+        <!--<label [ngClass]="{'active': newAddress.country }" for="country" >{{'profile.country' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
+    <!--<div class="row">-->
+      <!--&lt;!&ndash;COUNTY&ndash;&gt;-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input [(ngModel)]="newAddress.county"-->
+               <!--type="text" id="county"-->
+               <!--class="validate"-->
+               <!--required="required" aria-required="true"-->
+               <!--placeholder="newAddress.county">-->
+        <!--<label for="county" [ngClass]="{'active': newAddress.county }">{{'profile.county' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-  <!--ADDING NEW ADDRESS-->
-  <div class="new-address" [hidden]="!isAddingNewAddress">
+    <!--&lt;!&ndash;ZIP-CODE&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input type="number" id="zip-code" class="validate active" [(ngModel)]="newAddress.zipCode" maxlength="4" minlength="4">-->
+        <!--<label for="zip-code" [ngClass]="{'active': newAddress.zipCode }">{{'profile.zipCode' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--COUNTRY-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="newAddress.country"
-               type="text" id="country"
-               class="validate"
-               required="required" aria-required="true"
-               placeholder="newAddress.country">
-        <label [ngClass]="{'active': newAddress.country }" for="country" >{{'profile.country' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;CITY&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<select id="city" class="own-select" [(ngModel)]="newAddress.city"  materialize="material_select">-->
+          <!--&lt;!&ndash;<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>&ndash;&gt;-->
+          <!--<option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>-->
+        <!--</select>-->
+        <!--<label for="city" class="active">{{'profile.city' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="row">
-      <!--COUNTY-->
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="newAddress.county"
-               type="text" id="county"
-               class="validate"
-               required="required" aria-required="true"
-               placeholder="newAddress.county">
-        <label for="county" [ngClass]="{'active': newAddress.county }">{{'profile.county' | translate}}</label>
-      </div>
-    </div>
-
-    <!--ZIP-CODE-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input type="number" id="zip-code" class="validate active" [(ngModel)]="newAddress.zipCode" maxlength="4" minlength="4">
-        <label for="zip-code" [ngClass]="{'active': newAddress.zipCode }">{{'profile.zipCode' | translate}}</label>
-      </div>
-    </div>
-
-    <!--CITY-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <select id="city" class="own-select" [(ngModel)]="newAddress.city"  materialize="material_select">
-          <!--<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>-->
-          <option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>
-        </select>
-        <label for="city" class="active">{{'profile.city' | translate}}</label>
-      </div>
-    </div>
-
-    <!--STREET-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <label class="active" for="street">{{'profile.street' | translate}}</label>
-        <input type="text" id="street" class="validate autocomplete" required="" aria-required="true"
-               [(ngModel)]="newAddress.street">
-      </div>
-    </div>
+    <!--&lt;!&ndash;STREET&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<label class="active" for="street">{{'profile.street' | translate}}</label>-->
+        <!--<input type="text" id="street" class="validate autocomplete" required="" aria-required="true"-->
+               <!--[(ngModel)]="newAddress.street">-->
+      <!--</div>-->
+    <!--</div>-->
 
 
 
-    <!--HOUSE NUMBER-->
-    <div class="row">
-      <div class="input-field col m6 s4">
-        <input type="text" id="house-number" class="validate"
-               required="" aria-required="true"
-               minlength="1" maxlength="8"
-               [(ngModel)]="newAddress.houseNumber">
-        <label class="active" for="house-number">{{'profile.houseNumber' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;HOUSE NUMBER&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s4">-->
+        <!--<input type="text" id="house-number" class="validate"-->
+               <!--required="" aria-required="true"-->
+               <!--minlength="1" maxlength="8"-->
+               <!--[(ngModel)]="newAddress.houseNumber">-->
+        <!--<label class="active" for="house-number">{{'profile.houseNumber' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--FLOOR-->
-    <div class="row">
-      <div class="input-field col m4 s4">
-        <input type="number" id="floor" class="validate"
-               required="" aria-required="true"
-               maxlength="8"
-               [(ngModel)]="newAddress.floor">
-        <label for="floor">{{'profile.floor' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;FLOOR&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m4 s4">-->
+        <!--<input type="number" id="floor" class="validate"-->
+               <!--required="" aria-required="true"-->
+               <!--maxlength="8"-->
+               <!--[(ngModel)]="newAddress.floor">-->
+        <!--<label for="floor">{{'profile.floor' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--DOOR-->
-    <div class="row">
-      <div class="input-field col m4 s4">
-        <input type="number" id="door" class="validate" [(ngModel)]="newAddress.door">
-        <label for="door">{{'profile.door' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;DOOR&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m4 s4">-->
+        <!--<input type="number" id="door" class="validate" [(ngModel)]="newAddress.door">-->
+        <!--<label for="door">{{'profile.door' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--BELL-->
-    <div class="row">
-      <div class="input-field col m4 s4">
-        <input type="number" id="bell"
-               class="validate" required="" aria-required="true"
-               pattern="^[+]?\d+$"
-               [(ngModel)]="newAddress.bell">
-        <label for="bell">{{'profile.bell' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;BELL&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m4 s4">-->
+        <!--<input type="number" id="bell"-->
+               <!--class="validate" required="" aria-required="true"-->
+               <!--pattern="^[+]?\d+$"-->
+               <!--[(ngModel)]="newAddress.bell">-->
+        <!--<label for="bell">{{'profile.bell' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--ADD NEW ADDRESS BUTTON-->
-    <button class="btn left" (click)="addNewAddress()">{{'profile.addNewAddress' | translate}}</button>
+    <!--&lt;!&ndash;ADD NEW ADDRESS BUTTON&ndash;&gt;-->
+    <!--<button class="btn left" (click)="addNewAddress()">{{'profile.addNewAddress' | translate}}</button>-->
 
-    <!--CANCEL BUTTON-->
-    <button class="btn right" (click)="cancel()">{{'common.cancel' | translate}}</button>
-  </div>
+    <!--&lt;!&ndash;CANCEL BUTTON&ndash;&gt;-->
+    <!--<button class="btn right" (click)="cancel()">{{'common.cancel' | translate}}</button>-->
+  <!--</div>-->
 
-  <!--EDITING ADDRESS-->
-  <div class="edit-address" [hidden]="!isEditingAddress">
+  <!--&lt;!&ndash;EDITING ADDRESS&ndash;&gt;-->
+  <!--<div class="edit-address" [hidden]="!isEditingAddress">-->
 
-    <!--COUNTRY-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].country"
-               type="text" id="edit_country"
-               class="validate"
-               required="required" aria-required="true"
-               placeholder="newAddress.country">
-        <label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].country }" for="edit_country" >{{'profile.country' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;COUNTRY&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].country"-->
+               <!--type="text" id="edit_country"-->
+               <!--class="validate"-->
+               <!--required="required" aria-required="true"-->
+               <!--placeholder="newAddress.country">-->
+        <!--<label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].country }" for="edit_country" >{{'profile.country' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="row">
-      <!--COUNTY-->
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].county"
-               type="text" id="edit_county"
-               class="validate"
-               required="required" aria-required="true"
-               placeholder="newAddress.county">
-        <label for="edit_county" [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].county }">{{'profile.county' | translate}}</label>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--&lt;!&ndash;COUNTY&ndash;&gt;-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].county"-->
+               <!--type="text" id="edit_county"-->
+               <!--class="validate"-->
+               <!--required="required" aria-required="true"-->
+               <!--placeholder="newAddress.county">-->
+        <!--<label for="edit_county" [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].county }">{{'profile.county' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--ZIP-CODE-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input type="number" id="edit_zip-code" class="validate active" [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].zipCode" maxlength="4" minlength="4">
-        <label for="edit_zip-code" [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].zipCode }">{{'profile.zipCode' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;ZIP-CODE&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input type="number" id="edit_zip-code" class="validate active" [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].zipCode" maxlength="4" minlength="4">-->
+        <!--<label for="edit_zip-code" [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].zipCode }">{{'profile.zipCode' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--CITY-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <select id="edit_city" class="own-select" [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].city"  materialize="material_select">
-          <!--<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>-->
-          <option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>
-        </select>
-        <label for="edit_city" class="active">{{'profile.city' | translate}}</label>
-      </div>
-    </div>
+    <!--&lt;!&ndash;CITY&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<select id="edit_city" class="own-select" [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].city"  materialize="material_select">-->
+          <!--&lt;!&ndash;<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>&ndash;&gt;-->
+          <!--<option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>-->
+        <!--</select>-->
+        <!--<label for="edit_city" class="active">{{'profile.city' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--STREET-->
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input type="text" id="edit_street" class="validate autocomplete" required="" aria-required="true"
-               [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].street">
-        <label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].street }"
-        for="edit_street">{{'profile.street' | translate}}</label>
-      </div>
-    </div>
-
-
-
-    <!--HOUSE NUMBER-->
-    <div class="row">
-      <div class="input-field col m6 s4">
-        <input type="text" id="edit_house-number" class="validate"
-               required="" aria-required="true"
-               minlength="1" maxlength="8"
-               [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber">
-        <label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber }"
-               for="edit_house-number">{{'profile.houseNumber' | translate}}</label>
-      </div>
-    </div>
-
-    <!--FLOOR-->
-    <div class="row">
-      <div class="input-field col m4 s4">
-        <input type="number" id="edit_floor" class="validate"
-               required="" aria-required="true"
-               maxlength="8"
-               [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].floor">
-        <label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].floor }"
-          for="edit_floor">{{'profile.floor' | translate}}</label>
-      </div>
-    </div>
-
-    <!--DOOR-->
-    <div class="row">
-      <div class="input-field col m4 s4">
-        <input type="number" id="edit_door" class="validate" [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].door">
-        <label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber }"
-          for="edit_door">{{'profile.door' | translate}}</label>
-      </div>
-    </div>
-
-    <!--BELL-->
-    <div class="row">
-      <div class="input-field col m4 s4">
-        <input type="number" id="edit_bell"
-               class="validate" required="" aria-required="true"
-               pattern="^[+]?\d+$"
-               [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].bell">
-        <label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber }"
-          for="edit_bell">{{'profile.bell' | translate}}</label>
-      </div>
-    </div>
-
-    <!--CANCEL BUTTON-->
-    <button class="btn right" (click)="cancel()">{{'common.cancel' | translate}}</button>
-  </div>
+    <!--&lt;!&ndash;STREET&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s12">-->
+        <!--<input type="text" id="edit_street" class="validate autocomplete" required="" aria-required="true"-->
+               <!--[(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].street">-->
+        <!--<label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].street }"-->
+        <!--for="edit_street">{{'profile.street' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
 
-  <!--SAVE BUTTON-->
-  <button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" [attr.disabled]="!isEditable ? 'disabled' : null">{{'profile.save' |
-    translate}}
-  </button>
+
+    <!--&lt;!&ndash;HOUSE NUMBER&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m6 s4">-->
+        <!--<input type="text" id="edit_house-number" class="validate"-->
+               <!--required="" aria-required="true"-->
+               <!--minlength="1" maxlength="8"-->
+               <!--[(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber">-->
+        <!--<label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber }"-->
+               <!--for="edit_house-number">{{'profile.houseNumber' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;FLOOR&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m4 s4">-->
+        <!--<input type="number" id="edit_floor" class="validate"-->
+               <!--required="" aria-required="true"-->
+               <!--maxlength="8"-->
+               <!--[(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].floor">-->
+        <!--<label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].floor }"-->
+          <!--for="edit_floor">{{'profile.floor' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;DOOR&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m4 s4">-->
+        <!--<input type="number" id="edit_door" class="validate" [(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].door">-->
+        <!--<label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber }"-->
+          <!--for="edit_door">{{'profile.door' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;BELL&ndash;&gt;-->
+    <!--<div class="row">-->
+      <!--<div class="input-field col m4 s4">-->
+        <!--<input type="number" id="edit_bell"-->
+               <!--class="validate" required="" aria-required="true"-->
+               <!--pattern="^[+]?\d+$"-->
+               <!--[(ngModel)]="user && user.addresses?.length > 0 && user.addresses[indexOfAddress].bell">-->
+        <!--<label [ngClass]="{'active': user && user.addresses?.length > 0 && user.addresses[indexOfAddress].houseNumber }"-->
+          <!--for="edit_bell">{{'profile.bell' | translate}}</label>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;CANCEL BUTTON&ndash;&gt;-->
+    <!--<button class="btn right" (click)="cancel()">{{'common.cancel' | translate}}</button>-->
+  <!--</div>-->
+
+
+  <!--&lt;!&ndash;SAVE BUTTON&ndash;&gt;-->
+  <!--<button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" [attr.disabled]="!isEditable ? 'disabled' : null">{{'profile.save' |-->
+    <!--translate}}-->
+  <!--</button>-->
+<!--</div>-->
+
+  <app-delivery-listing #listing
+                        (isEditingAddress)="receiveEvent($event)"
+                        (emitAddressEvent)="receiveAddress($event)"
+
+  ></app-delivery-listing>
+
+
+  <app-delivery-edit #edit
+                     *ngIf="isEditingAddress"
+                     (isEditingAddress)="receiveEvent($event)"
+                     [addressToShare]="addressToShare"
+
+
+  ></app-delivery-edit>
 </div>
