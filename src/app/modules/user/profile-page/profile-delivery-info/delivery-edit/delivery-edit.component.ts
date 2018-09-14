@@ -13,9 +13,15 @@ export class DeliveryEditComponent implements OnInit {
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Input() addressToShare: Address;
 
+  public cities: any[];
+
   constructor() { }
 
   ngOnInit() {
+    this.cities = [
+      {id: 1, name: 'Szeged'},
+      {id: 2, name: 'Tápé'}
+    ];
   }
 
   public closeEditAddressField() {

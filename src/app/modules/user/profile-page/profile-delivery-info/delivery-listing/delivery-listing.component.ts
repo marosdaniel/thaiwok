@@ -12,9 +12,6 @@ import {Address} from '../../../../../models/address.model';
 })
 export class DeliveryListingComponent implements OnInit {
 
-  // @Input() isEditingAddress;
-
-  // isEditingAddress = 'false';
 
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Output() emitAddressEvent = new EventEmitter<Address>();
@@ -22,6 +19,8 @@ export class DeliveryListingComponent implements OnInit {
   public user: User;
   public isEditable = false;
   public newAddress: Address;
+  public canIAddNewAddress = true;
+
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
@@ -48,6 +47,7 @@ export class DeliveryListingComponent implements OnInit {
   }
 
   public showEditAddressField(address: Address) {
+    this.canIAddNewAddress = false;
     this.isEditingAddress.emit(true);
     this.emitAddressEvent.emit(address);
 
