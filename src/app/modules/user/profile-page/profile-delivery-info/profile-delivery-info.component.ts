@@ -14,20 +14,12 @@ declare var $: any;
 })
 export class ProfileDeliveryInfoComponent implements OnInit {
 
-  @ViewChild('listing') listing;
-  @ViewChild('edit') edit;
   @Input() sharedAddress: Address;
 
+  public isEditingAddress = false;
   public addressToShare: Address;
   public index: number;
   public user: User;
-  public isLoading = true;
-  public isEditable = false;
-  public isAddingNewAddress = false;
-
-  public isEditingAddress = false;
-
-  public newAddress: Address;
   public cities: any[];
   public address: Address;
 
@@ -35,10 +27,6 @@ export class ProfileDeliveryInfoComponent implements OnInit {
     public auth: AuthService,
     private location: LocationService
   ) {
-  }
-
-  logout() {
-    this.auth.signOut();
   }
 
   ngOnInit() {
@@ -49,20 +37,8 @@ export class ProfileDeliveryInfoComponent implements OnInit {
 
     this.auth.user.subscribe(user => {
       this.user = user;
-      this.isLoading = false;
     });
-    // this.addressToShare = new Address();
-    this.address = new Address();
-    this.newAddress = new Address();
   }
-
-  getListingAddress(address: Address) {
-    this.listing.address = address;
-  }
-  getEditAddress(address: Address) {
-    this.edit.address = address;
-  }
-
 
   receiveEvent($event) {
     this.isEditingAddress = $event;

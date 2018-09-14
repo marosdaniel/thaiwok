@@ -3,21 +3,13 @@
 <h3 class="center inline-block"> {{'profile.deliveryInfo' | translate}} </h3>
 <i routerLink="/profile/previous-orders" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
 
-  <!--&lt;!&ndash;SAVE BUTTON&ndash;&gt;-->
-  <!--<button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" [attr.disabled]="!isEditable ? 'disabled' : null">{{'profile.save' |-->
-    <!--translate}}-->
-  <!--</button>-->
-<!--</div>-->
-
-  <app-delivery-listing #listing
-                        (isEditingAddress)="receiveEvent($event)"
+  <app-delivery-listing (isEditingAddress)="receiveEvent($event)"
                         (emitAddressNumber)="receiveAddressNumber($event)"
                         (emitAddressEvent)="receiveAddress($event)">
   </app-delivery-listing>
 
 
-  <app-delivery-edit #edit
-                     *ngIf="isEditingAddress"
+  <app-delivery-edit *ngIf="isEditingAddress"
                      (isEditingAddress)="receiveEvent($event)"
                      [index]="index"
                      [addressToShare]="addressToShare">

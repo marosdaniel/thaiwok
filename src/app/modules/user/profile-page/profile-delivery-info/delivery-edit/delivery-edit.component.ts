@@ -22,7 +22,8 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   private user: User;
   public cities: any[];
 
-  constructor(private auth: AuthService, private location: LocationService) { }
+  constructor(private auth: AuthService, private location: LocationService) {
+  }
 
   ngOnInit() {
     this.auth.user.subscribe(user => {
@@ -40,7 +41,9 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
         data: streets,
         limit: 8,
         minlength: 3,
-        onAutocomplete: (street) => { this.addressToShare.street = street; }
+        onAutocomplete: (street) => {
+          this.addressToShare.street = street;
+        }
       });
     });
   }
@@ -85,10 +88,11 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   public closeEditAddressField() {
     this.isEditingAddress.emit(false);
   }
+
   private addActiveClassToLabels() {
-      if ($('input').text() !== '') {
-        $('label').addClass('active');
-      }
+    if ($('input').text() !== '') {
+      $('label').addClass('active');
+    }
   }
 
 }

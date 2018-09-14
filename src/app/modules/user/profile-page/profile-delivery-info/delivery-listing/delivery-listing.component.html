@@ -7,8 +7,6 @@
       <i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>
       <i class="fa fa-edit tooltipped clickable right" (click)="showEditAddressField(address, index)" data-tooltip="Click here to edit your address"></i>
     </li>
-
   </ul>
-  <!--<a *ngIf="!isAddingNewAddress && !isEditingAddress" class="clickable s-center" (click)="showEditAddressField()"><i class="fa fa-plus"></i>  {{'profile.addNewAddress' | translate}}</a>-->
   <a *ngIf="isEditingAddress" class="clickable s-center" (click)="showEditAddressField(newAddress, index)"><i class="fa fa-plus"></i>  {{'profile.addNewAddress' | translate}}</a>
 </div>
