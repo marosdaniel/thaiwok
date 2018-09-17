@@ -1,4 +1,4 @@
-import {AfterContentChecked, AfterViewChecked, AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Address} from '../../../../../models/address.model';
 import {LocationService} from '../../../../../services/location/location.service';
 import {AuthService} from '../../../../../services/auth/auth.service';
@@ -12,8 +12,6 @@ import {errorSaveToaster, successSaveToaster} from '../../../../../config/toaste
   styleUrls: ['./delivery-edit.component.scss']
 })
 export class DeliveryEditComponent implements OnInit, AfterViewInit {
-
-  // public address: Address;
 
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Input() addressToShare: Address;
@@ -75,7 +73,7 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
 
   public saveUserData() {
 
-    if (this.index = undefined) {
+    if (typeof(this.index) === 'undefined') {
       this.addNewAddress(this.addressToShare);
     } else {
       this.modifyExistingAddress(this.addressToShare, this.index);

@@ -9,7 +9,6 @@ import {AuthService} from '../../../services/auth/auth.service';
 })
 export class ProfilePageComponent implements OnInit {
   public user: User;
-  public isLoading: boolean = true;
 
   constructor(public auth: AuthService) {}
 
@@ -20,13 +19,6 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     this.auth.user.subscribe(user => {
       this.user = user;
-      this.isLoading = false;
     });
-  }
-
-  public updateUser() {
-    this.auth.updateUser(this.user)
-      .then(() => {
-      });
   }
 }

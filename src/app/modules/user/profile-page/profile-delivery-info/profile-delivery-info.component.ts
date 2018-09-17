@@ -1,10 +1,8 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 import {LocationService} from '../../../../services/location/location.service';
 import {User} from '../../../../models/user.model';
 import {Address} from '../../../../models/address.model';
-// import * as $ from 'jquery';
-declare var $: any;
 
 
 @Component({

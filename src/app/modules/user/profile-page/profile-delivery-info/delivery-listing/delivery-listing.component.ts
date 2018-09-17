@@ -19,6 +19,7 @@ export class DeliveryListingComponent implements OnInit {
   public user: User;
   public isEditable = false;
   public newAddress: Address;
+  private indexOfAddressToDelete: number;
 
   constructor(private auth: AuthService) {
   }
@@ -29,6 +30,8 @@ export class DeliveryListingComponent implements OnInit {
       this.user = user;
     });
     this.newAddress = new Address();
+    ($('.dropdown-trigger') as any).dropdown({});
+    ($('#modal-delete-address')as any).modal();
   }
 
   private updateUser() {
@@ -41,8 +44,8 @@ export class DeliveryListingComponent implements OnInit {
     });
   }
 
-  public deleteAddress(index) {
-    this.user.addresses.splice(index, 1);
+  public deleteAddress() {
+    this.user.addresses.splice(this.indexOfAddressToDelete, 1);
     this.updateUser();
   }
 
@@ -50,5 +53,10 @@ export class DeliveryListingComponent implements OnInit {
     this.isEditingAddress.emit(true);
     this.emitAddressNumber.emit(index);
     this.emitAddressEvent.emit(address);
+  }
+
+  public openDeleteAddressConfirmationModal(index) {
+    this.indexOfAddressToDelete = index;
+    ($('#modal-delete-address')as any).modal('open');
   }
 }

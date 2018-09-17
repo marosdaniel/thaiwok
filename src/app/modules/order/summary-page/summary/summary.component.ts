@@ -109,7 +109,7 @@ export class SummaryComponent implements OnInit {
 
   cartItemSummary = () => {
     let summ = 0;
-    let cartItems = this.cartService.getCartItems();
+    const cartItems = this.cartService.getCartItems();
     for (let i = 0; i < cartItems.length; i++) {
       summ += cartItems[i].details['price'];
     }
@@ -141,8 +141,7 @@ export class SummaryComponent implements OnInit {
       }
       this.user.history.push(this.shippingInfo);
       this.auth.updateUser(this.user);
-    }
-    else {
+    } else {
 
     }
   }

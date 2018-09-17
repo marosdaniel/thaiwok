@@ -55,7 +55,7 @@
       <i class="material-icons prefix">email</i>
       <input [(ngModel)]="newEmail" type="email" id="new-email" class="validate" required="required"
              aria-required="true" >
-      <label class="active" for="new-email">Új email cím megadása</label>
+      <label class="active" for="new-email">{{'profile.addNewEmail' | translate}}</label>
     </div>
     <div *ngIf="validMailFormat" class="col m6 s4">
       <i (click)="updateEmail(newEmail)" class="fa fa-check clickable"></i>

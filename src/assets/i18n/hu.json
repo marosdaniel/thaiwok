@@ -30,7 +30,7 @@
     "password": "Jelszó",
     "rememberMe": "Emlékezz rám",
     "forgotPassword": "Elfelejtette jelszavát ?",
-    "socialLoginTitle": "Szósöl bejelentkezés",
+    "socialLoginTitle": "Bejelentkezés",
     "registerNow": "Regisztrálj most !",
     "alreadyLoggedIn": "Sikeresen bejelentkeztél :)",
     "goToProfile": "Tovább a profilodra"
@@ -87,7 +87,11 @@
     "name": "Név",
     "address": "Cím",
     "phone": "Tel",
-    "price": "Ár"
+    "price": "Ár",
+    "addNewEmail": "Új e-mail cím megadása",
+    "cancel": "Mégse",
+    "deleteConfirmation": "Biztosan törölni szeretné?",
+    "delete": "Törlés"
   },
   "listingItem": {
     "details": "Részletek",

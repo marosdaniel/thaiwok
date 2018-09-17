@@ -1,12 +1,47 @@
-<div class="col s12 delivery-address">
+<div class="">
   <h4 class="s-center">{{'profile.deliveryAddresses' | translate}}</h4>
   <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
-  <ul *ngIf="user && user.addresses?.length > 0" class="">
-    <li *ngFor="let address of user.addresses; let index = index" class="row">
-      {{address.street}} - {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő
-      <i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>
-      <i class="fa fa-edit tooltipped clickable right" (click)="showEditAddressField(address, index)" data-tooltip="Click here to edit your address"></i>
-    </li>
-  </ul>
-  <a *ngIf="isEditingAddress" class="clickable s-center" (click)="showEditAddressField(newAddress, index)"><i class="fa fa-plus"></i>  {{'profile.addNewAddress' | translate}}</a>
+  <div class="row">
+    <ul class="" *ngIf="user && user.addresses?.length > 0">
+      <li class="address-line" *ngFor="let address of user.addresses; let index = index">
+        <span class="col s10">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
+        <span class="col s2 actions-icon">
+          <i class="fa fa-cog clickable right dropdown-trigger"
+             data-activates="dropdown-actions"
+             data-belowOrigin="true"
+             data-constrainwidth="false"
+             data-constrainheight="false"
+             data-gutter="24"
+             materialize="dropdown"
+             ></i>
+          <!--<i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>-->
+          <!--<i class="fa fa-edit tooltipped clickable right" (click)="showEditAddressField(address, index)" data-tooltip="Click here to edit your address"></i>-->
+          <ul id="dropdown-actions" class="dropdown-content center">
+            <button class="btn" (click)="showEditAddressField(address, index)"><i class="fa fa-edit clickable"></i></button>
+            <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)"><i class="fa fa-trash clickable"></i></button>
+          </ul>
+
+        </span>
+      </li>
+    </ul>
+  </div>
+  <a *ngIf="isEditingAddress" class="col s12 clickable s-center" (click)="showEditAddressField(newAddress, index)"><i
+    class="fa fa-plus"></i> {{'profile.addNewAddress' | translate}}</a>
+</div>
+
+
+<!--MODAL WRAPPER -->
+<div id="modal-delete-address" class="modal center"
+     [materializeParams]="[{dismissible: false}]"
+     materialize="modal">
+  <!--MODAL CONTENT -->
+  <div class="modal-content">
+    <h3>{{'profile.deleteConfirmation' | translate}}</h3>
+  </div>
+  <!--MODAL - FOOTER-->
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat red right"
+       (click)="deleteAddress()">{{'profile.delete' | translate}}</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat s-left">{{'profile.cancel' | translate}}</a>
+  </div>
 </div>

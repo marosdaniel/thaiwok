@@ -1,0 +1,19 @@
+.dropdown-content {
+  overflow: hidden;
+}
+
+.address-line i{
+  line-height: 2rem;
+  font-size: 20px;
+}
+//
+//.actions-icon {
+//  margin-top: 12px;
+//}
+
+@media only screen and (max-width: 600px) {
+  .actions-icon {
+    //margin-top: 40%;
+  }
+}
+

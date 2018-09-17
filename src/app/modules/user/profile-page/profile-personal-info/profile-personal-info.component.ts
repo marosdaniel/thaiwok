@@ -14,8 +14,8 @@ import {User} from '../../../../models/user.model';
 })
 export class ProfilePersonalInfoComponent implements OnInit {
   public user: User;
-  public isLoading: boolean = true;
-  public isEditable : boolean = false;
+  public isLoading = true;
+  public isEditable = false;
   public newEmail: string;
   public currentUser;
   public validMailFormat: boolean;
@@ -24,7 +24,6 @@ export class ProfilePersonalInfoComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-
     this.auth.user.subscribe(user => {
       this.user = user;
       this.isLoading = false;
@@ -32,7 +31,7 @@ export class ProfilePersonalInfoComponent implements OnInit {
 
     this.newEmail = '';
     this.currentUser = firebase.auth().currentUser;
-    this.validMailFormat = this.commonService.isValidMailFormat(this.newEmail)
+    this.validMailFormat = this.commonService.isValidMailFormat(this.newEmail);
   }
 
   logout() {
@@ -53,7 +52,7 @@ export class ProfilePersonalInfoComponent implements OnInit {
     this.isEditable = true;
   }
 
-  updateEmail() {
+  public updateEmail() {
     this.auth.updateEmail(this.newEmail);
     this.newEmail = '';
   }

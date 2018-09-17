@@ -30,7 +30,7 @@
     "password": "Password",
     "rememberMe": "Rememeber me",
     "forgotPassword": "Forgot password ?",
-    "socialLoginTitle": "Social Login",
+    "socialLoginTitle": "Login",
     "registerNow": "Register now !",
     "alreadyLoggedIn": "You are logged in :)",
     "goToProfile": "Go to the profile"
@@ -87,7 +87,11 @@
     "name": "Name",
     "address": "Address",
     "phone": "Phone",
-    "price": "Price"
+    "price": "Price",
+    "addNewEmail": "Add new e-mail",
+    "cancel": "Cancel",
+    "deleteConfirmation": "Are you sure want to delete?",
+    "delete": "Delete"
   },
   "listingItem": {
     "details": "Details",
