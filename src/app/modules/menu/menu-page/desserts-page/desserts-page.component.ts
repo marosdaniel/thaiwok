@@ -12,6 +12,7 @@ export class DessertsPageComponent implements OnInit {
 
   public variant: String;
   public desserts: any[];
+  public isLoading = true;
 
 
   constructor(private menuService: MenuService) { }
@@ -21,6 +22,7 @@ export class DessertsPageComponent implements OnInit {
     this.menuService.getMenuItems(this.menuService.categories.DESSERTS)
       .subscribe(result => {
         this.desserts = result;
+        this.isLoading = false;
       });
 
     this.variant = menuTypes.DESSERTS;

@@ -12,6 +12,7 @@ export class SoupsPageComponent implements OnInit {
 
   public variant: String;
   public soups: any[];
+  public isLoading = true;
 
   constructor(private menuService: MenuService) {
   }
@@ -21,6 +22,7 @@ export class SoupsPageComponent implements OnInit {
     this.menuService.getMenuItems(this.menuService.categories.SOUPS)
       .subscribe(result => {
         this.soups = result;
+        this.isLoading = false;
       });
 
     this.variant = menuTypes.SOUPS;

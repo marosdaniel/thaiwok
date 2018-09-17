@@ -97,7 +97,8 @@
     "details": "Details",
     "back": "Back",
     "addToCart": "Add to cart",
-    "price": "Price"
+    "price": "Price",
+    "number": "Number"
   },
   "common": {
     "cancel": "Cancel"

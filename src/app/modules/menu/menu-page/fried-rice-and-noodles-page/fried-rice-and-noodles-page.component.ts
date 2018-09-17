@@ -12,6 +12,7 @@ export class FriedRiceAndNoodlesPageComponent implements OnInit {
 
   public variant: String;
   public friedRiceAndNoodles: any[];
+  public isLoading = true;
 
   constructor(private menuService: MenuService) {
   }
@@ -21,6 +22,7 @@ export class FriedRiceAndNoodlesPageComponent implements OnInit {
     this.menuService.getMenuItems(this.menuService.categories.FRIED_RICE_AND_NOODLES)
       .subscribe(result => {
         this.friedRiceAndNoodles = result;
+        this.isLoading = false;
       });
 
     this.variant = menuTypes.FRIED_RICE_AND_NOODLES;

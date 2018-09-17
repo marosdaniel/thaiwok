@@ -25,18 +25,16 @@ import {MainComponent} from './main/main.component';
 import {HeaderComponent} from './header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-
 // MODULES
 import {AuthModule} from './modules/auth/auth.module';
 import {MenuModule} from './modules/menu/menu.module';
 import {OrderModule} from './modules/order/order.module';
 import {UserModule} from './modules/user/user.module';
 import {OwnCommonModule} from './modules/common/own-common.module';
-
+import {SharedModule} from './modules/shared/shared.module';
 
 // PAGES
 import {NotFoundPageComponent} from './modules/common/not-found-page/not-found-page.component';
-
 
 // SERVICES
 import {FirebaseService} from './services/firebase/firebase.service';
@@ -47,7 +45,6 @@ import {CartService} from './services/cart/cart.service';
 import {CommonService} from './services/common/common.service';
 import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -79,6 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     OrderModule,
     // UserModule,  // it will be lazy loaded
     OwnCommonModule,
+    SharedModule,
 
     MaterializeModule,
     ReactiveFormsModule,

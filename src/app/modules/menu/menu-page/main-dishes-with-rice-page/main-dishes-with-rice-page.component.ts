@@ -12,6 +12,7 @@ export class MainDishesWithRicePageComponent implements OnInit {
 
   public variant: String;
   public mainDishesWithRice: any[];
+  public isLoading = true;
 
   constructor(private menuService: MenuService) {
   }
@@ -21,6 +22,7 @@ export class MainDishesWithRicePageComponent implements OnInit {
     this.menuService.getMenuItems(this.menuService.categories.MAIN_DISHES_WITH_RICE)
       .subscribe(result => {
         this.mainDishesWithRice = result;
+        this.isLoading = false;
       });
 
     this.variant = menuTypes.MAIN_DISHES_WITH_RICE;

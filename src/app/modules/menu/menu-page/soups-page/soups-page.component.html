@@ -1,6 +1,7 @@
-<div class="menu-category-title">
+<div *ngIf="!isLoading" class="menu-category-title">
   <i routerLink="/menu/appetizers" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
   <h3 class="inline-block s-center" translate="">{{'menu-tab.soups' | translate}}</h3>
   <i routerLink="/menu/fried-rice-and-noodles" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
 </div>
-<app-listing [variant]="variant" [data]="soups"></app-listing>
+<app-listing *ngIf="!isLoading" [variant]="variant" [data]="soups"></app-listing>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

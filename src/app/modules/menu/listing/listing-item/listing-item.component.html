@@ -4,7 +4,7 @@
     <span class="card-title" style="width:100%; background: rgba(0, 0, 0, 0.3);">{{item.name}}</span>
   </div>
   <div class="card-content">
-    <h6 class="card-subtitle mb-2 text-muted">id: {{item.id}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{'listingItem.number' | translate}}: {{item.id}}</h6>
     <p class="card-text">{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
   </div>
   <div class="card-action">

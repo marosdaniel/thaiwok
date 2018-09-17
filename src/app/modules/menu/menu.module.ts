@@ -6,6 +6,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
 import {MaterializeModule} from 'angular2-materialize';
+import {SharedModule} from '../shared/shared.module';
 
 // COMPONENTS
 import {MenuPageComponent} from './menu-page/menu-page.component';
@@ -26,7 +27,8 @@ import {ListingItemComponent} from './listing/listing-item/listing-item.componen
     MainDishesWithRicePageComponent,
     SoupsPageComponent,
     ListingComponent,
-    ListingItemComponent
+    ListingItemComponent,
+
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import {ListingItemComponent} from './listing/listing-item/listing-item.componen
         deps: [HttpClient]
       }
     }),
-    MaterializeModule
+    MaterializeModule,
+    SharedModule
   ]
 })
 export class MenuModule {
