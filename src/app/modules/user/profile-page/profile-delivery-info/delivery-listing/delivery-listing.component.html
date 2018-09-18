@@ -3,8 +3,8 @@
   <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
   <div class="row">
     <ul class="" *ngIf="user && user.addresses?.length > 0">
-      <li class="address-line" *ngFor="let address of user.addresses; let index = index">
-        <span class="col s10">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
+      <li class="address-line" *ngFor="let address of user.addresses; indexOfAddress = index">
+        <span class="col s10">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő index:{{indexOfAddress}}</span>
         <span class="col s2 actions-icon">
           <i class="fa fa-cog clickable right dropdown-trigger"
              data-activates="dropdown-actions"
@@ -16,10 +16,10 @@
              ></i>
           <!--<i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>-->
           <!--<i class="fa fa-edit tooltipped clickable right" (click)="showEditAddressField(address, index)" data-tooltip="Click here to edit your address"></i>-->
-          <ul id="dropdown-actions" class="dropdown-content center">
-            <button class="btn" (click)="showEditAddressField(address, index)"><i class="fa fa-edit clickable"></i></button>
-            <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)"><i class="fa fa-trash clickable"></i></button>
-          </ul>
+          <span id="dropdown-actions" class="dropdown-content center">
+            <button class="btn" (click)="showEditAddressField(user.addresses[indexOfAddress], indexOfAddress)"><i class="fa fa-edit clickable"></i></button>
+            <button class="btn red" (click)="openDeleteAddressConfirmationModal(indexOfAddress)"><i class="fa fa-trash clickable"></i></button>
+          </span>
 
         </span>
       </li>

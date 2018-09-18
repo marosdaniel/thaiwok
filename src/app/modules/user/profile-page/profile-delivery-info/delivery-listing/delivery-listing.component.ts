@@ -20,6 +20,7 @@ export class DeliveryListingComponent implements OnInit {
   public isEditable = false;
   public newAddress: Address;
   private indexOfAddressToDelete: number;
+  public indexOfAddress;
 
   constructor(private auth: AuthService) {
   }
@@ -50,6 +51,7 @@ export class DeliveryListingComponent implements OnInit {
   }
 
   public showEditAddressField(address: Address, index) {
+    console.log(this.user.addresses);
     this.isEditingAddress.emit(true);
     this.emitAddressNumber.emit(index);
     this.emitAddressEvent.emit(address);

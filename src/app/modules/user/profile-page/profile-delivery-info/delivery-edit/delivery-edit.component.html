@@ -101,7 +101,7 @@
     <div class="input-field col m4 s4">
       <input type="number" id="edit_bell"
              class="validate" required="" aria-required="true"
-             pattern="^[+]?\d+$"
+             pattern="[^[+]?\d+$]"
              [(ngModel)]="addressToShare.bell">
       <label [ngClass]="{'active': addressToShare.houseNumber }"
              for="edit_bell">{{'profile.bell' | translate}}</label>
