@@ -60,12 +60,12 @@ export class AppComponent implements OnInit, OnDestroy {
           this.restart();
         });
 
-    //Start watching for user inactivity.
+    // Start watching for user inactivity.
     this.userIdle.startWatching();
 
     // Start watching when user idle is starting.
     this.userIdle.onTimerStart().subscribe(count => {
-      if (count == 600) { // timeout in sec
+      if (count === 600) { // timeout in sec
         // console.log(count);
         if(this.auth.user){
           this.auth.signOut();
