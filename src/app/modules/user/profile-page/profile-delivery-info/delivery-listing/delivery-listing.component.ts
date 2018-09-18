@@ -31,7 +31,6 @@ export class DeliveryListingComponent implements OnInit {
       this.user = user;
     });
     this.newAddress = new Address();
-    ($('.dropdown-trigger') as any).dropdown({});
     ($('#modal-delete-address')as any).modal();
   }
 

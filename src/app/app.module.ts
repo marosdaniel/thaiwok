@@ -16,8 +16,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MaterializeModule } from 'angular2-materialize';
 import {UserIdleModule} from 'angular-user-idle';
-import {AgmCoreModule} from '@agm/core';
-import {apiKey} from '../environments/apikeys';
 
 // COMPONENTS
 import {FooterComponent} from './footer/footer.component';
@@ -80,7 +78,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 
     MaterializeModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({apiKey} ),
 
     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 600 (10 minutes)

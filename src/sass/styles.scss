@@ -93,6 +93,14 @@ h3.inline-block {
   background-color: $tw-yellow !important;
 }
 
+//
+// BUTTONS
+//
+button.btn.red {
+  &:hover {
+    background-color: #b71c1c !important;
+  }
+}
 
 //
 //COMMON TOASTER

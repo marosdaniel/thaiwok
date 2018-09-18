@@ -2,28 +2,25 @@
   <h4 class="s-center">{{'profile.deliveryAddresses' | translate}}</h4>
   <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
   <div class="row">
-    <ul class="" *ngIf="user && user.addresses?.length > 0">
-      <li class="address-line" *ngFor="let address of user.addresses; let index = index">
-        <span class="col s10">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő index:{{index}}</span>
-        <span class="col s2 actions-icon">
-          <i class="fa fa-cog clickable right dropdown-trigger"
-             data-activates="dropdown-actions"
-             data-belowOrigin="true"
-             data-constrainwidth="false"
-             data-constrainheight="false"
-             data-gutter="24"
-             materialize="dropdown"
-             ></i>
-          <!--<i class="fa fa-trash-o red-text clickable right" (click)="deleteAddress(index)"></i>-->
-          <!--<i class="fa fa-edit tooltipped clickable right" (click)="showEditAddressField(address, index)" data-tooltip="Click here to edit your address"></i>-->
-          <span id="dropdown-actions" class="dropdown-content center">
-            <button class="btn" (click)="showEditAddressField(user.addresses[index], index)"><i class="fa fa-edit clickable"></i></button>
-            <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)"><i class="fa fa-trash clickable"></i></button>
-          </span>
 
-        </span>
+
+
+    <ul class="collapsible" *ngIf="user && user.addresses?.length > 0" materialize="collapsible">
+      <li class="address-line clearfix" *ngFor="let address of user.addresses; let index = index">
+        <div class="collapsible-header">
+          <span class="col s10">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
+          <span class="col s2"><i class="fa fa-cog clickable right"></i></span>
+        </div>
+        <div class="collapsible-body">
+          <button class="btn" (click)="showEditAddressField(user.addresses[index], index)">EDIT  <i class="fa fa-edit clickable"></i></button>
+          <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)">DELETE  <i class="fa fa-trash clickable"></i></button>
+        </div>
       </li>
     </ul>
+
+
+
+
   </div>
   <a *ngIf="isEditingAddress" class="col s12 clickable s-center" (click)="showEditAddressField(newAddress, index)"><i
     class="fa fa-plus"></i> {{'profile.addNewAddress' | translate}}</a>

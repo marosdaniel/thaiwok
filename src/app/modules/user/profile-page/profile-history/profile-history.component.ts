@@ -17,7 +17,7 @@ export class ProfileHistoryComponent implements OnInit {
   ngOnInit() {
     this.auth.user.subscribe(user => {
       this.user = user;
-      this.hasHistory = this.user.history.length>0;
+      this.hasHistory = this.user.history.length > 0;
     });
   }
 
