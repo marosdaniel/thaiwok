@@ -12,8 +12,7 @@ import {environment} from '../environments/environment';
 import {AppRoutingModule} from './routing/app.routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {UserIdleModule} from 'angular-user-idle';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
@@ -104,7 +103,7 @@ import {HttpLoaderFactory} from './services/translate/translate.service';
     StorageService,
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
     OpenHoursService,
-    TranslateService
+    HttpLoaderFactory
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
