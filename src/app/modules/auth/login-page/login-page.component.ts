@@ -3,7 +3,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/switchMap';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import * as Izitoast from 'izitoast';
+import * as izitoast from 'izitoast';
 import {AuthService} from '../../../services/auth/auth.service';
 import {CommonService} from '../../../services/common/common.service';
 import {errorEmailFormat, errorNoEmail, errorPassReset} from '../../../config/toasters/toasters';
@@ -63,7 +63,7 @@ export class LoginPageComponent implements OnInit {
 
   resetPassword() {
     if (this.userForm.value['email'] === '') {
-      Izitoast.default.show(errorNoEmail);
+      izitoast.default.show(errorNoEmail);
 
     } else {
       if (this.commonService.isValidMailFormat(this.userForm.value['email'])) {
@@ -73,11 +73,11 @@ export class LoginPageComponent implements OnInit {
           this.auth.resetPassword(this.userForm.value['email'])
             .then(() => this.passReset = true);
         } else {
-          Izitoast.default.show(errorPassReset);
+          izitoast.default.show(errorPassReset);
           return;
         }
       } else {
-        Izitoast.default.show(errorEmailFormat);
+        izitoast.default.show(errorEmailFormat);
       }
     }
 

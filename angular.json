@@ -28,10 +28,10 @@
             ],
             "styles": [
               "node_modules/bootstrap-social/bootstrap-social.css",
-              "node_modules/materialize-social/materialize-social.css",
-              "node_modules/materialize-css/dist/css/materialize.min.css",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
               "node_modules/izitoast/dist/css/iziToast.min.css",
-              "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/flag-icon-css/css/flag-icon.min.css",
               "./src/sass/styles.scss"
             ],
@@ -44,8 +44,7 @@
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/tether/dist/js/tether.min.js",
               "./node_modules/hammerjs/hammer.js",
-              "./node_modules/materialize-css/dist/js/materialize.min.js",
-              "./node_modules/materialize-autocomplete/jquery.materialize-autocomplete.js",
+              "./node_modules/chart.js/dist/Chart.js",
               "./node_modules/izitoast/dist/js/iziToast.min.js"
             ]
           },

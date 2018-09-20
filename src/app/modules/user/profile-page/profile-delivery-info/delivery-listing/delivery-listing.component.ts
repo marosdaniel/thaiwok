@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
-import * as Izitoast from 'izitoast';
+import * as izitoast from 'izitoast';
 import {errorSaveToaster, successSaveToaster} from '../../../../../config/toasters/toasters';
 import {Address} from '../../../../../models/address.model';
 
@@ -37,10 +37,10 @@ export class DeliveryListingComponent implements OnInit {
   private updateUser() {
     this.auth.updateUser(this.user)
       .then(() => {
-        Izitoast.default.show(successSaveToaster);
+        izitoast.default.show(successSaveToaster);
         this.isEditable = false;
       }).catch(() => {
-      Izitoast.default.show(errorSaveToaster);
+      izitoast.default.show(errorSaveToaster);
     });
   }
 

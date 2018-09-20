@@ -12,8 +12,8 @@
           <span class="col s2"><i class="fa fa-cog clickable right"></i></span>
         </div>
         <div class="collapsible-body">
-          <button class="btn" (click)="showEditAddressField(user.addresses[index], index)">EDIT  <i class="fa fa-edit clickable"></i></button>
-          <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)">DELETE  <i class="fa fa-trash clickable"></i></button>
+          <button class="btn" (click)="showEditAddressField(user.addresses[index], index)">{{'profile.edit' | translate}}<i class="fa fa-edit clickable"></i></button>
+          <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)">{{'profile.delete' | translate}}<i class="fa fa-trash clickable"></i></button>
         </div>
       </li>
     </ul>
@@ -29,7 +29,6 @@
 
 <!--MODAL WRAPPER -->
 <div id="modal-delete-address" class="modal center"
-     [materializeParams]="[{dismissible: false}]"
      materialize="modal">
   <!--MODAL CONTENT -->
   <div class="modal-content">

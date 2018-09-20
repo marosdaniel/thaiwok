@@ -1,13 +1,12 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
-import {MaterializeAction} from 'angular2-materialize';
 import {CartService} from '../../../../services/cart/cart.service';
-import * as Izitoast from 'izitoast';
+import * as izitoast from 'izitoast';
 import {errorNoSelectedItemToaster} from '../../../../config/toasters/toasters';
 import {CommonService} from '../../../../services/common/common.service';
 import {Item} from '../../../../models/item.model';
 import {MeatTypeEnum} from '../../../../models/enums/meatType.enum';
 import {LanguageService} from '../../../../services/language/language.service';
-declare var $:any;
+declare var $: any;
 
 
 @Component({
@@ -42,20 +41,20 @@ export class ListingItemComponent implements OnInit {
     // this.currentLanguage = this.languageService.actualLanguage;
   }
 
-  modalActions = new EventEmitter<string|MaterializeAction>();
+  // modalActions = new EventEmitter<string|MaterializeAction>();
+  //
+  // openModal() {
+  //   this.modalActions.emit({action:"modal",params:['open']});
+  // }
+  // private closeModal() {
+  //   this.modalActions.emit({action:"modal",params:['close']});
+  // }
 
-  openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
-  }
-  private closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
-  }
-
-  addToCart():void {
-    if(!this.selectedItem) {
-      //create toaster message for no selected item
-      Izitoast.default.show(errorNoSelectedItemToaster);
-      return
+  addToCart(): void {
+    if (!this.selectedItem) {
+      // create toaster message for no selected item
+      izitoast.default.show(errorNoSelectedItemToaster);
+      return;
     }
     this.initilizeCartItem();
 
@@ -69,7 +68,7 @@ export class ListingItemComponent implements OnInit {
 
   public backToItems() {
     this.commonService.uncheckCheckedRadio();
-    this.closeModal();
+    // this.closeModal();
   }
 
   public setIndex(index) {

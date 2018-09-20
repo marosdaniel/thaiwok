@@ -6,6 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class LanguageService {
 
+  public actualLanguage = this.translate.getBrowserLang();
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('hu');
 
@@ -14,7 +15,4 @@ export class LanguageService {
     this.translate.use(language);
     this.actualLanguage = language;
   }
-  actualLanguage = this.translate.getBrowserLang();
-
-
 }

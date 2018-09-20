@@ -2,9 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
-import {MaterializeModule} from 'angular2-materialize';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {OwnCommonRoutingModule} from '../../routing/own-common.routing.module';
 
 import {AboutUsPageComponent} from './about-us-page/about-us-page.component';
@@ -37,8 +36,7 @@ import { MapComponent } from './contact-page/map/map.component';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    MaterializeModule
+    })
   ]
 })
 export class OwnCommonModule {

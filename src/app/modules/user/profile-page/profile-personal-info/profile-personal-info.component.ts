@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
-import * as Izitoast from 'iziToast';
+import * as izitoast from 'iziToast';
 import {errorSaveToaster, successSaveToaster} from '../../../../config/toasters/toasters';
 import * as firebase from 'firebase';
 import {CommonService} from '../../../../services/common/common.service';
@@ -41,10 +41,10 @@ export class ProfilePersonalInfoComponent implements OnInit {
   public updateUser() {
     this.auth.updateUser(this.user)
       .then(() => {
-        Izitoast.default.show(successSaveToaster);
+        izitoast.default.show(successSaveToaster);
         this.isEditable = false;
       }).catch(() => {
-      Izitoast.default.show(errorSaveToaster);
+      izitoast.default.show(errorSaveToaster);
     });
   }
 

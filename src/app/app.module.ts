@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
@@ -12,10 +12,11 @@ import {environment} from '../environments/environment';
 import {AppRoutingModule} from './routing/app.routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MaterializeModule } from 'angular2-materialize';
 import {UserIdleModule} from 'angular-user-idle';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+
 
 // COMPONENTS
 import {FooterComponent} from './footer/footer.component';
@@ -31,6 +32,7 @@ import {UserModule} from './modules/user/user.module';
 import {OwnCommonModule} from './modules/common/own-common.module';
 import {SharedModule} from './modules/shared/shared.module';
 
+
 // PAGES
 import {NotFoundPageComponent} from './modules/common/not-found-page/not-found-page.component';
 
@@ -43,10 +45,7 @@ import {CartService} from './services/cart/cart.service';
 import {CommonService} from './services/common/common.service';
 import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+import {HttpLoaderFactory} from './services/translate/translate.service';
 
 
 @NgModule({
@@ -67,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     HttpClientModule,
     FormsModule,
+    MDBBootstrapModule.forRoot(),
 
     // OWN MODULES
     AuthModule,
@@ -75,8 +75,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     // UserModule,  // it will be lazy loaded
     OwnCommonModule,
     SharedModule,
-
-    MaterializeModule,
     ReactiveFormsModule,
 
     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
@@ -105,8 +103,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonService,
     StorageService,
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
-    OpenHoursService
+    OpenHoursService,
+    TranslateService
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

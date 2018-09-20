@@ -3,9 +3,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MenuRoutingModule} from '../../routing/menu.routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
-import {MaterializeModule} from 'angular2-materialize';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {SharedModule} from '../shared/shared.module';
 
 // COMPONENTS
@@ -40,7 +39,6 @@ import {ListingItemComponent} from './listing/listing-item/listing-item.componen
         deps: [HttpClient]
       }
     }),
-    MaterializeModule,
     SharedModule
   ]
 })

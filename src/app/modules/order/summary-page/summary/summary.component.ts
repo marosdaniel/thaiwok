@@ -1,16 +1,11 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 import {CartService} from '../../../../services/cart/cart.service';
-import * as Izitoast from 'izitoast';
-import {successOrderToaster} from '../../../../config/toasters/toasters';
 import {CommonService} from '../../../../services/common/common.service';
 import {StorageService} from '../../../../services/storage/storage.service';
-import * as M from 'materializecss';
 import {User} from '../../../../models/user.model';
 import {CartItem} from '../../../../models/cartItem.model';
 import {ShippingInfo} from '../../../../models/shippingInfo.model';
-import * as firebase from 'firebase';
-import {MaterializeAction} from 'angular2-materialize';
 import {LanguageService} from '../../../../services/language/language.service';
 import {Address} from '../../../../models/address.model';
 
@@ -35,7 +30,6 @@ export class SummaryComponent implements OnInit {
   public tempFirstName: string;
   public tempLastName: string;
   public tempPhoneNumber: string | number;
-  public modalActions = new EventEmitter<string|MaterializeAction>();
 
   constructor(public auth: AuthService,
               private cartService: CartService,
@@ -104,7 +98,7 @@ export class SummaryComponent implements OnInit {
     // send email notification
     this.storageService.clearLocalStorageVariable('shippingInfo');
     this.storageService.clearLocalStorageVariable('cartItems');
-    this.openModal();
+    // this.openModal();
   }
 
   cartItemSummary = () => {
@@ -166,10 +160,10 @@ export class SummaryComponent implements OnInit {
     this.shippingInfo.phoneNumber = this.user && this.user.phoneNumber ? this.user.phoneNumber : this.tempPhoneNumber;
   }
 
-  private openModal() {
-    // this.modalActions.emit({action:"modal",params:['open']});
-    ($('#modal-success-order')as any).modal('open');
-  }
+  // private openModal() {
+  //   // this.modalActions.emit({action:"modal",params:['open']});
+  //   ($('#modal-success-order')as any).modal('open');
+  // }
 
 
 }

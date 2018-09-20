@@ -1,7 +1,6 @@
 import {LanguageService} from '../../services/language/language.service';
 import {AfterContentInit, AfterViewChecked, AfterViewInit, Component, EventEmitter, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth/auth.service';
-import {MaterializeAction} from 'angular2-materialize';
 
 declare var $:any;
 
@@ -47,13 +46,13 @@ export class NavbarComponent implements OnInit, AfterViewChecked{
   }
 
 
-  modalActions = new EventEmitter<string|MaterializeAction>();
-  openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
-  }
-  closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
-  }
+  // modalActions = new EventEmitter<string|MaterializeAction>();
+  // openModal() {
+  //   this.modalActions.emit({action:"modal",params:['open']});
+  // }
+  // closeModal() {
+  //   this.modalActions.emit({action:"modal",params:['close']});
+  // }
 
 
 }

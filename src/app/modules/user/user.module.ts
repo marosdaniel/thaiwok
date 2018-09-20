@@ -4,9 +4,8 @@ import {FormsModule} from '@angular/forms';
 
 import {UserRoutingModule} from '../../routing/user.routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
-import {MaterializeModule} from 'angular2-materialize';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {ProfilePersonalInfoComponent} from './profile-page/profile-personal-info/profile-personal-info.component';
@@ -34,8 +33,7 @@ import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delive
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    MaterializeModule
+    })
   ]
 })
 export class UserModule {
