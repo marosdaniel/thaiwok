@@ -3,12 +3,12 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
-import {HttpLoaderFactory} from '../../app.module';
 import {CommonModule} from '@angular/common';
 import {AuthRoutingModule} from '../../routing/auth.routing.module';
 
 import {SignupPageComponent} from './signup-page/signup-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 
 
 @NgModule({

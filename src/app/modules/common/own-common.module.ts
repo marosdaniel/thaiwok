@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
 import {MaterializeModule} from 'angular2-materialize';
 import {OwnCommonRoutingModule} from '../../routing/own-common.routing.module';
@@ -15,6 +14,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {CarouselComponent} from './home-page/carousel/carousel.component';
 import {ParallaxComponent} from './home-page/parallax/parallax.component';
 import { MapComponent } from './contact-page/map/map.component';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 
 @NgModule({
   declarations: [

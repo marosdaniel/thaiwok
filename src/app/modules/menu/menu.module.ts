@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MenuRoutingModule} from '../../routing/menu.routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
 import {MaterializeModule} from 'angular2-materialize';
 import {SharedModule} from '../shared/shared.module';
@@ -17,6 +16,7 @@ import {MainDishesWithRicePageComponent} from './menu-page/main-dishes-with-rice
 import {SoupsPageComponent} from './menu-page/soups-page/soups-page.component';
 import {ListingComponent} from './listing/listing.component';
 import {ListingItemComponent} from './listing/listing-item/listing-item.component';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 
 @NgModule({
   declarations: [

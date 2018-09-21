@@ -12,7 +12,7 @@ import {environment} from '../environments/environment';
 import {AppRoutingModule} from './routing/app.routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MaterializeModule } from 'angular2-materialize';
 import {UserIdleModule} from 'angular-user-idle';
@@ -43,10 +43,7 @@ import {CartService} from './services/cart/cart.service';
 import {CommonService} from './services/common/common.service';
 import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+import {HttpLoaderFactory} from './services/translate/translate.service';
 
 
 @NgModule({
@@ -105,7 +102,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonService,
     StorageService,
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
-    OpenHoursService
+    OpenHoursService,
+    HttpLoaderFactory
   ],
   bootstrap: [AppComponent]
 })

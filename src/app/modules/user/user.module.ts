@@ -4,8 +4,8 @@ import {FormsModule} from '@angular/forms';
 
 import {UserRoutingModule} from '../../routing/user.routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MaterializeModule} from 'angular2-materialize';
 
 import {ProfilePageComponent} from './profile-page/profile-page.component';
