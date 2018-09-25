@@ -13,7 +13,6 @@ import {AppRoutingModule} from './routing/app.routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserIdleModule} from 'angular-user-idle';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 

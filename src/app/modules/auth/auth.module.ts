@@ -14,7 +14,7 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
 @NgModule({
   declarations: [
     SignupPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +28,8 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         deps: [HttpClient]
       }
     })
+  ],
+  exports: [
   ]
 })
 export class AuthModule {

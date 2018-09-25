@@ -2,8 +2,8 @@
   <h3>{{'contactus.openHoursTitle' | translate}}</h3>
 
   <div>
-    <ul>
-      <li class="" *ngFor="let day of openHours">
+    <ul class="list-group">
+      <li class="list-unstyled" *ngFor="let day of openHours">
         <span>{{languageService.actualLanguage === 'en' ? day.day.en : day.day.hu}} - </span>
         <span *ngIf="day.day.en!=='Sunday'">
           <span>{{day.from}}-</span>
@@ -14,12 +14,5 @@
         </span>
       </li>
     </ul>
-
-    <!--<ul>-->
-      <!--<li *ngFor="let day of exceptionalDays">-->
-        <!--<pre>{{day.name}} - {{day.date}}</pre>-->
-      <!--</li>-->
-    <!--</ul>-->
-
   </div>
 </div>
