@@ -1,7 +1,9 @@
 //@import './_variables';
 //@import './_mixins';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import "variables";
 @import "mixins";
+@import "bootstrapOverwrite";
 
 
 //
@@ -9,12 +11,9 @@
 //
 
 body {
+  padding-top: 66px; // because of .fixed-top navbar
   color: $tw-grey;
   font-family: $raleway-font;
-}
-
-.btn {
-  background-color: $tw-grey;
 }
 
 .no-margin {
@@ -35,7 +34,6 @@ body {
 }
 
 a {
-
   transition: color 0.4s ease-out;
   &:hover {
     color: $tw-dark-blue;
@@ -69,11 +67,6 @@ a {
   }
 }
 
-h3.inline-block {
-  padding: 0 12px;
-  margin-bottom: 3rem;
-}
-
 //
 //CHECKBOX, RADIO
 //
@@ -96,54 +89,38 @@ h3.inline-block {
 //
 // BUTTONS
 //
-button.btn.red {
-  &:hover {
-    background-color: #b71c1c !important;
-  }
-}
-
-//
-//COMMON TOASTER
-//
-.fulfilledToaster {
-  //background-color: lightgreen;
-}
-
-.errorToaster {
-  //background-color: lightcoral;
-}
 
 
 //
 //  COMMON MODAL
 //
 
-.modal-footer{
-
-  &-btn__back{
-    &:hover{
-      color: red;
-    }
-  }
-  &-btn__go{
-    &:hover{
-      color: $tw-teal;
-    }
-  }
-}
+//.modal-footer{
+//
+//  &-btn__back{
+//    &:hover{
+//      color: red;
+//    }
+//  }
+//  &-btn__go{
+//    &:hover{
+//      color: $tw-teal;
+//    }
+//  }
+//}
 
 //
 // COMMON FOR MENU-PAGES
 //
-.menu-category {
-
-  &-title {
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-  }
-}
+//.menu-category {
+//
+//  &-title {
+//    width: 100%;
+//    display: flex;
+//    align-items: baseline;
+//    justify-content: center;
+//  }
+//}
 
 
 //

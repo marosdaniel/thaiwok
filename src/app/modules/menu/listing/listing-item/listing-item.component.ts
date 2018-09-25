@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
-import {MaterializeAction} from 'angular2-materialize';
 import {CartService} from '../../../../services/cart/cart.service';
 import * as Izitoast from 'izitoast';
 import {errorNoSelectedItemToaster} from '../../../../config/toasters/toasters';
@@ -42,20 +41,17 @@ export class ListingItemComponent implements OnInit {
     // this.currentLanguage = this.languageService.actualLanguage;
   }
 
-  modalActions = new EventEmitter<string|MaterializeAction>();
 
   openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
   }
   private closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
   }
 
-  addToCart():void {
-    if(!this.selectedItem) {
-      //create toaster message for no selected item
+  addToCart(): void {
+    if (!this.selectedItem) {
+      // create toaster message for no selected item
       Izitoast.default.show(errorNoSelectedItemToaster);
-      return
+      return;
     }
     this.initilizeCartItem();
 

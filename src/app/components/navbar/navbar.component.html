@@ -1,166 +1,103 @@
-<!--NAVBAR-->
-<nav class="navbar-fixed">
-  <div class="nav-wrapper row" translate>
-    <a class="brand-logo great-vibe-font" routerLink="/home">Thai Wok Express</a>
-    <a href="#" data-activates="mobile-demo"  data-target="slide-out" class="button-collapse sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul id="slide-out" class="sidenav col hide-on-med-and-down right">
-      <li><a routerLink="/home" class="" routerLinkActive="navbar-active">{{'navbar.home' | translate}}</a></li>
-      <li><a materialize="dropdown" data-constrainwidth="false" class="dropdown-button dropdown-menu-types-desktop"
-             routerLinkActive="navbar-active" data-activates="dropdown-menu-types-desktop">{{'navbar.menu' |
-        translate}}</a></li>
+<nav class="fixed-top navbar navbar-expand-lg shadow">
+  <!--NAVBAR BRAND-->
+  <a class="great-vibe-font navbar-brand" routerLink="/home">Thai Wok Express</a>
 
-      <ul id="dropdown-menu-types-desktop" class="dropdown-content">
-        <li><a routerLink="/menu/appetizers" class="" routerLinkActive="navbar-active">{{'menu-tab.appetizers' |
-          translate}}</a></li>
-        <li><a routerLink="/menu/soups" class="" routerLinkActive="navbar-active">{{'menu-tab.soups' | translate}}</a>
-        </li>
-        <li><a routerLink="/menu/fried-rice-and-noodles" class="" routerLinkActive="navbar-active">{{'menu-tab.friedRiceAndNoodles'
-          | translate}}</a></li>
-        <li><a routerLink="/menu/main-dishes-with-rice" class="" routerLinkActive="navbar-active">{{'menu-tab.mainDishesWithRice'
-          | translate}}</a></li>
-        <li><a routerLink="/menu/desserts" class="" routerLinkActive="navbar-active">{{'menu-tab.desserts' |
-          translate}}</a></li>
-      </ul>
+  <!--NAVBAR TOGGLER-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <li><a routerLink="/delivery-and-payment" class="" routerLinkActive="navbar-active">{{'navbar.deliveryAndPayment' |
-        translate}}</a></li>
-      <li><a routerLink="/aboutus" class="" routerLinkActive="navbar-active">{{'navbar.aboutUs' | translate}}</a></li>
-      <li><a routerLink="/contact" class="" routerLinkActive="navbar-active">{{'navbar.contact' | translate}}</a></li>
-      <div *ngIf="auth.user | async as user; then loggedInButtonsDesktop else loggedOutButtons"></div>
-      <li><a routerLink="/cart" class="tooltipped" data-tooltip="Click here to check your cart" routerLinkActive="navbar-active">{{'navbar.cart' | translate}}</a></li>
+  <!--MENU-->
+  <div class="collapse navbar-collapse" id="navbarToggler" style="justify-content: flex-end;">
+    <ul class="navbar-nav">
+      <!--HOME-->
+      <li class="nav-item">
+        <a routerLink="/home" class="nav-link autoCollapse" routerLinkActive="navbar-active"  >{{'navbar.home' | translate}}</a>
+      </li>
+      <!--MENU-->
+      <li class="nav-item dropdown clickable" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{'navbar.menu' | translate}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a routerLink="/menu/appetizers" class="dropdown-item autoCollapse" routerLinkActive="navbar-active" data-toggle="collapse">{{'menu-tab.appetizers' |
+            translate}}</a>
+          <a routerLink="/menu/soups" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.soups' |
+            translate}}</a>
+          <a routerLink="/menu/fried-rice-and-noodles" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.friedRiceAndNoodles' |
+            translate}}</a>
+          <a routerLink="/menu/main-dishes-with-rice" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.mainDishesWithRice' |
+            translate}}</a>
+          <a routerLink="/menu/desserts" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.desserts' |
+            translate}}</a>
+        </div>
+      </li>
 
+      <!--DELIVERY AND PAYMENT-->
+      <li class="nav-item">
+        <a routerLink="/delivery-and-payment" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.deliveryAndPayment' |
+          translate}}</a>
+      </li>
+      <!--ABOUT US-->
+      <li class="nav-item">
+        <a routerLink="/aboutus" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.aboutUs' |
+          translate}}</a>
+      </li>
+      <!--CONTACT-->
+      <li class="nav-item">
+        <a routerLink="/contact" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.contact' |
+          translate}}</a>
+      </li>
+      <!--CART-->
+      <li class="nav-item">
+        <a routerLink="/cart" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.cart' |
+          translate}}</a>
+      </li>
 
-      <!-- Dropdown Trigger -->
-      <a materialize="dropdown" class='dropdown-button btn waves-effect waves-light'
-         data-tooltip="Click here to change the language" data-belowOrigin="true" *ngIf="language.actualLanguage==='en'"
-         data-activates='dropdown-desktop'><span class="flag-icon flag-icon-gb"></span></a>
-      <a materialize="dropdown" class='dropdown-button btn waves-effect waves-light'
-         data-tooltip="Click here to change the language" data-belowOrigin="true" *ngIf="language.actualLanguage==='hu'"
-         data-activates='dropdown-desktop'><span class="flag-icon flag-icon-hu"></span></a>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown-desktop' class='dropdown-content'>
-        <li *ngIf="language.actualLanguage!=='en'"><a class="center" (click)="language.switchLanguage('en')"><span
-          class="flag-icon flag-icon-gb"></span></a></li>
-        <li *ngIf="language.actualLanguage!=='hu'"><a class="center" (click)="language.switchLanguage('hu')"><span
-          class="flag-icon flag-icon-hu"></span></a></li>
-      </ul>
+      <!--PROFILE-->
+      <li ngbDropdown *ngIf="user" class="nav-item dropdown" autoClose>
+        <a class="nav-link dropdown-toggle clickable" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{'navbar.profile' | translate}}
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu profile-dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+          <a routerLink="/profile/personal-info" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.personalInfo' |
+            translate}}</a>
+          <a routerLink="/profile/delivery-info" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
+            translate}}</a>
+          <a routerLink="/profile/previous-orders" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.history' |
+            translate}}</a>
+          <a (click)="logout()" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.logout' |
+            translate}}</a>
+        </div>
+      </li>
 
+      <!--LOGIN-->
+      <li *ngIf="!user" class="nav-item">
+        <a routerLink="/login" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.login' |
+          translate}}</a>
+      </li>
+
+      <!--LANGUAGE SWITCHER-->
+      <!--ANGOL-->
+      <li ngbDropdown class="nav-item" *ngIf="language.actualLanguage==='en'">
+        <a class="nav-link dropdown-toggle clickable" id="engDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="flag-icon flag-icon-gb"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="engDropdown">
+          <a class="dropdown-item clickable autoCollapse" (click)="language.switchLanguage('hu')">
+            <span class="flag-icon flag-icon-hu"></span> Hungarian</a>
+        </div>
+      </li>
+      <!--MAGYAR-->
+      <li ngbDropdown class="nav-item" *ngIf="language.actualLanguage==='hu'" >
+        <a class="nav-link dropdown-toggle clickable" id="huDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="flag-icon flag-icon-hu"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="huDropdown">
+          <a class="dropdown-item clickable autoCollapse" (click)="language.switchLanguage('en')">
+            <span class="flag-icon flag-icon-gb"></span> English</a>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
-
-
-<!--SIDEBAR MOBILE VIEW-->
-<ul class="side-nav" id="mobile-demo" translate>
-  <li><a routerLink="/home" class="sidenav-close">{{'navbar.home' | translate}}<i class="tiny material-icons">home</i></a></li>
-
-  <li><a materialize="dropdown"
-         data-belowOrigin="true"
-         data-constrainwidth="false"
-         data-gutter="24"
-         data-closeOnClick="true"
-         data-activates="dropdown-menu-types-mobile"
-         class="dropdown-button dropdown-menu-types-mobile"
-         routerLinkActive="navbar-active" >{{'navbar.menu' | translate}}<i class="tiny material-icons">restaurant_menu</i></a>
-  </li>
-  <ul id="dropdown-menu-types-mobile" class="dropdown-content">
-    <li><a routerLink="/menu/appetizers" class="sidenav-close" routerLinkActive="navbar-active">{{'menu-tab.appetizers' |
-      translate}}</a></li>
-    <li><a routerLink="/menu/soups" class="sidenav-close" routerLinkActive="navbar-active">{{'menu-tab.soups' | translate}}</a></li>
-    <li><a routerLink="/menu/fried-rice-and-noodles" class="sidenav-close" routerLinkActive="navbar-active">{{'menu-tab.friedRiceAndNoodles'
-      | translate}}</a></li>
-    <li><a routerLink="/menu/main-dishes-with-rice" class="sidenav-close" routerLinkActive="navbar-active">{{'menu-tab.mainDishesWithRice'
-      | translate}}</a></li>
-    <li><a routerLink="/menu/desserts" class="sidenav-close" routerLinkActive="navbar-active">{{'menu-tab.desserts' | translate}}</a>
-    </li>
-  </ul>
-
-  <li><a routerLink="/delivery-and-payment" class="sidenav-close">{{'navbar.deliveryAndPayment' | translate}}<i class="tiny material-icons">payment</i></a></li>
-  <li><a routerLink="/aboutus" class="sidenav-close">{{'navbar.aboutUs' | translate}}<i class="tiny material-icons">insert_emoticon</i></a></li>
-  <li><a routerLink="/contact" class="sidenav-close">{{'navbar.contact' | translate}}<i class="tiny material-icons">local_phone</i></a></li>
-  <li><a routerLink="/cart" class="teal-text sidenav-close" data-tooltip="Click here to check your cart">{{'navbar.cart' | translate}}<i class="tiny teal-text material-icons">shopping_cart</i></a></li>
-  <div *ngIf="auth.user | async as user; then loggedInButtonsMobile else loggedOutButtons"></div>
-
-  <!-- Dropdown Trigger -->
-  <a materialize="dropdown" class='dropdown-button btn waves-effect waves-light side-nav-language-selector'
-     data-tooltip="Click here to change the language"
-     data-belowOrigin="true"
-     *ngIf="language.actualLanguage==='en'"
-     data-activates='dropdown-mobile'>
-    <span class="flag-icon flag-icon-gb"></span></a>
-  <a materialize="dropdown" class='dropdown-button btn waves-effect waves-light side-nav-language-selector'
-     data-tooltip="Click here to change the language"
-     data-belowOrigin="true"
-     *ngIf="language.actualLanguage==='hu'"
-     data-activates='dropdown-mobile'><span class="flag-icon flag-icon-hu"></span></a>
-  <!-- Dropdown Structure -->
-  <ul id='dropdown-mobile' class='dropdown-content'>
-    <li class="sidenav-close" *ngIf="language.actualLanguage!=='en'"><a class="center" (click)="language.switchLanguage('en')"><span
-      class="flag-icon flag-icon-gb"></span></a></li>
-    <li class="sidenav-close" *ngIf="language.actualLanguage!=='hu'"><a class="center" (click)="language.switchLanguage('hu')"><span
-      class="flag-icon flag-icon-hu"></span></a></li>
-  </ul>
-</ul>
-
-
-<!--LOGGED IN BUTTONS ON DESKTOP-->
-<ng-template #loggedInButtonsDesktop>
-  <li><a routerLink="/profile" materialize="dropdown"
-         data-belowOrigin="true"
-         data-hover="true"
-         data-constrainwidth="false"
-         data-activates="dropdown-profile"
-         class="dropdown-button dropdown-profile" routerLinkActive="navbar-active">{{'navbar.profile' | translate}}</a>
-  </li>
-
-  <ul id="dropdown-profile" class="dropdown-content">
-    <li><a routerLink="/profile/personal-info" class="" routerLinkActive="navbar-active">{{'navbar.personalInfo' |
-      translate}}</a></li>
-    <li><a routerLink="/profile/delivery-info" class="" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
-      translate}}</a></li>
-    <li><a routerLink="/profile/previous-orders" class="" routerLinkActive="navbar-active">{{'navbar.history' |
-      translate}}</a></li>
-    <li *ngIf="auth.user"><a (click)="logout()" class="tooltipped" routerLinkActive="navbar-active sidenav-close" data-tooltip="Click here to log out"><i style="margin: 0" class="fa fa-sign-out"></i> {{'navbar.logout' |
-      translate}}</a></li>
-  </ul>
-</ng-template>
-
-
-<!--LOGGED IN BUTTONS ON MOBILE-->
-<ng-template #loggedInButtonsMobile>
-  <!-- Dropdown Trigger -->
-  <li><a routerLink="/profile" materialize="dropdown"
-         data-belowOrigin="true"
-         data-constrainwidth="false"
-         data-activates="dropdown-profile-mobile"
-         data-gutter="24"
-         data-closeOnClick="true"
-         class="teal-text dropdown-button dropdown-profile-mobile" routerLinkActive="navbar-active">{{'navbar.profile' |
-    translate}}<i class="tiny teal-text material-icons">face</i></a></li>
-  <li><a (click)="logout()" class="" routerLinkActive="navbar-active"><i class="fa fa-sign-out no-margin"></i>{{'navbar.logout' |
-    translate}}</a></li>
-  <ul id="dropdown-profile-mobile" class="dropdown-content">
-    <li><a routerLink="/profile/personal-info" class="sidenav-close" routerLinkActive="navbar-active">{{'navbar.personalInfo' |
-      translate}}</a></li>
-    <li><a routerLink="/profile/delivery-info" class="sidenav-close" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
-      translate}}</a></li>
-    <li><a routerLink="/profile/previous-orders" class="sidenav-close" routerLinkActive="navbar-active">{{'navbar.history' |
-      translate}}</a></li>
-  </ul>
-</ng-template>
-
-
-<!--LOGGED OUT BUTTONS-->
-<ng-template #loggedOutButtons>
-  <li><a class="waves-effect waves-light tooltipped teal-text sidenav-close"
-         data-position="bottom"
-         data-tooltip="Click here to log in"
-         type="button"
-         routerLink="/login"
-         translate="">{{'navbar.login' | translate}}</a>
-  </li>
-</ng-template>
-
-
-
-

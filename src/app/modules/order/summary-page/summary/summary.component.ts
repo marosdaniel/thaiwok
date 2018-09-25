@@ -5,12 +5,10 @@ import * as Izitoast from 'izitoast';
 import {successOrderToaster} from '../../../../config/toasters/toasters';
 import {CommonService} from '../../../../services/common/common.service';
 import {StorageService} from '../../../../services/storage/storage.service';
-import * as M from 'materializecss';
 import {User} from '../../../../models/user.model';
 import {CartItem} from '../../../../models/cartItem.model';
 import {ShippingInfo} from '../../../../models/shippingInfo.model';
 import * as firebase from 'firebase';
-import {MaterializeAction} from 'angular2-materialize';
 import {LanguageService} from '../../../../services/language/language.service';
 import {Address} from '../../../../models/address.model';
 
@@ -35,7 +33,6 @@ export class SummaryComponent implements OnInit {
   public tempFirstName: string;
   public tempLastName: string;
   public tempPhoneNumber: string | number;
-  public modalActions = new EventEmitter<string|MaterializeAction>();
 
   constructor(public auth: AuthService,
               private cartService: CartService,
@@ -134,9 +131,9 @@ export class SummaryComponent implements OnInit {
   }
 
   private addToHistory() {
-    if(this.user) {
+    if (this.user) {
 
-      if(typeof this.user.history === 'undefined'){
+      if (typeof this.user.history === 'undefined'){
         this.user.history = [];
       }
       this.user.history.push(this.shippingInfo);

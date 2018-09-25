@@ -2,58 +2,31 @@
 
 nav {
   background-color: $tw-grey !important;
+}
 
-  a.brand-logo {
-    color: $tw-yellow !important;
-    width: fit-content;
-    padding: 0 0 0 1rem;
-  }
+.navbar li {
 
-  .hide-on-med-and-down {
-    li {
-      a {
-        color: $tw-light-grey;
-        &:hover {
-          opacity: 0.6;
-        }
-      }
+  margin: 0 12px;
+
+  a {
+    color: $tw-light-grey;
+    &:hover {
+      opacity: 0.6;
     }
   }
 }
 
-nav a.navbar-active {
-  color: $tw-yellow !important;
-}
+.dropdown-item {
 
-.button-collapse {
-  color: $tw-yellow;
-}
+  &:hover {
+    background-color: inherit;
+    color: $tw-yellow !important;
 
-.dropdown-content li {
-  min-height: inherit;
-    border-top: 1px solid $tw-light-grey;
-
-  a {
-    color: $tw-yellow;
-    background-color: $tw-grey;
-    opacity: 0.9;
+    opacity: 0.8;
   }
 }
 
-.side-nav .material-icons {
-  margin: 0;
+.profile-dropdown-menu {
+  right: 0;
 }
-
-.side-nav-language-selector {
-  display: block;
-  width: fit-content;
-  margin-left: 32px;
-  margin-top: 12px;
-}
-
-
-@media screen and (max-width: 340px) {
-
-}
-
 

@@ -5,7 +5,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {OrderRoutingModule} from '../../routing/order.routing.module';
 import {FormsModule} from '@angular/forms';
-import {MaterializeModule} from 'angular2-materialize';
 
 import {CartPageComponent} from './cart-page/cart-page.component';
 import {CartComponent} from './cart-page/cart/cart.component';
@@ -32,7 +31,6 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         deps: [HttpClient]
       }
     }),
-    MaterializeModule
   ]
 })
 export class OrderModule {

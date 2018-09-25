@@ -1,0 +1,31 @@
+@import "_variables.scss";
+
+//
+// NAVBAR
+//
+nav {
+  .navbar-brand {
+    color: $tw-yellow;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    &:hover {
+      color: $tw-light-grey;
+    }
+  }
+  .navbar-toggler {
+    color: $tw-yellow;
+    border-color: $tw-yellow;
+    opacity: 0.8;
+
+    &-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(226,192,68, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+  }
+  .dropdown-menu {
+    background-color: $tw-grey;
+    border: 1px solid $tw-yellow;
+  }
+  a.navbar-active {
+    color: $tw-yellow !important;
+  }
+}

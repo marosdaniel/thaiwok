@@ -1,16 +1,17 @@
 import {LanguageService} from '../../services/language/language.service';
-import {AfterContentInit, AfterViewChecked, AfterViewInit, Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth/auth.service';
-import {MaterializeAction} from 'angular2-materialize';
+import {User} from '../../models/user.model';
+import '@angular/animations';
 
 declare var $:any;
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit, AfterViewChecked{
+export class NavbarComponent implements OnInit {
+  public user: User;
 
   constructor(public auth: AuthService, public language: LanguageService) {
   }
@@ -20,40 +21,16 @@ export class NavbarComponent implements OnInit, AfterViewChecked{
   }
 
   ngOnInit() {
-    $(".button-collapse").sideNav({
-      menuWidth: 240,
-      // closeOnClick: true
+    this.auth.user.subscribe(user => {
+      this.user = user;
     });
-
-    // $('.sidenav-close').click( () => {
-    //   $('.button-collapse').sideNav('hide');
-    // });
-
-    $('.dropdown-menu-types-desktop').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        hover: true, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-      }
-    );
-
+    this.autoCollapseNavbar();
   }
 
-  ngAfterViewChecked() {
-    $('.sidenav-close').click( () => {
-      $('.button-collapse').sideNav('hide');
+
+  private autoCollapseNavbar() {
+    $('.autoCollapse').on('click', () => {
+      ($('.navbar-collapse')as any).collapse('hide');
     });
   }
-
-
-  modalActions = new EventEmitter<string|MaterializeAction>();
-  openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
-  }
-  closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
-  }
-
-
 }

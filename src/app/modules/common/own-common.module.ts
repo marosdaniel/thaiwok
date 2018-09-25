@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
-import {MaterializeModule} from 'angular2-materialize';
 import {OwnCommonRoutingModule} from '../../routing/own-common.routing.module';
 
 import {AboutUsPageComponent} from './about-us-page/about-us-page.component';
@@ -38,7 +37,6 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         deps: [HttpClient]
       }
     }),
-    MaterializeModule
   ]
 })
 export class OwnCommonModule {

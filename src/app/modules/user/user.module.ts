@@ -6,7 +6,6 @@ import {UserRoutingModule} from '../../routing/user.routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
-import {MaterializeModule} from 'angular2-materialize';
 
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {ProfilePersonalInfoComponent} from './profile-page/profile-personal-info/profile-personal-info.component';
@@ -35,7 +34,6 @@ import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delive
         deps: [HttpClient]
       }
     }),
-    MaterializeModule
   ]
 })
 export class UserModule {

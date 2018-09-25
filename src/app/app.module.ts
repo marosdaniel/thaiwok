@@ -13,9 +13,9 @@ import {AppRoutingModule} from './routing/app.routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MaterializeModule } from 'angular2-materialize';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserIdleModule} from 'angular-user-idle';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // COMPONENTS
 import {FooterComponent} from './footer/footer.component';
@@ -45,6 +45,8 @@ import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
 
+// NGX BOOTSTRAP MODULES
+
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import {HttpLoaderFactory} from './services/translate/translate.service';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     HttpClientModule,
     FormsModule,
+    NgbModule,
 
     // OWN MODULES
     AuthModule,
@@ -73,8 +76,8 @@ import {HttpLoaderFactory} from './services/translate/translate.service';
     OwnCommonModule,
     SharedModule,
 
-    MaterializeModule,
     ReactiveFormsModule,
+
 
     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 600 (10 minutes)
