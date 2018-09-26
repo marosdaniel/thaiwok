@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {ReactiveFormsModule, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth/auth.service';
 
 type UserFields = 'email' | 'password';
@@ -42,22 +42,23 @@ export class SignupPageComponent implements OnInit {
     this.buildForm();
 
   }
+
   toggleForm() {
     this.newUser = !this.newUser;
   }
 
   signup() {
-    if(this.password===this.passwordAgain) {
+    if (this.password === this.passwordAgain) {
       this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password'])
         .then(() => {
-          console.log('sikeres regisztráció')
-        }).catch((error)=> {
-        console.log('error: ', error)
+          console.log('sikeres regisztráció');
+        }).catch((error) => {
+        console.log('error: ', error);
       });
     }
     else {
       // ide jöhet egy toaster, vagy modal
-      alert('a két jelszó nem egyezik')
+      alert('a két jelszó nem egyezik');
     }
   }
 
@@ -86,8 +87,11 @@ export class SignupPageComponent implements OnInit {
     this.userForm.valueChanges.subscribe((data) => this.onValueChanged(data));
     this.onValueChanged(); // reset validation messages
   }
+
   onValueChanged(data?: any) {
-    if (!this.userForm) { return; }
+    if (!this.userForm) {
+      return;
+    }
     const form = this.userForm;
     for (const field in this.formErrors) {
       if (Object.prototype.hasOwnProperty.call(this.formErrors, field) && (field === 'email' || field === 'password')) {
@@ -98,8 +102,8 @@ export class SignupPageComponent implements OnInit {
           const messages = this.validationMessages[field];
           if (control.errors) {
             for (const key in control.errors) {
-              if (Object.prototype.hasOwnProperty.call(control.errors, key) ) {
-                this.formErrors[field] += `${(messages as {[key: string]: string})[key]} `;
+              if (Object.prototype.hasOwnProperty.call(control.errors, key)) {
+                this.formErrors[field] += `${(messages as { [key: string]: string })[key]} `;
               }
             }
           }

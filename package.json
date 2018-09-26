@@ -29,6 +29,7 @@
     "angularfire": "^2.3.0",
     "angularfire2": "^5.0.0-rc.10",
     "bootstrap": "^4.1.3",
+    "bootstrap-social": "^5.1.1",
     "core-js": "^2.5.4",
     "firebase": "^5.0.4",
     "flag-icon-css": "^3.0.0",

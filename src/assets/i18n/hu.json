@@ -37,7 +37,7 @@
   },
   "signup": {
     "signupTitle": "Regisztráció",
-    "signupButton": "Regisztrálok",
+    "signupButton": "Új profil létrehozása",
     "email": "E-mail",
     "emailAgain": "E-mail újra",
     "password": "Jelszó",

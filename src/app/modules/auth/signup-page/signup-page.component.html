@@ -1,66 +1,51 @@
-<div class=" row" translate>
-  <div class="card-panel col m4 offset-l1 offset-l4 s12 z-depth-4">
+<div class="row">
+  <div class="col-sm-12 col-md-7 col-lg-5 mx-auto">
+    <div class="card card-signin my-5">
+      <div class="card-body">
+        <h2 class="card-title text-center">{{'signup.signupTitle' | translate }}</h2>
 
-    <h3 class="center">{{'signup.signupTitle' | translate }}</h3>
+        <form class="form-signin" [formGroup]="userForm" (ngSubmit)="signup()">
 
-    <form [formGroup]="userForm" (ngSubmit)="signup()">
-
-
-      <!--EMAIL-->
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">email</i>
-          <input type="email" id="email" class="validate" required="" aria-required="true" formControlName="email" autocomplete="new-password">
-          <label for="email">{{'signup.email' | translate}}</label>
-
-          <div *ngIf="formErrors.email" class="helper-text red-text" data-error="wrong" data-success="right">
-            {{ formErrors.email }}
+          <!--EMAIL-->
+          <div class="form-label-group">
+            <input type="email" id="email" class="form-control validate" placeholder="{{'signup.email' | translate}}"
+                   required
+                   autofocus
+                   formControlName="email"
+                   autocomplete="new-password">
           </div>
-        </div>
-      </div>
+          <div *ngIf="formErrors.email" class="" data-error="wrong" data-success="right">
+            <p>{{ formErrors.email }}</p>
+          </div>
 
-      <!--PASSWORD-->
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock</i>
-          <input [(ngModel)]="password" type="password" id="password" class="validate" required="" aria-required="true" formControlName="password" autocomplete="new-password">
-          <label for="password">{{'signup.password' | translate}}</label>
+          <!--PASSWORD-->
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control validate"
+                   [(ngModel)]="password"
+                   placeholder="{{'signup.password' | translate}}"
+                   required
+                   formControlName="password" autocomplete="new-password">
+          </div>
+          <div *ngIf="formErrors.password" class="" data-error="wrong" data-success="right">
+            <p>{{ formErrors.password }}</p>
+          </div>
+
+          <!--PASSWORD AGAIN-->
+          <div class="form-label-group">
+            <input type="password" id="password-again" class="form-control validate"
+                   placeholder="{{'signup.passwordAgain' | translate}}"
+                   [(ngModel)]="passwordAgain"
+                   required
+                   formControlName="password" autocomplete="new-password">
+          </div>
           <div *ngIf="formErrors.password" class="helper-text red-text" data-error="wrong" data-success="right">
             {{ formErrors.password }}
           </div>
-        </div>
-      </div>
 
-      <!--PASSWORD AGAIN-->
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock</i>
-          <input [(ngModel)]="passwordAgain" type="password" id="password-again" class="validate" required="" aria-required="true" formControlName="password" autocomplete="new-password">
-          <label for="password-again">{{'signup.passwordAgain' | translate}}</label>
-          <div *ngIf="formErrors.password" class="helper-text red-text" data-error="wrong" data-success="right">
-            {{ formErrors.password }}
-          </div>
-        </div>
+          <!--SIGNUP BUTTON-->
+          <button class="btn btn-lg btn-primary btn-block text-uppercase ripple" type="submit">{{'signup.signupButton' | translate}}</button>
+        </form>
       </div>
-
-
-      <!--SIGNUP BUTTON-->
-      <!--<button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>-->
-      <div class="row">
-        <div class="col input-field offset-s2 s8">
-          <button type="submit" class="btn waves-effect waves-light col s12">{{'signup.signupButton' | translate}}</button>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
-
-
-<ng-template #alreadyLoggedIn>
-  <p class="text-success">
-    You are logged in <i class="fa fa-thumbs-up"></i>
-  </p>
-</ng-template>
-
-
-

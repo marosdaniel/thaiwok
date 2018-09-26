@@ -37,7 +37,7 @@
   },
   "signup": {
     "signupTitle": "Registration",
-    "signupButton": "Registrate",
+    "signupButton": "Create new account",
     "email": "Email",
     "emailAgain": "Email again",
     "password": "Password",
