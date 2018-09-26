@@ -14,6 +14,7 @@ import {CarouselComponent} from './home-page/carousel/carousel.component';
 import {ParallaxComponent} from './home-page/parallax/parallax.component';
 import { MapComponent } from './contact-page/map/map.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         deps: [HttpClient]
       }
     }),
+    MDBBootstrapModule.forRoot()
   ]
 })
 export class OwnCommonModule {

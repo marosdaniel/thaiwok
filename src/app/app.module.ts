@@ -43,6 +43,7 @@ import {CommonService} from './services/common/common.service';
 import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 // NGX BOOTSTRAP MODULES
 
@@ -76,7 +77,7 @@ import {HttpLoaderFactory} from './services/translate/translate.service';
     SharedModule,
 
     ReactiveFormsModule,
-
+    MDBBootstrapModule.forRoot(),
 
     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 600 (10 minutes)

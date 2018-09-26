@@ -9,6 +9,7 @@ import {AuthRoutingModule} from '../../routing/auth.routing.module';
 import {SignupPageComponent} from './signup-page/signup-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MDBBootstrapModule.forRoot(),
+
   ],
   exports: [
   ]

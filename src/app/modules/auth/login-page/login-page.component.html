@@ -3,35 +3,38 @@
     <div class="card card-signin my-5">
       <div class="card-body">
         <h2 class="card-title text-center">{{'login.socialLoginTitle' | translate }}</h2>
+        <!--GOOGLE LOGIN-->
         <a class="btn btn-lg btn-block btn-social btn-google text-white" (click)="signInWithGoogle()">
           <span class="fa fa-google"></span> Sign in with Google
         </a>
+        <!--FACEBOOK LOGIN-->
         <a class="btn btn-lg btn-block btn-social btn-facebook text-white disabled" (click)="signInWithFacebook()">
           <span class="fa fa-facebook"></span> Sign in with Facebook
         </a>
 
         <form class="form-signin" [formGroup]="userForm" (ngSubmit)="login()">
-          <div class="form-label-group">
-            <i class="fa fa-envelope"></i>
-            <input type="email" id="email" class="form-control validate" placeholder="{{'login.email' | translate}}"
-                   required
-                   autofocus
+
+          <!--EMAIL-->
+          <div class="md-form">
+            <i class="fa fa-envelope prefix"></i>
+            <input mdbInputDirective type="email" id="email" class="form-control"
+                   required autofocus
                    formControlName="email"
-                   autocomplete="new-password">
-          </div>
-          <div style="margin-bottom: 25px" class="input-group">
-            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                   autocomplete="new-email">
+            <label for="email">{{'login.email' | translate}}</label>
           </div>
 
-          <div class="form-label-group">
-            <i class="fa fa-lock"></i>
-            <input type="password" id="inputPassword" class="form-control validate"
-                   placeholder="{{'login.password' | translate}}"
+          <!--PASSWORD-->
+          <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            <input mdbInputDirective type="email" id="inputPassword" class="form-control"
                    required
-                   formControlName="password" autocomplete="new-password">
+                   formControlName="password"
+                   autocomplete="new-password">
+            <label for="inputPassword">{{'login.password' | translate}}</label>
           </div>
 
+          <!--FORGOTTEN PASSWORD & REGISTRATION LINK-->
           <div class="row other-links">
             <p class="center"><a routerLink="/signup">{{'login.registerNow' | translate}}</a></p>
             <p class="center"><a class="clickable" (click)="resetPassword()">{{'login.forgotPassword' | translate}}</a>
@@ -43,9 +46,8 @@
           <!--<label class="custom-control-label" for="customCheck1">Remember password</label>-->
           <!--</div>-->
 
-          <button class="btn btn-lg btn-primary btn-block text-uppercase ripple"
-                  type="submit">{{'login.login' | translate}}
-          </button>
+          <!--LOGIN BUTTON-->
+          <button class="btn btn-lg btn-block text-uppercase" mdbBtn type="submit" color="success" outline="true" mdbWavesEffect>{{'login.login' | translate}}</button>
         </form>
       </div>
     </div>
@@ -60,7 +62,5 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-block btn-lg btn-primary col-sm-4 mx-auto ripple text-uppercase" routerLink="/profile/personal-info">
-    {{'login.goToProfile' | translate}}
-  </button>
+  <button class="btn btn-block btn-lg col-sm-4 mx-auto waves-light" mdbBtn type="button" color="default" routerLink="/profile/personal-info" mdbWavesEffect>{{'login.goToProfile' | translate}}</button>
 </ng-template>

@@ -11,6 +11,7 @@ import {CartComponent} from './cart-page/cart/cart.component';
 import {SummaryPageComponent} from './summary-page/summary-page.component';
 import {SummaryComponent} from './summary-page/summary/summary.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         deps: [HttpClient]
       }
     }),
+    MDBBootstrapModule.forRoot()
   ]
 })
 export class OrderModule {

@@ -15,7 +15,7 @@
         <a routerLink="/home" class="nav-link autoCollapse" routerLinkActive="navbar-active"  >{{'navbar.home' | translate}}</a>
       </li>
       <!--MENU-->
-      <li class="nav-item dropdown clickable" ngbDropdown>
+      <li class="nav-item clickable">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{'navbar.menu' | translate}}
         </a>
@@ -29,6 +29,25 @@
           <a routerLink="/menu/main-dishes-with-rice" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.mainDishesWithRice' |
             translate}}</a>
           <a routerLink="/menu/desserts" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.desserts' |
+            translate}}</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" mdbDropdown>
+        <a mdbDropdownToggle class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          {{'navbar.menu' | translate}}
+        </a>
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item autoCollapse" routerLink="/menu/appetizers">{{'menu-tab.appetizers' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/menu/soups">{{'menu-tab.soups' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/menu/fried-rice-and-noodles">{{'menu-tab.friedRiceAndNoodles' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/menu/main-dishes-with-rice">{{'menu-tab.mainDishesWithRice' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/menu/desserts">{{'menu-tab.desserts' |
             translate}}</a>
         </div>
       </li>
@@ -55,11 +74,11 @@
       </li>
 
       <!--PROFILE-->
-      <li ngbDropdown *ngIf="user" class="nav-item dropdown" autoClose>
-        <a class="nav-link dropdown-toggle clickable" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li mdbDropdown *ngIf="user" class="nav-item" [autoClose]="true">
+        <a mdbDropdownToggle  class="nav-link dropdown-toggle clickable" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{'navbar.profile' | translate}}
         </a>
-        <div ngbDropdownMenu class="dropdown-menu profile-dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
           <a routerLink="/profile/personal-info" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.personalInfo' |
             translate}}</a>
           <a routerLink="/profile/delivery-info" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
@@ -79,7 +98,7 @@
 
       <!--LANGUAGE SWITCHER-->
       <!--ANGOL-->
-      <li ngbDropdown class="nav-item" *ngIf="language.actualLanguage==='en'">
+      <li class="nav-item" *ngIf="language.actualLanguage==='en'">
         <a class="nav-link dropdown-toggle clickable" id="engDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="flag-icon flag-icon-gb"></span>
         </a>
@@ -89,7 +108,7 @@
         </div>
       </li>
       <!--MAGYAR-->
-      <li ngbDropdown class="nav-item" *ngIf="language.actualLanguage==='hu'" >
+      <li class="nav-item" *ngIf="language.actualLanguage==='hu'" >
         <a class="nav-link dropdown-toggle clickable" id="huDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="flag-icon flag-icon-hu"></span>
         </a>

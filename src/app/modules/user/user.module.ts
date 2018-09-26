@@ -13,6 +13,7 @@ import {ProfileDeliveryInfoComponent} from './profile-page/profile-delivery-info
 import {ProfileHistoryComponent} from './profile-page/profile-history/profile-history.component';
 import { DeliveryListingComponent } from './profile-page/profile-delivery-info/delivery-listing/delivery-listing.component';
 import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delivery-edit/delivery-edit.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delive
         deps: [HttpClient]
       }
     }),
+    MDBBootstrapModule.forRoot(),
   ]
 })
 export class UserModule {
