@@ -9,7 +9,7 @@ nav {
   margin: 0 12px;
 
   a {
-    color: $tw-light-grey;
+    color: $tw-light-grey !important;
     &:hover {
       opacity: 0.6;
     }
@@ -25,8 +25,15 @@ nav {
     opacity: 0.8;
   }
 }
+.dropdown-menu-right {
+  left: unset;
+}
 
 .profile-dropdown-menu {
   right: 0;
 }
-
+@media screen and (min-width: $l){
+  .language-dropdown {
+    margin-left: -6rem;
+  }
+}

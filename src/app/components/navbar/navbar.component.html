@@ -14,30 +14,12 @@
       <li class="nav-item">
         <a routerLink="/home" class="nav-link autoCollapse" routerLinkActive="navbar-active"  >{{'navbar.home' | translate}}</a>
       </li>
-      <!--MENU-->
-      <li class="nav-item clickable">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{'navbar.menu' | translate}}
-        </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a routerLink="/menu/appetizers" class="dropdown-item autoCollapse" routerLinkActive="navbar-active" data-toggle="collapse">{{'menu-tab.appetizers' |
-            translate}}</a>
-          <a routerLink="/menu/soups" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.soups' |
-            translate}}</a>
-          <a routerLink="/menu/fried-rice-and-noodles" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.friedRiceAndNoodles' |
-            translate}}</a>
-          <a routerLink="/menu/main-dishes-with-rice" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.mainDishesWithRice' |
-            translate}}</a>
-          <a routerLink="/menu/desserts" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'menu-tab.desserts' |
-            translate}}</a>
-        </div>
-      </li>
 
+      <!--MENU-->
       <li class="nav-item dropdown" mdbDropdown>
         <a mdbDropdownToggle class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           {{'navbar.menu' | translate}}
         </a>
-
         <div class="dropdown-menu">
           <a class="dropdown-item autoCollapse" routerLink="/menu/appetizers">{{'menu-tab.appetizers' |
             translate}}</a>
@@ -90,6 +72,23 @@
         </div>
       </li>
 
+      <!--MENU-->
+      <li *ngIf="user" class="nav-item dropdown" mdbDropdown>
+        <a mdbDropdownToggle class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          {{'navbar.profile' | translate}}
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item autoCollapse" routerLink="/profile/personal-info">{{'navbar.personalInfo' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/profile/delivery-info">{{'navbar.deliveryInfo' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/profile/previous-orders">{{'navbar.history' |
+            translate}}</a>
+          <a class="dropdown-item autoCollapse" (click)="logout()">{{'navbar.logout' |
+            translate}}</a>
+        </div>
+      </li>
+
       <!--LOGIN-->
       <li *ngIf="!user" class="nav-item">
         <a routerLink="/login" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.login' |
@@ -98,22 +97,22 @@
 
       <!--LANGUAGE SWITCHER-->
       <!--ANGOL-->
-      <li class="nav-item" *ngIf="language.actualLanguage==='en'">
-        <a class="nav-link dropdown-toggle clickable" id="engDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" mdbDropdown *ngIf="language.actualLanguage==='en'">
+        <a mdbDropdownToggle class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <span class="flag-icon flag-icon-gb"></span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="engDropdown">
-          <a class="dropdown-item clickable autoCollapse" (click)="language.switchLanguage('hu')">
+        <div class="dropdown-menu language-dropdown" >
+          <a class="dropdown-item autoCollapse" (click)="language.switchLanguage('hu')">
             <span class="flag-icon flag-icon-hu"></span> Hungarian</a>
         </div>
       </li>
       <!--MAGYAR-->
-      <li class="nav-item" *ngIf="language.actualLanguage==='hu'" >
-        <a class="nav-link dropdown-toggle clickable" id="huDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" mdbDropdown *ngIf="language.actualLanguage==='hu'">
+        <a mdbDropdownToggle class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <span class="flag-icon flag-icon-hu"></span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="huDropdown">
-          <a class="dropdown-item clickable autoCollapse" (click)="language.switchLanguage('en')">
+        <div class="dropdown-menu language-dropdown">
+          <a class="dropdown-item autoCollapse" (click)="language.switchLanguage('en')">
             <span class="flag-icon flag-icon-gb"></span> English</a>
         </div>
       </li>
