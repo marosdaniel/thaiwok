@@ -7,43 +7,39 @@
         <form class="form-signin" [formGroup]="userForm" (ngSubmit)="signup()">
 
           <!--EMAIL-->
-          <div class="form-label-group">
-            <input type="email" id="email" class="form-control validate" placeholder="{{'signup.email' | translate}}"
-                   required
-                   autofocus
+          <div class="md-form">
+            <i class="fa fa-envelope prefix"></i>
+            <input mdbInputDirective type="email" id="email" class="form-control"
+                   required autofocus
                    formControlName="email"
-                   autocomplete="new-password">
-          </div>
-          <div *ngIf="formErrors.email" class="" data-error="wrong" data-success="right">
-            <p>{{ formErrors.email }}</p>
+                   autocomplete="new-email">
+            <label for="email">{{'signup.email' | translate}}</label>
           </div>
 
           <!--PASSWORD-->
-          <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control validate"
-                   [(ngModel)]="password"
-                   placeholder="{{'signup.password' | translate}}"
+          <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            <input mdbInputDirective type="password" id="inputPassword" class="form-control"
                    required
-                   formControlName="password" autocomplete="new-password">
-          </div>
-          <div *ngIf="formErrors.password" class="" data-error="wrong" data-success="right">
-            <p>{{ formErrors.password }}</p>
+                   [(ngModel)]="password"
+                   formControlName="password"
+                   autocomplete="new-password">
+            <label for="inputPassword">{{'signup.password' | translate}}</label>
           </div>
 
           <!--PASSWORD AGAIN-->
-          <div class="form-label-group">
-            <input type="password" id="password-again" class="form-control validate"
-                   placeholder="{{'signup.passwordAgain' | translate}}"
-                   [(ngModel)]="passwordAgain"
+          <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            <input mdbInputDirective type="password" id="password-again" class="form-control"
                    required
-                   formControlName="password" autocomplete="new-password">
-          </div>
-          <div *ngIf="formErrors.password" class="helper-text red-text" data-error="wrong" data-success="right">
-            {{ formErrors.password }}
+                   [(ngModel)]="passwordAgain"
+                   formControlName="password"
+                   autocomplete="new-password">
+            <label for="password-again">{{'signup.passwordAgain' | translate}}</label>
           </div>
 
           <!--SIGNUP BUTTON-->
-          <button class="btn btn-lg btn-primary btn-block text-uppercase ripple" type="submit">{{'signup.signupButton' | translate}}</button>
+          <button class="btn btn-lg btn-block text-uppercase" mdbBtn type="submit" color="success" outline="true" mdbWavesEffect>{{'signup.signupButton' | translate}}</button>
         </form>
       </div>
     </div>

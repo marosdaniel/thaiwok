@@ -27,7 +27,7 @@
           <!--PASSWORD-->
           <div class="md-form">
             <i class="fa fa-lock prefix"></i>
-            <input mdbInputDirective type="email" id="inputPassword" class="form-control"
+            <input mdbInputDirective type="password" id="inputPassword" class="form-control"
                    required
                    formControlName="password"
                    autocomplete="new-password">
@@ -35,7 +35,7 @@
           </div>
 
           <!--FORGOTTEN PASSWORD & REGISTRATION LINK-->
-          <div class="row other-links">
+          <div class="other-links row">
             <p class="center"><a routerLink="/signup">{{'login.registerNow' | translate}}</a></p>
             <p class="center"><a class="clickable" (click)="resetPassword()">{{'login.forgotPassword' | translate}}</a>
             </p>

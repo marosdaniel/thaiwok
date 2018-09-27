@@ -1,5 +1,5 @@
 import {LanguageService} from '../../services/language/language.service';
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth/auth.service';
 import {User} from '../../models/user.model';
 
@@ -9,7 +9,7 @@ declare var $:any;
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
   public user: User;
 
   constructor(public auth: AuthService, public language: LanguageService) {
@@ -23,9 +23,11 @@ export class NavbarComponent implements OnInit {
     this.auth.user.subscribe(user => {
       this.user = user;
     });
-    this.autoCollapseNavbar();
   }
 
+  ngAfterViewInit() {
+    this.autoCollapseNavbar();
+  }
 
   private autoCollapseNavbar() {
     $('.autoCollapse').on('click', () => {

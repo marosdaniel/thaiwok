@@ -56,23 +56,6 @@
       </li>
 
       <!--PROFILE-->
-      <li mdbDropdown *ngIf="user" class="nav-item" [autoClose]="true">
-        <a mdbDropdownToggle  class="nav-link dropdown-toggle clickable" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{'navbar.profile' | translate}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
-          <a routerLink="/profile/personal-info" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.personalInfo' |
-            translate}}</a>
-          <a routerLink="/profile/delivery-info" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.deliveryInfo' |
-            translate}}</a>
-          <a routerLink="/profile/previous-orders" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.history' |
-            translate}}</a>
-          <a (click)="logout()" class="dropdown-item autoCollapse" routerLinkActive="navbar-active">{{'navbar.logout' |
-            translate}}</a>
-        </div>
-      </li>
-
-      <!--MENU-->
       <li *ngIf="user" class="nav-item dropdown" mdbDropdown>
         <a mdbDropdownToggle class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           {{'navbar.profile' | translate}}

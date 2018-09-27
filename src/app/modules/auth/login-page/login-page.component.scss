@@ -1,4 +1,15 @@
+@import "../../../../sass/variables";
+
+.btn,
+.other-links,
+.md-form{
+  margin-top: 2rem !important;
+}
 .other-links {
   display: flex;
   justify-content: space-around;
+
+  a {
+    color: $tw-link-color;
+  }
 }

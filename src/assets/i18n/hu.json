@@ -29,10 +29,10 @@
     "email": "E-mail",
     "password": "Jelszó",
     "rememberMe": "Emlékezz rám",
-    "forgotPassword": "Elfelejtette jelszavát ?",
+    "forgotPassword": "Elfelejtetted a jelszavad?",
     "socialLoginTitle": "Bejelentkezés",
-    "registerNow": "Regisztrálj most !",
-    "alreadyLoggedIn": "Sikeresen bejelentkeztél :)",
+    "registerNow": "Regisztrálj most!",
+    "alreadyLoggedIn": "Sikeresen bejelentkeztél",
     "goToProfile": "Tovább a profilodra"
   },
   "signup": {
