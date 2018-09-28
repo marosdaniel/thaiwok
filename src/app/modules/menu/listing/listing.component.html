@@ -1,7 +1,7 @@
 <div class="container" [ngClass]="variant">
-  <div class="row">
-    <div class="" *ngFor="let item of data">
-      <app-listing-item [item]="item" [variant]="variant" class="col m6 s12"></app-listing-item>
+  <div class="row" style="display: flex;justify-content: space-between;">
+    <div class="col-lg-6 col-sm-12 col-sm-12" *ngFor="let item of data">
+      <app-listing-item [item]="item" [variant]="variant" class=""></app-listing-item>
     </div>
   </div>
 </div>

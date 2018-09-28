@@ -1,50 +1,53 @@
-<div class="card" [ngClass]="variant">
-  <div class="card-image">
-    <img materialize="materialbox" class="card-image materialboxed" [src]="item.img || 'http://webmaster.ypsa.org/wp-content/uploads/2012/08/no_thumb.jpg'" alt="no image :(">
-    <span class="card-title" style="width:100%; background: rgba(0, 0, 0, 0.3);">{{item.name}}</span>
+<!-- Card -->
+<div class="card" [ngClass]="variant" style="margin-bottom: 42px;overflow: hidden;">
+
+  <!-- Card image -->
+  <div class="view overlay zoom">
+    <img class="card-img-top rgba-white-slight" [src]="item.img || 'http://webmaster.ypsa.org/wp-content/uploads/2012/08/no_thumb.jpg'" alt="no image :(">
   </div>
-  <div class="card-content">
-    <h6 class="card-subtitle mb-2 text-muted">{{'listingItem.number' | translate}}: {{item.id}}</h6>
-    <p class="card-text">{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
-  </div>
-  <div class="card-action">
-    <a
-      href="#modal-{{item.id}}"
-      type="button"
-      class="waves-effect waves-light modal-trigger modal-trigger"
-      (click)="openModal()">{{'listingItem.details' | translate}}
-    </a>
-  </div>
-</div>
 
-
-<!--MODAL WRAPPER -->
-<div id="modal-{{item.id}}" class="modal">
-
-  <!--MODAL CONTENT -->
-  <div class="modal-content">
-    <h4>{{item.name}}</h4>
-    <p>{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
-
-    <div *ngFor="let type of item.price; let index = index">
-      <p *ngIf="type">
-        <input type="radio" name="priceOptions"
-               class="with-gap"
-               (click)="setIndex(index)"
-               id="{{item.category}}-{{item.id}}-{{type.name.en}}">
-        <label
-          (click)="selectItem()"
-          for="{{item.category}}-{{item.id}}-{{type.name.en}}">{{languageService.actualLanguage === 'en' ? type.name.en : type.name.hu}}: {{type.price}}.- HUF</label>
-      </p>
+  <!-- Card content -->
+  <div class="card-body">
+    <div class="scene scene--card">
+      <div class="card-flip" [ngClass]="{'is-flipped': flipped, '': !flipped}">
+        <!--FRONT-->
+        <div class="card__face card__face--front">
+          <div class="card-content">
+            <h4 class="card-title">{{item.name}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{'listingItem.number' | translate}}: {{item.id}}</h6>
+            <hr>
+            <p>{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
+          </div>
+          <div class="btn-wrapper">
+            <div class="btn-section">
+              <button mdbBtn type="button" class="btn btn-amber px-3 waves-light" mdbWavesEffect (click)="flip()">{{'listingItem.details' | translate}}</button>
+            </div>
+          </div>
+        </div>
+        <!--BACK-->
+        <div class="card__face card__face--back">
+          <div class="card-content">
+            <h4 class="card-title">{{item.name}}</h4>
+            <hr>
+            <div *ngFor="let type of item.price; let index = index">
+              <div *ngIf="type" class="">
+                <input type="radio" class="" id="{{item.category}}-{{item.id}}-{{type.name.en}}" name="priceOptions" (click)="setIndex(index)">
+                <label class="" for="{{item.category}}-{{item.id}}-{{type.name.en}}" (click)="selectItem()">{{languageService.actualLanguage === 'en' ? type.name.en : type.name.hu}}: {{type.price}}.- HUF</label>
+              </div>
+            </div>
+          </div>
+          <div class="btn-wrapper">
+            <div class="btn-section">
+              <button type="button" class="btn btn-amber px-3 waves-light" (click)="flip()"><i class="fa fa-arrow-left white-text" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-success px-3 waves-light" (click)="addToCart()">{{'listingItem.addToCart' | translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
   </div>
 
-  <!--MODAL - FOOTER-->
-  <div class="modal-footer">
-    <a class="waves-effect waves-red btn-flat s-left modal-footer-btn__back" (click)="backToItems()">{{'listingItem.back'
-      | translate}}</a>
-    <a class="modal-action modal-close waves-effect waves-green btn-flat s-right modal-footer-btn__go"
-       (click)="addToCart()">{{'listingItem.addToCart' | translate}}</a>
-  </div>
 </div>
-
+<!-- Card -->

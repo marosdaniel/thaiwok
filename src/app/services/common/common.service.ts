@@ -13,10 +13,10 @@ export class CommonService implements OnInit {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
-  public uncheckCheckedRadio(){
+  public uncheckCheckedRadio() {
     ($('input[type="radio"]') as any).prop('checked', false);
   }
 

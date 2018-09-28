@@ -17,7 +17,7 @@ declare var $:any;
 export class ListingItemComponent implements OnInit {
   @Input() item: any;  // model kellene?
   @Input() variant: String;
-
+  public flipped = false;
   public cartItem: Item = {};
 
   // public meatType: string;
@@ -41,10 +41,8 @@ export class ListingItemComponent implements OnInit {
     // this.currentLanguage = this.languageService.actualLanguage;
   }
 
-
-  openModal() {
-  }
-  private closeModal() {
+  public flip() {
+    this.flipped = !this.flipped;
   }
 
   addToCart(): void {
@@ -53,9 +51,9 @@ export class ListingItemComponent implements OnInit {
       Izitoast.default.show(errorNoSelectedItemToaster);
       return;
     }
-    this.initilizeCartItem();
+    this.initializeCartItem();
 
-    this.cartService.addToCart(this.cartItem)
+    this.cartService.addToCart(this.cartItem);
     this.selectedItem = false;
   }
 
@@ -63,17 +61,16 @@ export class ListingItemComponent implements OnInit {
     this.selectedItem = true;
   }
 
-  public backToItems() {
-    this.commonService.uncheckCheckedRadio();
-    this.closeModal();
-  }
+  // public backToItems() {
+  //   this.commonService.uncheckCheckedRadio();
+  // }
 
   public setIndex(index) {
     this.indexer = index;
   }
 
   // pass data when selecting which type of meat has been selected
-  private initilizeCartItem() {
+  private initializeCartItem() {
     this.cartItem.number = this.item.id;
     this.cartItem.name = this.item.name;
     this.cartItem.price = this.item.price[this.indexer].price;

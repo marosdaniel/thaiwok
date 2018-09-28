@@ -16,6 +16,7 @@ import {SoupsPageComponent} from './menu-page/soups-page/soups-page.component';
 import {ListingComponent} from './listing/listing.component';
 import {ListingItemComponent} from './listing/listing-item/listing-item.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
         deps: [HttpClient]
       }
     }),
-    SharedModule
+    SharedModule,
+    MDBBootstrapModule.forRoot()
   ]
 })
 export class MenuModule {
