@@ -45,6 +45,10 @@ import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
+// PIPES
+import { FilterPipe } from './pipes/filter.pipe';
+// import { SortPipe } from './pipes/sort.pipe';
+
 // NGX BOOTSTRAP MODULES
 
 
@@ -55,7 +59,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
     MainComponent,
     HeaderComponent,
     NavbarComponent,
-    NotFoundPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,

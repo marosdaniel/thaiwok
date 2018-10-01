@@ -6,7 +6,7 @@ import {CommonService} from '../../../../services/common/common.service';
 import {Item} from '../../../../models/item.model';
 import {MeatTypeEnum} from '../../../../models/enums/meatType.enum';
 import {LanguageService} from '../../../../services/language/language.service';
-declare var $:any;
+declare var $: any;
 
 
 @Component({
@@ -55,6 +55,7 @@ export class ListingItemComponent implements OnInit {
 
     this.cartService.addToCart(this.cartItem);
     this.selectedItem = false;
+    this.commonService.uncheckCheckedRadio();
   }
 
   public selectItem() {

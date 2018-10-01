@@ -1,17 +1,16 @@
-<div id="delivery-info-tab" class="row">
-<i routerLink="/profile/personal-info" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
-<h3 class="center inline-block"> {{'profile.deliveryInfo' | translate}} </h3>
-<i routerLink="/profile/previous-orders" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
-
-  <app-delivery-listing (isEditingAddress)="receiveEvent($event)"
-                        (emitAddressNumber)="receiveAddressNumber($event)"
-                        (emitAddressEvent)="receiveAddress($event)">
-  </app-delivery-listing>
-
-
-  <app-delivery-edit *ngIf="isEditingAddress"
-                     (isEditingAddress)="receiveEvent($event)"
-                     [index]="index"
-                     [addressToShare]="addressToShare">
-  </app-delivery-edit>
+<div class="menu-category-title">
+  <mdb-icon routerLink="/profile/personal-info" icon="arrow-left" size="2x"></mdb-icon>
+  <h2 class="s-center" translate="">{{'profile.deliveryInfo' | translate}}</h2>
+  <mdb-icon routerLink="/profile/previous-orders" icon="arrow-right" size="2x"></mdb-icon>
 </div>
+<app-delivery-listing (isEditingAddress)="receiveEvent($event)"
+                      (emitAddressNumber)="receiveAddressNumber($event)"
+                      (emitAddressEvent)="receiveAddress($event)">
+</app-delivery-listing>
+
+
+<app-delivery-edit *ngIf="isEditingAddress"
+                   (isEditingAddress)="receiveEvent($event)"
+                   [index]="index"
+                   [addressToShare]="addressToShare">
+</app-delivery-edit>

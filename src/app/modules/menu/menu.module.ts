@@ -17,6 +17,7 @@ import {ListingComponent} from './listing/listing.component';
 import {ListingItemComponent} from './listing/listing-item/listing-item.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MenuRoutingModule,
     TranslateModule.forChild({
       loader: {
@@ -41,7 +43,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
       }
     }),
     SharedModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
   ]
 })
 export class MenuModule {

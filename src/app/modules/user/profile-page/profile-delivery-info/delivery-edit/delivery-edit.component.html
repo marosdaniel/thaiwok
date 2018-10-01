@@ -1,117 +1,117 @@
-<div>
-  <!--COUNTRY-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <input [(ngModel)]="addressToShare.country"
-             type="text" id="edit_country"
-             class="validate"
-             required="required" aria-required="true"
-             placeholder="newAddress.country">
-      <label [ngClass]="{'active': addressToShare.country }"
-             for="edit_country">{{'profile.country' | translate}}</label>
-    </div>
-  </div>
+<!--<div>-->
+  <!--&lt;!&ndash;COUNTRY&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m6 s12">-->
+      <!--<input [(ngModel)]="addressToShare.country"-->
+             <!--type="text" id="edit_country"-->
+             <!--class="validate"-->
+             <!--required="required" aria-required="true"-->
+             <!--placeholder="newAddress.country">-->
+      <!--<label [ngClass]="{'active': addressToShare.country }"-->
+             <!--for="edit_country">{{'profile.country' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--COUNTY-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <input [(ngModel)]="addressToShare.county"
-             type="text" id="edit_county"
-             class="validate"
-             required="required" aria-required="true"
-             placeholder="newAddress.county">
-      <label for="edit_county"
-             [ngClass]="{'active':addressToShare.county }">{{'profile.county'
-        | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;COUNTY&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m6 s12">-->
+      <!--<input [(ngModel)]="addressToShare.county"-->
+             <!--type="text" id="edit_county"-->
+             <!--class="validate"-->
+             <!--required="required" aria-required="true"-->
+             <!--placeholder="newAddress.county">-->
+      <!--<label for="edit_county"-->
+             <!--[ngClass]="{'active':addressToShare.county }">{{'profile.county'-->
+        <!--| translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--ZIP-CODE-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <input type="number" id="edit_zip-code" class="validate active"
-             [(ngModel)]="addressToShare.zipCode" maxlength="4"
-             minlength="4">
-      <label for="edit_zip-code"
-             [ngClass]="{'active': addressToShare.zipCode }">{{'profile.zipCode'
-        | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;ZIP-CODE&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m6 s12">-->
+      <!--<input type="number" id="edit_zip-code" class="validate active"-->
+             <!--[(ngModel)]="addressToShare.zipCode" maxlength="4"-->
+             <!--minlength="4">-->
+      <!--<label for="edit_zip-code"-->
+             <!--[ngClass]="{'active': addressToShare.zipCode }">{{'profile.zipCode'-->
+        <!--| translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--CITY-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <select id="edit_city" class="own-select"
-              [(ngModel)]="addressToShare.city"
-              materialize="material_select">
-        <!--<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>-->
-        <option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>
-      </select>
-      <label for="edit_city" class="active">{{'profile.city' | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;CITY&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m6 s12">-->
+      <!--<select id="edit_city" class="own-select"-->
+              <!--[(ngModel)]="addressToShare.city"-->
+              <!--materialize="material_select">-->
+        <!--&lt;!&ndash;<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>&ndash;&gt;-->
+        <!--<option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>-->
+      <!--</select>-->
+      <!--<label for="edit_city" class="active">{{'profile.city' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--STREET-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <input type="text" id="edit_street" class="validate autocomplete" required="" aria-required="true"
-             [(ngModel)]="addressToShare.street">
-      <label [ngClass]="{'active': addressToShare.street }"
-             for="edit_street">{{'profile.street' | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;STREET&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m6 s12">-->
+      <!--<input type="text" id="edit_street" class="validate autocomplete" required="" aria-required="true"-->
+             <!--[(ngModel)]="addressToShare.street">-->
+      <!--<label [ngClass]="{'active': addressToShare.street }"-->
+             <!--for="edit_street">{{'profile.street' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
 
-  <!--HOUSE NUMBER-->
-  <div class="row">
-    <div class="input-field col m6 s4">
-      <input type="text" id="edit_house-number" class="validate"
-             required="" aria-required="true"
-             minlength="1" maxlength="8"
-             [(ngModel)]="addressToShare.houseNumber">
-      <label [ngClass]="{'active': addressToShare.houseNumber != '' }"
-             for="edit_house-number">{{'profile.houseNumber' | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;HOUSE NUMBER&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m6 s4">-->
+      <!--<input type="text" id="edit_house-number" class="validate"-->
+             <!--required="" aria-required="true"-->
+             <!--minlength="1" maxlength="8"-->
+             <!--[(ngModel)]="addressToShare.houseNumber">-->
+      <!--<label [ngClass]="{'active': addressToShare.houseNumber != '' }"-->
+             <!--for="edit_house-number">{{'profile.houseNumber' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--FLOOR-->
-  <div class="row">
-    <div class="input-field col m4 s4">
-      <input type="number" id="edit_floor" class="validate"
-             required="" aria-required="true"
-             maxlength="8"
-             [(ngModel)]="addressToShare.floor">
-      <label [ngClass]="{'active': addressToShare.floor }"
-             for="edit_floor">{{'profile.floor' | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;FLOOR&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m4 s4">-->
+      <!--<input type="number" id="edit_floor" class="validate"-->
+             <!--required="" aria-required="true"-->
+             <!--maxlength="8"-->
+             <!--[(ngModel)]="addressToShare.floor">-->
+      <!--<label [ngClass]="{'active': addressToShare.floor }"-->
+             <!--for="edit_floor">{{'profile.floor' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--DOOR-->
-  <div class="row">
-    <div class="input-field col m4 s4">
-      <input type="number" id="edit_door" class="validate"
-             [(ngModel)]="addressToShare.door">
-      <label [ngClass]="{'active': addressToShare.houseNumber }"
-             for="edit_door">{{'profile.door' | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;DOOR&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m4 s4">-->
+      <!--<input type="number" id="edit_door" class="validate"-->
+             <!--[(ngModel)]="addressToShare.door">-->
+      <!--<label [ngClass]="{'active': addressToShare.houseNumber }"-->
+             <!--for="edit_door">{{'profile.door' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--BELL-->
-  <div class="row">
-    <div class="input-field col m4 s4">
-      <input type="number" id="edit_bell"
-             class="validate" required="" aria-required="true"
-             pattern="[^[+]?\d+$]"
-             [(ngModel)]="addressToShare.bell">
-      <label [ngClass]="{'active': addressToShare.houseNumber }"
-             for="edit_bell">{{'profile.bell' | translate}}</label>
-    </div>
-  </div>
+  <!--&lt;!&ndash;BELL&ndash;&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="input-field col m4 s4">-->
+      <!--<input type="number" id="edit_bell"-->
+             <!--class="validate" required="" aria-required="true"-->
+             <!--pattern="[^[+]?\d+$]"-->
+             <!--[(ngModel)]="addressToShare.bell">-->
+      <!--<label [ngClass]="{'active': addressToShare.houseNumber }"-->
+             <!--for="edit_bell">{{'profile.bell' | translate}}</label>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!--SAVE BUTTON-->
-  <button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" >{{'profile.save' |
-    translate}}
-  </button>
+  <!--&lt;!&ndash;SAVE BUTTON&ndash;&gt;-->
+  <!--<button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" >{{'profile.save' |-->
+    <!--translate}}-->
+  <!--</button>-->
 
-  <button class="btn orange-text" (click)="closeEditAddressField()">{{'profile.cancel' | translate}}</button>
-</div>
+  <!--<button class="btn orange-text" (click)="closeEditAddressField()">{{'profile.cancel' | translate}}</button>-->
+<!--</div>-->

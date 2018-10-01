@@ -1,19 +1,19 @@
 <div class="">
-  <h4 class="s-center">{{'profile.deliveryAddresses' | translate}}</h4>
+  <h4 class="text-center">{{'profile.deliveryAddresses' | translate}}</h4>
   <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
-  <div class="row">
+  <div class="">
 
-
-
-    <ul class="collapsible" *ngIf="user && user.addresses?.length > 0" materialize="collapsible">
-      <li class="address-line clearfix" *ngFor="let address of user.addresses; let index = index">
-        <div class="collapsible-header">
-          <span class="col s10">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
-          <span class="col s2"><i class="fa fa-cog clickable right"></i></span>
-        </div>
-        <div class="collapsible-body">
-          <button class="btn" (click)="showEditAddressField(user.addresses[index], index)">EDIT  <i class="fa fa-edit clickable"></i></button>
-          <button class="btn red" (click)="openDeleteAddressConfirmationModal(index)">DELETE  <i class="fa fa-trash clickable"></i></button>
+    <ul class="" *ngIf="user && user.addresses?.length > 0" >
+      <li class="list-unstyled" *ngFor="let address of user.addresses; let index = index">
+        <div class="">
+          <span class="">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
+          <div class="btn-group" mdbDropdown>
+            <i mdbDropdownToggle class="fa fa-cog clickable dropdown-toggle waves-light" mdbWavesEffect></i>
+              <span class="dropdown-menu fadeInDropdown dropdown-primary text-center">
+                  <a class="dropdown-item btn btn-amber" (click)="showEditAddressField(user.addresses[index], index)">EDIT  <i class="fa fa-edit clickable"></i></a>
+                  <a class="dropdown-item btn btn-red" (click)="openDeleteAddressConfirmationModal(index)">DELETE  <i class="fa fa-trash clickable"></i></a>
+              </span>
+          </div>
         </div>
       </li>
     </ul>
@@ -27,16 +27,16 @@
 </div>
 
 
-<!--MODAL WRAPPER -->
-<div id="modal-delete-address" class="modal center">
-  <!--MODAL CONTENT -->
-  <div class="modal-content">
-    <h3>{{'profile.deleteConfirmation' | translate}}</h3>
-  </div>
-  <!--MODAL - FOOTER-->
-  <div class="modal-footer">
-    <a class="modal-action modal-close waves-effect waves-green btn-flat red right"
-       (click)="deleteAddress()">{{'profile.delete' | translate}}</a>
-    <a class="modal-action modal-close waves-effect waves-green btn-flat s-left">{{'profile.cancel' | translate}}</a>
-  </div>
-</div>
+<!--&lt;!&ndash;MODAL WRAPPER &ndash;&gt;-->
+<!--<div id="modal-delete-address" class="modal center">-->
+  <!--&lt;!&ndash;MODAL CONTENT &ndash;&gt;-->
+  <!--<div class="modal-content">-->
+    <!--<h3>{{'profile.deleteConfirmation' | translate}}</h3>-->
+  <!--</div>-->
+  <!--&lt;!&ndash;MODAL - FOOTER&ndash;&gt;-->
+  <!--<div class="modal-footer">-->
+    <!--<a class="modal-action modal-close waves-effect waves-green btn-flat red right"-->
+       <!--(click)="deleteAddress()">{{'profile.delete' | translate}}</a>-->
+    <!--<a class="modal-action modal-close waves-effect waves-green btn-flat s-left">{{'profile.cancel' | translate}}</a>-->
+  <!--</div>-->
+<!--</div>-->

@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ListingComponent implements OnInit {
   @Input() data: any[]; // model kellene?
   @Input() variant: String;
-
+  filterString = '';
   constructor() { }
 
   ngOnInit() {

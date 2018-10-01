@@ -19,8 +19,8 @@
             <p>{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
           </div>
           <div class="btn-wrapper">
-            <div class="btn-section">
-              <button mdbBtn type="button" class="btn btn-amber px-3 waves-light" mdbWavesEffect (click)="flip()">{{'listingItem.details' | translate}}</button>
+            <div *ngIf="!flipped" class="btn-section">
+              <button mdbBtn type="button" class="btn btn-amber px-3 waves-light" mdbWavesEffect (click)="flip()" aria-hidden="true">{{'listingItem.details' | translate}}</button>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
           <div class="card-content">
             <h4 class="card-title">{{item.name}}</h4>
             <hr>
-            <div *ngFor="let type of item.price; let index = index">
+            <div *ngFor="let type of item.price | sort: 'price';  let index = index">
               <div *ngIf="type" class="">
                 <input type="radio" class="" id="{{item.category}}-{{item.id}}-{{type.name.en}}" name="priceOptions" (click)="setIndex(index)">
                 <label class="" for="{{item.category}}-{{item.id}}-{{type.name.en}}" (click)="selectItem()">{{languageService.actualLanguage === 'en' ? type.name.en : type.name.hu}}: {{type.price}}.- HUF</label>
@@ -37,9 +37,9 @@
             </div>
           </div>
           <div class="btn-wrapper">
-            <div class="btn-section">
+            <div *ngIf="flipped" class="btn-section">
               <button type="button" class="btn btn-amber px-3 waves-light" (click)="flip()"><i class="fa fa-arrow-left white-text" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-success px-3 waves-light" (click)="addToCart()">{{'listingItem.addToCart' | translate}}</button>
+              <button type="button" class="btn btn-success px-3 waves-light" (click)="addToCart()" aria-hidden="true">{{'listingItem.addToCart' | translate}}</button>
             </div>
           </div>
         </div>

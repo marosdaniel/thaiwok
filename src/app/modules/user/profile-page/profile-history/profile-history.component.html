@@ -1,11 +1,10 @@
 <div class="profile-history-container">
   <!--PERSONAL INFO NAVIGATOR-->
-  <div id="personal-info-tab" class="row">
-    <i routerLink="/profile/delivery-info" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
-    <h3 class="center inline-block"> {{'profile.history' | translate}} </h3>
-    <i routerLink="/profile/personal-info" class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
+  <div class="menu-category-title">
+    <mdb-icon routerLink="/profile/delivery-info" icon="arrow-left" size="2x"></mdb-icon>
+    <h2 class="s-center" translate="">{{'profile.history' | translate}}</h2>
+    <mdb-icon routerLink="/profile/personal-info" icon="arrow-right" size="2x"></mdb-icon>
   </div>
-
   <!--ORDER HISTORY LIST-->
   <!-- has history-->
   <div *ngIf="hasHistory" class="history-list">

@@ -1,65 +1,62 @@
-<div id="personal-info-tab" class="row">
+<div class="menu-category-title">
+  <mdb-icon routerLink="/profile/previous-orders" icon="arrow-left" size="2x"></mdb-icon>
+  <h2 class="s-center" translate="">{{'profile.personalInfo' | translate}}</h2>
+  <mdb-icon routerLink="/profile/delivery-info" icon="arrow-right" size="2x"></mdb-icon>
+</div>
 
-
-  <!--PERSONAL INFO-->
-    <i routerLink="/profile/previous-orders" class="fa fa-3x fa-angle-left profile-nav-arrow__left"></i>
-    <h3 class="center inline-block"> {{'profile.personalInfo' | translate}} </h3>
-    <i routerLink="/profile/delivery-info"  class="fa fa-3x fa-angle-right profile-nav-arrow__right"></i>
-
+<form class="form-signin">
 
   <!--FIRST NAME-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <i class="material-icons prefix">account_circle</i>
-      <input [(ngModel)]="user.firstName" type="text" id="first-name" class="validate" required="required" aria-required="true" [attr.disabled] = "!isEditable ? 'disabled' : null">
-      <label class="active" for="first-name">{{'profile.firstName' | translate}}</label>
-    </div>
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="user.firstName" type="text" id="first-name"
+           name="firstName"
+           class="form-control"
+           [attr.disabled]="!isEditable ? 'disabled' : null"
+           required>
+    <label for="first-name">{{'profile.firstName' | translate}}</label>
   </div>
-    <!--LAST NAME-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <i class="material-icons prefix">account_circle</i>
-      <input [(ngModel)]="user.lastName" type="text" id="last-name" class="validate" [attr.disabled] = "!isEditable ? 'disabled' : null">
-      <label class="active" for="last-name">{{'profile.lastName' | translate}}</label>
-    </div>
+
+  <!--LAST NAME-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="user.lastName" type="text" id="last-name"
+           name="lastName"
+           class="form-control"
+           [attr.disabled]="!isEditable ? 'disabled' : null"
+           required>
+    <label for="last-name">{{'profile.lastName' | translate}}</label>
   </div>
 
   <!--PHONE NUMBER-->
-  <div class="row">
-    <div class="input-field col m6 s12">
-      <i class="material-icons prefix">phone</i>
-      <input [(ngModel)]="user.phoneNumber" type="tel" id="phone-number"
-             class="validate" required="required"
-             pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
-             aria-required="true" [attr.disabled] = "!isEditable ? 'disabled' : null">
-      <label class="active" for="phone-number">{{'profile.phoneNumber' | translate}}</label>
-    </div>
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="user.phoneNumber" type="tel" id="phone-number"
+           name="phoneNumber"
+           class="form-control"
+           pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}"
+           [attr.disabled]="!isEditable ? 'disabled' : null"
+           required>
+    <label for="phone-number">{{'profile.phoneNumber' | translate}}</label>
   </div>
 
+  <button type="button" class="btn btn-amber px-3 waves-light" (click)="editUser()"
+          [attr.disabled]="isEditable ? 'disabled' : null">{{'profile.edit' | translate}}
+  </button>
+  <button type="button" class="btn btn-amber px-3 waves-light" (click)="updateUser()"
+          [attr.disabled]="!isEditable ? 'disabled' : null">{{'profile.save' | translate}}
+  </button>
 
+</form>
 
-
-  <button class="btn  waves-teal left" (click)="editUser()" [attr.disabled] = "isEditable ? 'disabled' : null">{{'profile.edit' | translate}}</button>
-  <button class="btn  waves-teal right" (click)="updateUser()" [attr.disabled] = "!isEditable ? 'disabled' : null">{{'profile.save' | translate}}</button>
-
-
-  <!--EMAIL ADDRESS-->
-  <div class="row clearfix">
-    <div class="input-field col m6 s12">
-      <p>{{currentUser.email}}</p>
-    </div>
+<div>
+  <hr>
+  <h6>actual e-mail: {{currentUser.email}}</h6>
+  <div class="md-form">
+  <input mdbInputDirective [(ngModel)]="newEmail" type="email" id="new-email"
+         name="newEmail"
+         class="form-control">
+  <label for="new-email">{{'profile.addNewEmail' | translate}}</label>
   </div>
-
-  <div class="row">
-    <div class="input-field col m6 s8">
-      <i class="material-icons prefix">email</i>
-      <input [(ngModel)]="newEmail" type="email" id="new-email" class="validate" required="required"
-             aria-required="true" >
-      <label class="active" for="new-email">{{'profile.addNewEmail' | translate}}</label>
-    </div>
-    <div *ngIf="validMailFormat" class="col m6 s4">
-      <i (click)="updateEmail(newEmail)" class="fa fa-check clickable"></i>
-    </div>
-  </div>
-
+  <button type="button" class="btn btn-info px-3 waves-light" (click)="updateEmail()">update</button>
 </div>
