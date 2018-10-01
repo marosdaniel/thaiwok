@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CartService} from '../../../../services/cart/cart.service';
 import * as Izitoast from 'izitoast';
 import {errorNoSelectedItemToaster} from '../../../../config/toasters/toasters';
@@ -20,7 +20,6 @@ export class ListingItemComponent implements OnInit {
   public flipped = false;
   public cartItem: Item = {};
 
-  // public meatType: string;
   public meatType: MeatTypeEnum;
   public selectedItem: boolean;
   public indexer: number;

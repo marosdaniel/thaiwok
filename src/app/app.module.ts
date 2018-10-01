@@ -44,13 +44,7 @@ import {StorageService} from './services/storage/storage.service';
 import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
-
-// PIPES
-import { FilterPipe } from './pipes/filter.pipe';
-// import { SortPipe } from './pipes/sort.pipe';
-
-// NGX BOOTSTRAP MODULES
-
+import {CurrencyService} from './services/currency/currency.service';
 
 @NgModule({
   declarations: [
@@ -110,7 +104,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     StorageService,
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
     OpenHoursService,
-    HttpLoaderFactory
+    HttpLoaderFactory,
+    CurrencyService
   ],
   bootstrap: [AppComponent]
 })

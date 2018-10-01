@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {CartItem} from '../../models/cartItem.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,14 @@ export class StorageService {
 
   public clearWholeLocalStorage() {
     localStorage.clear();
+  }
+
+  public setLocalStorageLanguage(language: string): void {
+    localStorage.setItem('actualLanguage', JSON.stringify(language));
+  }
+
+  public getLocalStorageLanguage() {
+    const localSotrageLanguage = JSON.parse(localStorage.getItem('actualLanguage'));
+    return localSotrageLanguage == null ? '' : localSotrageLanguage;
   }
 }

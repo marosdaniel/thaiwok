@@ -32,7 +32,7 @@
             <div *ngFor="let type of item.price | sort: 'price';  let index = index">
               <div *ngIf="type" class="">
                 <input type="radio" class="" id="{{item.category}}-{{item.id}}-{{type.name.en}}" name="priceOptions" (click)="setIndex(index)">
-                <label class="" for="{{item.category}}-{{item.id}}-{{type.name.en}}" (click)="selectItem()">{{languageService.actualLanguage === 'en' ? type.name.en : type.name.hu}}: {{type.price}}.- HUF</label>
+                <label class="" for="{{item.category}}-{{item.id}}-{{type.name.en}}" (click)="selectItem()">{{languageService.actualLanguage === 'en' ? type.name.en : type.name.hu}}: {{type.price | currency:'HUF':'symbol-narrow':0}}</label>
               </div>
             </div>
           </div>

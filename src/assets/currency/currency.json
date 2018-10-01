@@ -1,0 +1,6 @@
+[
+  {"AlphabeticCode": "EUR", "Currency": "Euro", "Entity": "\u00c5LAND ISLANDS", "MinorUnit": "2", "NumericCode": 978.0, "WithdrawalDate": null},
+  {"AlphabeticCode": "HUF", "Currency": "Forint", "Entity": "HUNGARY", "MinorUnit": "2", "NumericCode": 348.0, "WithdrawalDate": null},
+  {"AlphabeticCode": "USD", "Currency": "US Dollar", "Entity": "ECUADOR", "MinorUnit": "2", "NumericCode": 840.0, "WithdrawalDate": null},
+  {"AlphabeticCode": "GBP", "Currency": "Pound Sterling", "Entity": "UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND (THE)", "MinorUnit": "2", "NumericCode": 826.0, "WithdrawalDate": null}
+]

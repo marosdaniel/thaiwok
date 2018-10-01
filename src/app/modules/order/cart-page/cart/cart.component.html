@@ -10,15 +10,15 @@
   <ul>
     <li *ngFor="let cartItem of cartItems; let index = index">
       <p>{{cartItem.details.name}} - {{languageService.actualLanguage === 'en' ? cartItem.details.meatType.en : cartItem.details.meatType.hu}} -
-      {{cartItem.details.price}}.- HUF
+      {{cartItem.details.price | currency:'HUF':'symbol-narrow':0}}
         <i class="fa fa-trash-o red-text clickable right" (click)="removeCartItem(index)"></i></p>
     </li>
   </ul>
   <hr>
-  <p>{{'cart.orderedMeals' | translate}}: {{cartItemSummary()}}.- HUF</p>
-  <p>{{'cart.shippingFee' | translate}}: {{shippingFee}}.- HUF</p>
+  <p>{{'cart.orderedMeals' | translate}}: {{cartItemSummary() | currency:'HUF':'symbol-narrow':0}}</p>
+  <p>{{'cart.shippingFee' | translate}}: {{shippingFee | currency:'HUF':'symbol-narrow':0}}</p>
   <hr>
-  <p>{{'cart.summary' | translate}}: {{cartItemSummary()+shippingFee}}.- HUF</p>
+  <p>{{'cart.summary' | translate}}: {{cartItemSummary()+shippingFee | currency:'HUF':'symbol-narrow':0}}</p>
 
   <div class="s-center btn-container s-block">
     <button class="btn red waves-red" (click)="removeCartItems()">{{'cart.clearCart' | translate}}</button>
