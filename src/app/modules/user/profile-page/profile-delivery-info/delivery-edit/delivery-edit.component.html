@@ -1,117 +1,115 @@
-<!--<div>-->
-  <!--&lt;!&ndash;COUNTRY&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m6 s12">-->
-      <!--<input [(ngModel)]="addressToShare.country"-->
-             <!--type="text" id="edit_country"-->
-             <!--class="validate"-->
-             <!--required="required" aria-required="true"-->
-             <!--placeholder="newAddress.country">-->
-      <!--<label [ngClass]="{'active': addressToShare.country }"-->
-             <!--for="edit_country">{{'profile.country' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+<div class="delivery-edit-container">
 
-  <!--&lt;!&ndash;COUNTY&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m6 s12">-->
-      <!--<input [(ngModel)]="addressToShare.county"-->
-             <!--type="text" id="edit_county"-->
-             <!--class="validate"-->
-             <!--required="required" aria-required="true"-->
-             <!--placeholder="newAddress.county">-->
-      <!--<label for="edit_county"-->
-             <!--[ngClass]="{'active':addressToShare.county }">{{'profile.county'-->
-        <!--| translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--COUNTRY-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.country" type="text" id="edit_country"
+           name="edit_country"
+           class="form-control"
+           aria-required="true"
+           required>
+    <label for="edit_country">{{'profile.country' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;ZIP-CODE&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m6 s12">-->
-      <!--<input type="number" id="edit_zip-code" class="validate active"-->
-             <!--[(ngModel)]="addressToShare.zipCode" maxlength="4"-->
-             <!--minlength="4">-->
-      <!--<label for="edit_zip-code"-->
-             <!--[ngClass]="{'active': addressToShare.zipCode }">{{'profile.zipCode'-->
-        <!--| translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--COUNTY-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.county" type="text" id="edit_county"
+           name="edit_county"
+           class="form-control"
+           aria-required="true"
+           required>
+    <label for="edit_county">{{'profile.county' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;CITY&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m6 s12">-->
-      <!--<select id="edit_city" class="own-select"-->
-              <!--[(ngModel)]="addressToShare.city"-->
-              <!--materialize="material_select">-->
-        <!--&lt;!&ndash;<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>&ndash;&gt;-->
-        <!--<option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>-->
-      <!--</select>-->
-      <!--<label for="edit_city" class="active">{{'profile.city' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--ZIP CODE-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.zipCode" type="number" id="edit_zip-code"
+           name="edit_zip-code"
+           class="form-control"
+           aria-required="true"
+           maxlength="4"
+           minlength="4"
+           required>
+    <label for="edit_zip-code">{{'profile.zipCode' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;STREET&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m6 s12">-->
-      <!--<input type="text" id="edit_street" class="validate autocomplete" required="" aria-required="true"-->
-             <!--[(ngModel)]="addressToShare.street">-->
-      <!--<label [ngClass]="{'active': addressToShare.street }"-->
-             <!--for="edit_street">{{'profile.street' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--CITY-->
+  <!--TODO - SELECT-OPTION-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.city" type="text" id="edit_city"
+           name="edit_city"
+           class="form-control"
+           aria-required="true"
+           required>
+    <label for="edit_city">{{'profile.city' | translate}}</label>
+  </div>
 
+  <!--STREET-->
+  <!--TODO - AUTOCOMPLETE-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.street" type="text" id="edit_street"
+           name="edit_street"
+           class="form-control"
+           aria-required="true"
+           required>
+    <label for="edit_street">{{'profile.street' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;HOUSE NUMBER&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m6 s4">-->
-      <!--<input type="text" id="edit_house-number" class="validate"-->
-             <!--required="" aria-required="true"-->
-             <!--minlength="1" maxlength="8"-->
-             <!--[(ngModel)]="addressToShare.houseNumber">-->
-      <!--<label [ngClass]="{'active': addressToShare.houseNumber != '' }"-->
-             <!--for="edit_house-number">{{'profile.houseNumber' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--HOUSE NUMBER-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.houseNumber" type="text" id="edit_house-number"
+           name="edit_house-number"
+           class="form-control"
+           minlength="1" maxlength="8"
+           aria-required="true"
+           required>
+    <label for="edit_house-number">{{'profile.houseNumber' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;FLOOR&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m4 s4">-->
-      <!--<input type="number" id="edit_floor" class="validate"-->
-             <!--required="" aria-required="true"-->
-             <!--maxlength="8"-->
-             <!--[(ngModel)]="addressToShare.floor">-->
-      <!--<label [ngClass]="{'active': addressToShare.floor }"-->
-             <!--for="edit_floor">{{'profile.floor' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--FLOOR-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.floor" type="number" id="edit_floor"
+           name="edit_floor"
+           class="form-control" maxlength="8"
+           aria-required="true"
+           required>
+    <label for="edit_floor">{{'profile.floor' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;DOOR&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m4 s4">-->
-      <!--<input type="number" id="edit_door" class="validate"-->
-             <!--[(ngModel)]="addressToShare.door">-->
-      <!--<label [ngClass]="{'active': addressToShare.houseNumber }"-->
-             <!--for="edit_door">{{'profile.door' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--DOOR-->
+  <div class="md-form">
+    <i class="fa fa-envelope prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.door" type="number" id="edit_door"
+           name="edit_door"
+           class="form-control" maxlength="8"
+           aria-required="true"
+           required>
+    <label for="edit_door">{{'profile.door' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;BELL&ndash;&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="input-field col m4 s4">-->
-      <!--<input type="number" id="edit_bell"-->
-             <!--class="validate" required="" aria-required="true"-->
-             <!--pattern="[^[+]?\d+$]"-->
-             <!--[(ngModel)]="addressToShare.bell">-->
-      <!--<label [ngClass]="{'active': addressToShare.houseNumber }"-->
-             <!--for="edit_bell">{{'profile.bell' | translate}}</label>-->
-    <!--</div>-->
-  <!--</div>-->
+  <!--BELL-->
+  <div class="md-form">
+    <i class="fa fa-bell prefix"></i>
+    <input mdbInputDirective [(ngModel)]="addressToShare.bell" type="number" id="edit_bell"
+           name="edit_bell"
+           class="form-control" pattern="[^[+]?\d+$]"
+           aria-required="true"
+           required>
+    <label for="edit_bell">{{'profile.bell' | translate}}</label>
+  </div>
 
-  <!--&lt;!&ndash;SAVE BUTTON&ndash;&gt;-->
-  <!--<button *ngIf="isEditingAddress" class="btn right" (click)="saveUserData()" >{{'profile.save' |-->
-    <!--translate}}-->
-  <!--</button>-->
+  <div class="btn-wrapper">
+    <div class="btn-section">
+      <button type="button" class="btn btn-amber px-3 waves-light" (click)="closeEditAddressField()">{{'profile.cancel' | translate}}</button>
+      <button *ngIf="isEditingAddress" type="button" class="btn btn-success px-3 waves-light" (click)="saveUserData()" aria-hidden="true">{{'profile.save' |
+        translate}}</button>
+    </div>
+  </div>
 
-  <!--<button class="btn orange-text" (click)="closeEditAddressField()">{{'profile.cancel' | translate}}</button>-->
-<!--</div>-->
+</div>

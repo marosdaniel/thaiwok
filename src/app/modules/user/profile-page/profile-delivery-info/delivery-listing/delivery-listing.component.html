@@ -2,7 +2,6 @@
   <h4 class="text-center">{{'profile.deliveryAddresses' | translate}}</h4>
   <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
   <div class="">
-
     <ul class="" *ngIf="user && user.addresses?.length > 0" >
       <li class="list-unstyled" *ngFor="let address of user.addresses; let index = index">
         <div class="">
@@ -17,26 +16,7 @@
         </div>
       </li>
     </ul>
-
-
-
-
   </div>
   <a *ngIf="isEditingAddress" class="col s12 clickable s-center" (click)="showEditAddressField(newAddress, index)"><i
     class="fa fa-plus"></i> {{'profile.addNewAddress' | translate}}</a>
 </div>
-
-
-<!--&lt;!&ndash;MODAL WRAPPER &ndash;&gt;-->
-<!--<div id="modal-delete-address" class="modal center">-->
-  <!--&lt;!&ndash;MODAL CONTENT &ndash;&gt;-->
-  <!--<div class="modal-content">-->
-    <!--<h3>{{'profile.deleteConfirmation' | translate}}</h3>-->
-  <!--</div>-->
-  <!--&lt;!&ndash;MODAL - FOOTER&ndash;&gt;-->
-  <!--<div class="modal-footer">-->
-    <!--<a class="modal-action modal-close waves-effect waves-green btn-flat red right"-->
-       <!--(click)="deleteAddress()">{{'profile.delete' | translate}}</a>-->
-    <!--<a class="modal-action modal-close waves-effect waves-green btn-flat s-left">{{'profile.cancel' | translate}}</a>-->
-  <!--</div>-->
-<!--</div>-->

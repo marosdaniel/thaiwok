@@ -34,16 +34,16 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.location.getStreets().then(streets => {
-      ($('.autocomplete') as any).autocomplete({
-        data: streets,
-        limit: 8,
-        minlength: 3,
-        onAutocomplete: (street) => {
-          this.addressToShare.street = street;
-        }
-      });
-    });
+    // this.location.getStreets().then(streets => {
+    //   ($('.autocomplete') as any).autocomplete({
+    //     data: streets,
+    //     limit: 8,
+    //     minlength: 3,
+    //     onAutocomplete: (street) => {
+    //       this.addressToShare.street = street;
+    //     }
+    //   });
+    // });
   }
 
   private updateUser() {
@@ -88,9 +88,9 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   }
 
   private addActiveClassToLabels() {
-    if ($('input').text() !== '') {
-      $('label').addClass('active');
-    }
+    // if ($('input').text() !== '') {
+    //   $('label').addClass('active');
+    // }
   }
 
 }

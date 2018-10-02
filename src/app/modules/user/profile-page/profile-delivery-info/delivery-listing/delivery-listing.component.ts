@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewChildren} from '@angular/core';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
 import * as Izitoast from 'izitoast';
 import {errorSaveToaster, successSaveToaster} from '../../../../../config/toasters/toasters';
 import {Address} from '../../../../../models/address.model';
+import {RemoveConfirmationModalComponent} from '../../../../../components/modals/remove-confirmation-modal/remove-confirmation-modal.component';
 
 @Component({
   selector: 'app-delivery-listing',
@@ -15,6 +16,7 @@ export class DeliveryListingComponent implements OnInit {
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Output() emitAddressEvent = new EventEmitter<Address>();
   @Output() emitAddressNumber = new EventEmitter<Number>();
+  @ViewChildren(RemoveConfirmationModalComponent) removeConfirmationModal: RemoveConfirmationModalComponent;
 
   public user: User;
   public isEditable = false;
@@ -31,7 +33,7 @@ export class DeliveryListingComponent implements OnInit {
       this.user = user;
     });
     this.newAddress = new Address();
-    ($('#modal-delete-address')as any).modal();
+    // ($('#modal-delete-address')as any).modal();
   }
 
   private updateUser() {
@@ -58,6 +60,7 @@ export class DeliveryListingComponent implements OnInit {
 
   public openDeleteAddressConfirmationModal(index) {
     this.indexOfAddressToDelete = index;
-    ($('#modal-delete-address')as any).modal('open');
+    // ($('#modal-delete-address')as any).modal('open');
+    // this.removeConfirmationModal.openModal();
   }
 }

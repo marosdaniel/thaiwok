@@ -28,5 +28,8 @@ nav {
   .navbar-active {
     color: $tw-yellow !important;
   }
+  .nav-item .dropdown-menu a.dropdown-item {
+    color: $tw-light-grey !important;
+  }
 }
 

@@ -8,12 +8,14 @@ import {LoadingSpinnerComponent} from '../../components/loading-spinner/loading-
 // PIPES
 import {FilterPipe} from '../../pipes/filter.pipe';
 import {SortPipe} from '../../pipes/sort.pipe';
+import {RemoveConfirmationModalComponent} from '../../components/modals/remove-confirmation-modal/remove-confirmation-modal.component';
 
 @NgModule({
   declarations: [
     LoadingSpinnerComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    RemoveConfirmationModalComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot()
@@ -22,7 +24,8 @@ import {SortPipe} from '../../pipes/sort.pipe';
     CommonModule,
     LoadingSpinnerComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    RemoveConfirmationModalComponent
   ]
 })
 export class SharedModule {

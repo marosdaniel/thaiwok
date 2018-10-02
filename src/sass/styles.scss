@@ -114,12 +114,15 @@ a {
 //
 
 
+.title {
+  margin: 2rem 0 3rem 0;
+}
+
 //
 // COMMON FOR MENU-PAGES
 //
 .menu-category {
   &-title {
-    margin: 2rem 0 3rem 0;
     width: 100%;
     display: flex;
     justify-content: space-between;

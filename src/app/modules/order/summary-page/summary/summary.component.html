@@ -1,16 +1,20 @@
 <!--YOUR CART IS EMPTY-->
-<div *ngIf="cartItems.length==0" class="s-center summary-cart-empty">
-  <h3 class="s-center" >{{'summary.yourCartIsEmpty' | translate}}</h3>
-  <button class="btn waves-teal" routerLink="/menu/appetizers">{{'cart.checkTheMeals' | translate}}</button>
+<div *ngIf="cartItems.length==0" class="text-center summary-cart-empty">
+  <h2 class="title">{{'summary.yourCartIsEmpty' | translate}}</h2>
+  <button class="btn btn-lg btn-linkedin" routerLink="/menu/appetizers">{{'cart.checkTheMeals' | translate}}</button>
 </div>
 
 <!--SUMMARY CONFIRMATION-->
 <div *ngIf="cartItems.length!=0" class="summary-confirmation">
-  <h3 class="s-center" >{{'summary.confirmationOfOrder' | translate}}</h3>
 
+  <!--TITLE-->
+  <h2 class="title text-center">{{'summary.confirmationOfOrder' | translate}}</h2>
+
+  <!--CART-ITEMS-->
   <div *ngIf="cartItems" class="cart-items">
     <ul>
-      <li *ngFor="let cartItem of cartItems">{{cartItem.details.name}} - {{languageService.actualLanguage === 'en' ? cartItem.details.meatType.en : cartItem.details.meatType.hu}} -
+      <li class="list-unstyled" *ngFor="let cartItem of cartItems">{{cartItem.details.name}} - {{languageService.actualLanguage === 'en' ?
+        cartItem.details.meatType.en : cartItem.details.meatType.hu}} -
         {{cartItem.details.price | currency:'HUF':'symbol-narrow':0}}
       </li>
     </ul>
@@ -23,185 +27,205 @@
 
   <hr>
 
+  <!--USER INFO-->
   <div class="user-info">
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="tempFirstName"
-               type="text" id="first-name"
-               class="validate"
-               required="required" aria-required="true">
-        <label [ngClass]="{'active': tempFirstName }" for="first-name" >{{'profile.firstName' | translate}}</label>
-      </div>
+
+    <!--FIRST NAME-->
+    <div class="md-form">
+      <i class="fa fa-envelope prefix"></i>
+      <input mdbInputDirective [(ngModel)]="tempFirstName" type="text" id="first-name"
+             name="first-name"
+             class="form-control"
+             aria-required="true"
+             required>
+      <label for="first-name">{{'profile.firstName' | translate}}</label>
     </div>
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="tempLastName"
-               type="text" id="last-name"
-               class="validate"
-               required="required" aria-required="true">
-        <label [ngClass]="{'active': tempLastName }" for="first-name" >{{'profile.lastName' | translate}}</label>
-      </div>
+
+    <!--LAST NAME-->
+    <div class="md-form">
+      <i class="fa fa-envelope prefix"></i>
+      <input mdbInputDirective [(ngModel)]="tempLastName" type="text" id="last-name"
+             name="last-name"
+             class="form-control"
+             aria-required="true"
+             required>
+      <label for="last-name">{{'profile.lastName' | translate}}</label>
     </div>
-    <div class="row">
-      <div class="input-field col m6 s12">
-        <input [(ngModel)]="tempPhoneNumber"
-               type="text" id="phone-number"
-               class="validate"
-               required="required" aria-required="true">
-        <label [ngClass]="{'active': tempPhoneNumber }" for="first-name" >{{'profile.phoneNumber' | translate}}</label>
-      </div>
+
+    <!--PHONE NUMBER-->
+    <div class="md-form">
+      <i class="fa fa-envelope prefix"></i>
+      <input mdbInputDirective [(ngModel)]="tempPhoneNumber" type="tel" id="phone-number"
+             name="phone-number"
+             class="form-control"
+             aria-required="true"
+             required>
+      <label for="phone-number">{{'profile.phoneNumber' | translate}}</label>
     </div>
   </div>
 
-
+  <!--SELECT ADDRESS-->
   <div class="select-address">
-
-    <!--SELECT ADDRESS-->
     <div *ngIf="addresses" class="saved-address">
       <h5>{{'summary.selectShippingAddress' | translate}}:</h5>
-      <p *ngFor="let address of addresses" class="row">
-        <input type="radio" name="addresses" class="with-gap" id="{{address.street}}-{{address.houseNumber}}">
-        <label (click)="selectAddress(address)"
-               for="{{address.street}}-{{address.houseNumber}}">{{address.country}} - {{address.county}} -
+
+      <p *ngFor="let address of addresses">
+        <input type="radio" name="addresses" class="" id="{{address.street}}-{{address.houseNumber}}">
+        <label class="" for="{{address.street}}-{{address.houseNumber}}" (click)="selectAddress(address)">
           {{address.city}} - {{address.street}} - {{address.houseNumber}} - {{address.floor}}. {{'profile.floor' |
           translate}} - {{address.door}}. {{'profile.door' | translate}} - {{address.bell}}. {{'profile.bell' |
-          translate}}</label>
+          translate}}
+        </label>
       </p>
     </div>
+  </div>
 
-    <!--NEW ADDRESS-->
-    <div *ngIf="!addresses" class="new-address-container">
-      <p>{{'summary.noSavedAddress' | translate}}</p>
-      <h5 *ngIf="isNewAddress"><a class="clickable" (click)="addNewAddress()">{{'summary.addNewShippingAddress' | translate}}</a></h5>
-      <div *ngIf="!isNewAddress" class="new-address">
+  <!--NEW ADDRESS-->
+  <div *ngIf="!addresses" class="new-address-container">
 
-        <!--COUNTRY-->
-        <div class="row">
-          <div class="input-field col m6 s12">
-            <input [(ngModel)]="shippingInfo.shippingAddress['country']"
-                   type="text" id="country"
-                   class="validate"
-                   required="required" aria-required="true"
-                   >
-            <label [ngClass]="{'active': newAddress.country }" for="country" >{{'profile.country' | translate}}</label>
-          </div>
-        </div>
+    <h5>{{'summary.noSavedAddress' | translate}}</h5>
+    <h5 *ngIf="isNewAddress"><a class="clickable" (click)="addNewAddress()">{{'summary.addNewShippingAddress' | translate}}</a></h5>
+    <div *ngIf="!isNewAddress" class="new-address">
 
-        <div class="row">
-          <!--COUNTY-->
-          <div class="input-field col m6 s12">
-            <input [(ngModel)]="shippingInfo.shippingAddress['county']"
-                   type="text" id="county"
-                   class="validate"
-                   required="required"
-                   aria-required="true">
-            <label for="county" class="active">{{'profile.county' | translate}}</label>
-          </div>
-        </div>
-
-        <!--ZIP-CODE-->
-        <div class="row">
-          <div class="input-field col m6 s12">
-            <input type="number" id="zip-code" class="validate active" [(ngModel)]="shippingInfo.shippingAddress['zipCode']" maxlength="4" minlength="4">
-            <label for="zip-code" [ngClass]="{'active': newAddress.zipCode }">{{'profile.zipCode' | translate}}</label>
-          </div>
-        </div>
-
-        <!--CITY-->
-        <div class="row">
-          <div class="input-field col m6 s12">
-            <select id="city" class="own-select" [(ngModel)]="shippingInfo.shippingAddress.city"  materialize="material_select">
-              <!--<option value="" [selected]=true [disabled]="true">{{'profile.city' | translate}}</option>-->
-              <option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>
-            </select>
-            <label for="city" class="active">{{'profile.city' | translate}}</label>
-          </div>
-        </div>
-
-        <!--STREET-->
-        <div class="row">
-          <div class="input-field col m6 s12">
-            <label class="active" for="street">{{'profile.street' | translate}}</label>
-            <input type="text" id="street" class="validate autocomplete" required="" aria-required="true"
-                   [(ngModel)]="shippingInfo.shippingAddress.street">
-          </div>
-        </div>
-
-
-
-        <!--HOUSE NUMBER-->
-        <div class="row">
-          <div class="input-field col m6 s4">
-            <input type="text" id="house-number" class="validate"
-                   required="" aria-required="true"
-                   minlength="1" maxlength="8"
-                   [(ngModel)]="shippingInfo.shippingAddress.houseNumber">
-            <label class="active" for="house-number">{{'profile.houseNumber' | translate}}</label>
-          </div>
-        </div>
-
-        <!--FLOOR-->
-        <div class="row">
-          <div class="input-field col m4 s4">
-            <input type="number" id="floor" class="validate"
-                   required="" aria-required="true"
-                   maxlength="8"
-                   [(ngModel)]="shippingInfo.shippingAddress.floor">
-            <label for="floor">{{'profile.floor' | translate}}</label>
-          </div>
-        </div>
-
-        <!--DOOR-->
-        <div class="row">
-          <div class="input-field col m4 s4">
-            <input type="number" id="door" class="validate" [(ngModel)]="shippingInfo.shippingAddress.door">
-            <label for="door">{{'profile.door' | translate}}</label>
-          </div>
-        </div>
-
-        <!--BELL-->
-        <div class="row">
-          <div class="input-field col m4 s4">
-            <input type="number" id="bell"
-                   class="validate" required="" aria-required="true"
-                   pattern="^[+]?\d+$"
-                   [(ngModel)]="shippingInfo.shippingAddress.bell">
-            <label for="bell">{{'profile.bell' | translate}}</label>
-          </div>
-        </div>
-
+      <!--COUNTRY-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress['country']" type="text" id="country"
+               name="country"
+               class="form-control"
+               aria-required="true"
+               required>
+        <label for="country">{{'profile.country' | translate}}</label>
       </div>
+
+      <!--COUNTY-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress['county']" type="text" id="county"
+               name="county"
+               class="form-control"
+               aria-required="true"
+               required>
+        <label for="county">{{'profile.county' | translate}}</label>
+      </div>
+
+      <!--ZIP CODE-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress['zipCode']" type="number" id="zip-code"
+               name="zip-code"
+               class="form-control"
+               aria-required="true"
+               maxlength="4"
+               minlength="4"
+               required>
+        <label for="zip-code">{{'profile.zipCode' | translate}}</label>
+      </div>
+
+      <!--CITY-->
+      <!--TODO - SELECT-OPTION-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.city" type="text" id="city"
+               name="city"
+               class="form-control"
+               aria-required="true"
+               required>
+        <label for="city">{{'profile.city' | translate}}</label>
+      </div>
+
+      <!--STREET-->
+      <!--TODO - AUTOCOMPLETE-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.street" type="text" id="street"
+               name="street"
+               class="form-control"
+               aria-required="true"
+               required>
+        <label for="street">{{'profile.street' | translate}}</label>
+      </div>
+
+      <!--HOUSE NUMBER-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.houseNumber" type="text" id="house-number"
+               name="house-number"
+               class="form-control"
+               minlength="1" maxlength="8"
+               aria-required="true"
+               required>
+        <label for="house-number">{{'profile.houseNumber' | translate}}</label>
+      </div>
+
+      <!--FLOOR-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.floor" type="number" id="floor"
+               name="floor"
+               class="form-control" maxlength="8"
+               aria-required="true"
+               required>
+        <label for="floor">{{'profile.floor' | translate}}</label>
+      </div>
+
+      <!--DOOR-->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.door" type="number" id="door"
+               name="door"
+               class="form-control" maxlength="8"
+               aria-required="true"
+               required>
+        <label for="door">{{'profile.door' | translate}}</label>
+      </div>
+
+      <!--BELL-->
+      <div class="md-form">
+        <i class="fa fa-bell prefix"></i>
+        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.bell" type="number" id="bell"
+               name="bell"
+               class="form-control" pattern="[^[+]?\d+$]"
+               aria-required="true"
+               required>
+        <label for="bell">{{'profile.bell' | translate}}</label>
+      </div>
+
     </div>
   </div>
-  <hr>
 
   <!--NOTES-->
   <div class="notes">
     <div class="notes-for-order">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="note-for-meal" class="materialize-textarea validate" data-length="200" [(ngModel)]="shippingInfo.noteForMeal"></textarea>
-          <label for="note-for-meal">{{'summary.noteForOrder' | translate}}</label>
-        </div>
+      <div class="md-form">
+        <i class="fa fa-pencil prefix"></i>
+        <textarea type="text" id="note-for-meal"
+                  class="md-textarea md-textarea-auto form-control"
+                  [(ngModel)]="shippingInfo.noteForMeal"
+                  data-length="200" mdbInputDirective></textarea>
+        <label for="note-for-meal">{{'summary.noteForOrder' | translate}}</label>
       </div>
     </div>
     <div class="notes-for-address">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="note-for-shipping" class="materialize-textarea validate" data-length="200" [(ngModel)]="shippingInfo.noteForShipping"></textarea>
-          <label for="note-for-shipping">{{'summary.noteForShipping' | translate}}</label>
-        </div>
+      <div class="md-form">
+        <i class="fa fa-pencil prefix"></i>
+        <textarea type="text" id="note-for-shipping"
+                  class="md-textarea md-textarea-auto form-control"
+                  [(ngModel)]="shippingInfo.noteForShipping"
+                  data-length="200" mdbInputDirective></textarea>
+        <label for="note-for-shipping">{{'summary.noteForShipping' | translate}}</label>
       </div>
     </div>
   </div>
-    <button class="btn btn-large blue white-text" (click)="test()">GOMB</button>
-  <hr>
+
+  <!--TEST BUTTON-->
+  <button class="btn btn-lg btn-info" (click)="test()">GOMB</button>
 
   <!--PAYMENT-->
   <div class="payment">
     <h5>{{'summary.paymentBy' | translate}}</h5>
-    <p class="row">
-      <input type="radio" name="paymentOptions" class="with-gap" id="cash" [(ngModel)]="shippingInfo.paymentOption"
+    <p>
+      <input type="radio" name="paymentOptions" class="" id="cash" [(ngModel)]="shippingInfo.paymentOption"
              [value]='paymentOptions[0].option'>
       <label for="cash">{{'summary.cash' | translate}}</label>
     </p>
@@ -209,33 +233,18 @@
 
   <hr>
 
-  <p>
-    <input type="checkbox" id="test" [(ngModel)]="isCheckedASZF">
-    <label for="test">{{'summary.iHaveRead' | translate}} <a href="#" routerLink="/aboutus">minden szart</a></label>
-  </p>
+  <!--ÁSZF-->
+  <div>
+      <mdb-checkbox [default]="true" [(ngModel)]="isCheckedASZF">{{'summary.iHaveRead' | translate}} <a href="#" routerLink="/aboutus">minden szart</a></mdb-checkbox>
+  </div>
 
-  <div class="row">
-    <button class="btn col m3 s12  waves-teal left" routerLink="/cart">{{'summary.backToChangeCart' | translate}}</button>
-    <button class="btn col m3 green right s12 waves-teal"
-
+  <!--BUTTON SECTION-->
+  <div class="">
+    <button class="btn btn-outline-warning" routerLink="/cart">{{'summary.backToChangeCart' | translate}}</button>
+    <button class="btn"
+            [ngClass]="{'btn-outline-success': isCheckedASZF }"
             (click)="finishOrderProcess()"
             [disabled]="!isCheckedASZF && !isSelectedAddress">{{'summary.order' | translate}}
     </button>
   </div>
 </div>
-
-
-<!--MODAL WRAPPER -->
-<div id="modal-success-order" class="modal center">
-  <!--MODAL CONTENT -->
-  <div class="modal-content">
-    <h3>{{'summary.successOrder' | translate}}</h3>
-  </div>
-  <!--MODAL - FOOTER-->
-  <div class="modal-footer">
-    <a class="modal-action modal-close waves-effect waves-green btn-flat"
-       (click)="auth.navigateToHome()">{{'summary.backToTheHomePage' | translate}}</a>
-  </div>
-</div>
-
-

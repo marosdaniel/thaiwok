@@ -1,14 +1,14 @@
 <!--YOUR CART IS EMPTY-->
-<div *ngIf="cartItems.length==0" class="s-center">
-  <h3>{{'cart.yourCartIsEmpty' | translate}}</h3>
-  <button class="btn waves-teal" routerLink="/menu/appetizers">{{'cart.checkTheMeals' | translate}}</button>
+<div *ngIf="cartItems.length==0" class="text-center">
+  <h2 class="title">{{'cart.yourCartIsEmpty' | translate}}</h2>
+  <button class="btn btn-lg btn-linkedin" routerLink="/menu/appetizers">{{'cart.checkTheMeals' | translate}}</button>
 </div>
 
 <!--YOUR CART IS NOT EMPTY-->
 <div *ngIf="cartItems.length!=0" class="cart-items">
-  <h3 class="s-center">{{'cart.shoppingCart' | translate}}</h3>
+  <h2 class="title text-center">{{'cart.shoppingCart' | translate}}</h2>
   <ul>
-    <li *ngFor="let cartItem of cartItems; let index = index">
+    <li class="list-unstyled" *ngFor="let cartItem of cartItems; let index = index">
       <p>{{cartItem.details.name}} - {{languageService.actualLanguage === 'en' ? cartItem.details.meatType.en : cartItem.details.meatType.hu}} -
       {{cartItem.details.price | currency:'HUF':'symbol-narrow':0}}
         <i class="fa fa-trash-o red-text clickable right" (click)="removeCartItem(index)"></i></p>
@@ -21,7 +21,7 @@
   <p>{{'cart.summary' | translate}}: {{cartItemSummary()+shippingFee | currency:'HUF':'symbol-narrow':0}}</p>
 
   <div class="s-center btn-container s-block">
-    <button class="btn red waves-red" (click)="removeCartItems()">{{'cart.clearCart' | translate}}</button>
-    <button class="btn green waves-teal" routerLink="/order-summary">{{'cart.goToConfirmation' | translate}}</button>
+    <button class="btn red" (click)="removeCartItems()">{{'cart.clearCart' | translate}}</button>
+    <button class="btn green" routerLink="/order-summary">{{'cart.goToConfirmation' | translate}}</button>
   </div>
 </div>
