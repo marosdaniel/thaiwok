@@ -101,7 +101,7 @@ export class SummaryComponent implements OnInit {
     // send email notification
     this.storageService.clearLocalStorageVariable('shippingInfo');
     this.storageService.clearLocalStorageVariable('cartItems');
-    this.openModal();
+    // this.openModal();
   }
 
   cartItemSummary = () => {
@@ -111,7 +111,7 @@ export class SummaryComponent implements OnInit {
       summ += cartItems[i].details['price'];
     }
     return summ;
-  };
+  }
 
   selectAddress(address) {
     this.isSelectedAddress = true;
@@ -166,6 +166,11 @@ export class SummaryComponent implements OnInit {
   private openModal() {
     // this.modalActions.emit({action:"modal",params:['open']});
     ($('#modal-success-order')as any).modal('open');
+  }
+
+  onHidden(event: any) {
+    console.log(event);
+    this.auth.navigateToHome();
   }
 
 

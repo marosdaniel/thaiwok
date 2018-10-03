@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {ModalDirective} from 'angular-bootstrap-md';
+import {MDBModalRef, ModalDirective} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-remove-confirmation-modal',
@@ -7,18 +7,18 @@ import {ModalDirective} from 'angular-bootstrap-md';
   styleUrls: ['./remove-confirmation-modal.component.scss']
 })
 export class RemoveConfirmationModalComponent implements OnInit, AfterViewInit {
-  @ViewChild('basicModal') basicModal: ModalDirective;
-  constructor() { }
+  @ViewChild('frame') modalContent: any;
+
+  constructor(private modal: ModalDirective) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.openModal();
   }
 
   public openModal() {
-    this.basicModal.show();
+    this.modalContent.show();
   }
 
 }

@@ -90,7 +90,7 @@
     "price": "Price",
     "addNewEmail": "Add new e-mail",
     "cancel": "Cancel",
-    "deleteConfirmation": "Are you sure want to delete?",
+    "deleteConfirmation": "Are you sure you want to delete?",
     "delete": "Delete"
   },
   "listingItem": {
@@ -101,7 +101,9 @@
     "number": "Number"
   },
   "common": {
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No"
   },
   "cart": {
     "yourCartIsEmpty": "Your cart is empty",

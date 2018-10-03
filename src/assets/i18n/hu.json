@@ -90,7 +90,7 @@
     "price": "Ár",
     "addNewEmail": "Új e-mail cím megadása",
     "cancel": "Mégse",
-    "deleteConfirmation": "Biztosan törölni szeretné?",
+    "deleteConfirmation": "Biztosan törölni szeretnéd?",
     "delete": "Törlés"
   },
   "listingItem": {
@@ -101,7 +101,9 @@
     "number": "Sorszám"
   },
   "common": {
-    "cancel": "Mégse"
+    "cancel": "Mégse",
+    "yes": "Igen",
+    "no": "Nem"
   },
   "cart": {
     "yourCartIsEmpty": "A kosarad jelenleg üres",

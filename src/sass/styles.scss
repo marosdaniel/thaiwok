@@ -51,6 +51,9 @@ a {
 .main-title {
   font-size: 7rem;
 }
+.title {
+  margin: 2rem 0 3rem 0;
+}
 
 
 //
@@ -112,10 +115,12 @@ a {
 //
 // BUTTONS
 //
+.button-section {
+  &-flex {
+    display: flex;
+    justify-content: space-between;
+  }
 
-
-.title {
-  margin: 2rem 0 3rem 0;
 }
 
 //
@@ -162,6 +167,12 @@ a {
 
   .s-center {
     text-align: center;
+  }
+
+  .button-section {
+    &-flex {
+      flex-direction: column;
+    }
   }
 
 

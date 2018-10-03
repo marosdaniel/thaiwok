@@ -19,7 +19,7 @@
             <p>{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
           </div>
           <div class="btn-wrapper">
-            <div *ngIf="!flipped" class="btn-section">
+            <div *ngIf="!flipped" class="button">
               <button mdbBtn type="button" class="btn btn-amber px-3 waves-light" mdbWavesEffect (click)="flip()" aria-hidden="true">{{'listingItem.details' | translate}}</button>
             </div>
           </div>
@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="btn-wrapper">
-            <div *ngIf="flipped" class="btn-section">
+            <div *ngIf="flipped" class="button-section-flex">
               <button type="button" class="btn btn-amber px-3 waves-light" (click)="flip()"><i class="fa fa-arrow-left white-text" aria-hidden="true"></i></button>
               <button type="button" class="btn btn-success px-3 waves-light" (click)="addToCart()" aria-hidden="true">{{'listingItem.addToCart' | translate}}</button>
             </div>

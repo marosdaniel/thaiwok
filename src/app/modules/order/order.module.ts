@@ -12,6 +12,7 @@ import {SummaryPageComponent} from './summary-page/summary-page.component';
 import {SummaryComponent} from './summary-page/summary/summary.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
         deps: [HttpClient]
       }
     }),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    SharedModule
   ]
 })
 export class OrderModule {

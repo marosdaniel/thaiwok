@@ -2,21 +2,60 @@
   <h4 class="text-center">{{'profile.deliveryAddresses' | translate}}</h4>
   <h5 *ngIf="user && !user.addresses?.length">{{'profile.noSetDeliveryAddress' | translate}}</h5>
   <div class="">
-    <ul class="" *ngIf="user && user.addresses?.length > 0" >
-      <li class="list-unstyled" *ngFor="let address of user.addresses; let index = index">
-        <div class="">
+    <div class="" *ngIf="user && user.addresses?.length > 0">
+      <div class="" *ngFor="let address of user.addresses; let index = index">
+        <div class="address-item">
           <span class="">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
           <div class="btn-group" mdbDropdown>
-            <i mdbDropdownToggle class="fa fa-cog clickable dropdown-toggle waves-light" mdbWavesEffect></i>
-              <span class="dropdown-menu fadeInDropdown dropdown-primary text-center">
-                  <a class="dropdown-item btn btn-amber" (click)="showEditAddressField(user.addresses[index], index)">EDIT  <i class="fa fa-edit clickable"></i></a>
-                  <a class="dropdown-item btn btn-red" (click)="openDeleteAddressConfirmationModal(index)">DELETE  <i class="fa fa-trash clickable"></i></a>
+            <i mdbDropdownToggle class="fa fa-cog clickable dropdown-toggle waves-light" mdbWavesEffect style="font-size: 1.3rem"></i>
+            <span class="dropdown-menu dropdown-menu-right fadeInDropdown dropdown-primary text-center animated fadeIn">
+                <button type="button" color="default" class="btn btn-lg dropdown-item waves-light"
+                        mdbWavesEffect mdbBtn
+                        (click)="showEditAddressField(user.addresses[index], index)">{{"profile.edit" | translate}}<i class="fa fa-edit clickable"></i>
+                </button>
+                <button type="button" color="danger" class="btn btn-lg dropdown-item waves-light" data-toggle="modal"
+                        data-target="#frame"
+                        (click)="openDeleteAddressConfirmationModal(index); frame.show()"
+                        mdbBtn mdbWavesEffect>{{"profile.delete" | translate}}
+                </button>
               </span>
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
-  <a *ngIf="isEditingAddress" class="col s12 clickable s-center" (click)="showEditAddressField(newAddress, index)"><i
-    class="fa fa-plus"></i> {{'profile.addNewAddress' | translate}}</a>
+  <div class="text-center">
+    <a *ngIf="isEditingAddress" class="text-center clickable" (click)="showEditAddressField(newAddress, index)"><i
+      class="fa fa-plus"></i> {{'profile.addNewAddress' | translate}}</a>
+  </div>
+</div>
+
+
+<!--MODAL-->
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">{{'profile.deleteConfirmation' | translate}}</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <i class="fa fa-times fa-4x animated rotateIn"></i>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal"
+           (click)="frame.hide()">{{'common.no' | translate}}</a>
+        <a mdbBtn color="danger" outline="true" class="waves-effect" (click)="deleteAddress(); frame.hide()"
+        mdbWavesEffect>{{'common.yes' | translate}}</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
 </div>

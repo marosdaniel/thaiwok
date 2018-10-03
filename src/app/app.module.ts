@@ -45,6 +45,7 @@ import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {CurrencyService} from './services/currency/currency.service';
+import { SuccessOrderModalComponent } from './components/modals/success-order-modal/success-order-modal.component';
 
 @NgModule({
   declarations: [

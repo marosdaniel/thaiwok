@@ -20,8 +20,13 @@
   <hr>
   <p>{{'cart.summary' | translate}}: {{cartItemSummary()+shippingFee | currency:'HUF':'symbol-narrow':0}}</p>
 
-  <div class="s-center btn-container s-block">
-    <button class="btn red" (click)="removeCartItems()">{{'cart.clearCart' | translate}}</button>
-    <button class="btn green" routerLink="/order-summary">{{'cart.goToConfirmation' | translate}}</button>
+  <div class="button-section-flex">
+    <button type="button" class="btn btn-danger"
+            mdbWavesEffect mdbBtn
+            (click)="removeCartItems()">{{'cart.clearCart' | translate}}</button>
+    <button class="btn btn-outline-success"
+            mdbWavesEffect mdbBtn
+            routerLink="/order-summary">{{'cart.goToConfirmation' | translate}}
+    </button>
   </div>
 </div>

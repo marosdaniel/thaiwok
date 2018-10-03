@@ -8,21 +8,17 @@
   <!--ORDER HISTORY LIST-->
   <!-- has history-->
   <div *ngIf="hasHistory" class="history-list">
-    <ul class="collapsible" *ngIf="user && user.history?.length > 0" materialize="collapsible">
-      <li *ngFor="let historyItem of user.history">
-        <div class="collapsible-header">
-          <p>{{historyItem.orderDate}}</p>
-        </div>
-        <div class="collapsible-body">
-          <ul>
-            <!--translate-->
-            <li>{{'profile.date' | translate}}: {{historyItem.orderDate}}</li>
-            <li>{{'profile.name' | translate}}: {{historyItem.firstName}} {{historyItem.lastName}}</li>
-            <li>{{'profile.address' | translate}}: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>
-            <li>{{'profile.phone' | translate}}: {{historyItem.phoneNumber}}</li>
-            <li>{{'profile.price' | translate}}: {{historyItem.fullPrice}} Ft</li>
-          </ul>
-        </div>
+    <ul class="" *ngIf="user && user.history?.length > 0">
+      <li class="list-unstyled" *ngFor="let historyItem of user.history">
+        <h5>{{historyItem.orderDate}}</h5>
+        <ul>
+          <!--translate-->
+          <li>{{'profile.date' | translate}}: {{historyItem.orderDate}}</li>
+          <li>{{'profile.name' | translate}}: {{historyItem.firstName}} {{historyItem.lastName}}</li>
+          <li>{{'profile.address' | translate}}: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>
+          <li>{{'profile.phone' | translate}}: {{historyItem.phoneNumber}}</li>
+          <li>{{'profile.price' | translate}}: {{historyItem.fullPrice}} Ft</li>
+        </ul>
       </li>
     </ul>
   </div>

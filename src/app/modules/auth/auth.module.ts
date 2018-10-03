@@ -10,6 +10,7 @@ import {SignupPageComponent} from './signup-page/signup-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
       }
     }),
     MDBBootstrapModule.forRoot(),
+    SharedModule
 
   ],
   exports: [

@@ -14,6 +14,7 @@ import {ProfileHistoryComponent} from './profile-page/profile-history/profile-hi
 import { DeliveryListingComponent } from './profile-page/profile-delivery-info/delivery-listing/delivery-listing.component';
 import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delivery-edit/delivery-edit.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
       }
     }),
     MDBBootstrapModule.forRoot(),
+    SharedModule
   ]
 })
 export class UserModule {

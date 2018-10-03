@@ -239,12 +239,39 @@
   </div>
 
   <!--BUTTON SECTION-->
-  <div class="">
+  <div class="button-section-flex">
     <button class="btn btn-outline-warning" routerLink="/cart">{{'summary.backToChangeCart' | translate}}</button>
     <button class="btn"
             [ngClass]="{'btn-outline-success': isCheckedASZF }"
-            (click)="finishOrderProcess()"
+            (click)="finishOrderProcess(); frame.show()"
             [disabled]="!isCheckedASZF && !isSelectedAddress">{{'summary.order' | translate}}
     </button>
+  </div>
+</div>
+
+<!--MODAL -->
+<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" (onHidden)="onHidden($event)">
+  <div class="modal-dialog modal-notify modal-success" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">{{'summary.successOrder' | translate}}</p>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+          <h3>{{'summary.successOrder' | translate}}</h3>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect (click)="frame.hide()" data-dismiss="modal">{{'summary.backToTheHomePage' | translate}}</button>
+      </div>
+    </div>
+    <!--/.Content-->
   </div>
 </div>

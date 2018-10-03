@@ -15,6 +15,7 @@ import {ParallaxComponent} from './home-page/parallax/parallax.component';
 import { MapComponent } from './contact-page/map/map.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
         deps: [HttpClient]
       }
     }),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    SharedModule
   ]
 })
 export class OwnCommonModule {

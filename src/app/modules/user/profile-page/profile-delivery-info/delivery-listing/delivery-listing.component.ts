@@ -1,22 +1,25 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewChildren} from '@angular/core';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
 import * as Izitoast from 'izitoast';
 import {errorSaveToaster, successSaveToaster} from '../../../../../config/toasters/toasters';
 import {Address} from '../../../../../models/address.model';
 import {RemoveConfirmationModalComponent} from '../../../../../components/modals/remove-confirmation-modal/remove-confirmation-modal.component';
+import {ModalDirective} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-delivery-listing',
   templateUrl: './delivery-listing.component.html',
   styleUrls: ['./delivery-listing.component.scss']
 })
-export class DeliveryListingComponent implements OnInit {
+export class DeliveryListingComponent implements OnInit, AfterViewInit {
 
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Output() emitAddressEvent = new EventEmitter<Address>();
   @Output() emitAddressNumber = new EventEmitter<Number>();
   @ViewChildren(RemoveConfirmationModalComponent) removeConfirmationModal: RemoveConfirmationModalComponent;
+  @ViewChildren('frame') confirmationModal: ModalDirective;
+  @ViewChild('myModal') myModal: RemoveConfirmationModalComponent;
 
   public user: User;
   public isEditable = false;
@@ -36,6 +39,9 @@ export class DeliveryListingComponent implements OnInit {
     // ($('#modal-delete-address')as any).modal();
   }
 
+  ngAfterViewInit() {
+  }
+
   private updateUser() {
     this.auth.updateUser(this.user)
       .then(() => {
@@ -49,6 +55,7 @@ export class DeliveryListingComponent implements OnInit {
   public deleteAddress() {
     this.user.addresses.splice(this.indexOfAddressToDelete, 1);
     this.updateUser();
+    // this.confirmationModal.nativeElement.hide();
   }
 
   public showEditAddressField(address: Address, index) {
@@ -60,7 +67,11 @@ export class DeliveryListingComponent implements OnInit {
 
   public openDeleteAddressConfirmationModal(index) {
     this.indexOfAddressToDelete = index;
-    // ($('#modal-delete-address')as any).modal('open');
     // this.removeConfirmationModal.openModal();
+  }
+  public test(index) {
+    this.indexOfAddressToDelete = index;
+    // this.confirmationModal.nativeElement.show();
+    this.confirmationModal.show();
   }
 }

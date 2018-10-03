@@ -104,12 +104,14 @@
     <label for="edit_bell">{{'profile.bell' | translate}}</label>
   </div>
 
-  <div class="btn-wrapper">
-    <div class="btn-section">
-      <button type="button" class="btn btn-amber px-3 waves-light" (click)="closeEditAddressField()">{{'profile.cancel' | translate}}</button>
-      <button *ngIf="isEditingAddress" type="button" class="btn btn-success px-3 waves-light" (click)="saveUserData()" aria-hidden="true">{{'profile.save' |
-        translate}}</button>
-    </div>
+  <div class="button-section-flex">
+    <button type="button" class="btn btn-amber px-3 waves-light" (click)="closeEditAddressField()">{{'profile.cancel' |
+      translate}}
+    </button>
+    <button *ngIf="isEditingAddress" type="button" class="btn btn-success px-3 waves-light" (click)="saveUserData()"
+            aria-hidden="true">{{'profile.save' |
+      translate}}
+    </button>
   </div>
 
 </div>
