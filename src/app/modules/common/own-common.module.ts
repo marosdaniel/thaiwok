@@ -16,6 +16,7 @@ import { MapComponent } from './contact-page/map/map.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SharedModule} from '../shared/shared.module';
+import {ParallaxModule} from 'ngx-parallax';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {SharedModule} from '../shared/shared.module';
     HomePageComponent,
     CarouselComponent,
     ParallaxComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +41,8 @@ import {SharedModule} from '../shared/shared.module';
       }
     }),
     MDBBootstrapModule.forRoot(),
-    SharedModule
+    SharedModule,
+    ParallaxModule
   ]
 })
 export class OwnCommonModule {

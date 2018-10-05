@@ -13,6 +13,7 @@ import {SummaryComponent} from './summary-page/summary/summary.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SharedModule} from '../shared/shared.module';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {SharedModule} from '../shared/shared.module';
       }
     }),
     MDBBootstrapModule.forRoot(),
-    SharedModule
+    SharedModule,
+    NgSelectModule
   ]
 })
 export class OrderModule {

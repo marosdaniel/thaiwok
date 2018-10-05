@@ -8,16 +8,12 @@ import {LoadingSpinnerComponent} from '../../components/loading-spinner/loading-
 // PIPES
 import {FilterPipe} from '../../pipes/filter.pipe';
 import {SortPipe} from '../../pipes/sort.pipe';
-import {RemoveConfirmationModalComponent} from '../../components/modals/remove-confirmation-modal/remove-confirmation-modal.component';
-import {SuccessOrderModalComponent} from '../../components/modals/success-order-modal/success-order-modal.component';
 
 @NgModule({
   declarations: [
     LoadingSpinnerComponent,
     FilterPipe,
     SortPipe,
-    RemoveConfirmationModalComponent,
-    SuccessOrderModalComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot()
@@ -27,8 +23,6 @@ import {SuccessOrderModalComponent} from '../../components/modals/success-order-
     LoadingSpinnerComponent,
     FilterPipe,
     SortPipe,
-    RemoveConfirmationModalComponent,
-    SuccessOrderModalComponent
   ]
 })
 export class SharedModule {

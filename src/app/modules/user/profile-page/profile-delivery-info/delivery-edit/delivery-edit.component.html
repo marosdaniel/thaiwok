@@ -36,27 +36,22 @@
   </div>
 
   <!--CITY-->
-  <!--TODO - SELECT-OPTION-->
   <div class="md-form">
     <i class="fa fa-envelope prefix"></i>
-    <input mdbInputDirective [(ngModel)]="addressToShare.city" type="text" id="edit_city"
-           name="edit_city"
-           class="form-control"
-           aria-required="true"
-           required>
-    <label for="edit_city">{{'profile.city' | translate}}</label>
+    <ng-select class="own-input" [searchable]="false" id="edit_city" placeholder="{{'profile.city' | translate}}" [selectOnTab]="true">
+      <ng-option *ngFor="let city of cities" [value]="city.name">{{city.name}}</ng-option>
+    </ng-select>
   </div>
 
   <!--STREET-->
-  <!--TODO - AUTOCOMPLETE-->
   <div class="md-form">
     <i class="fa fa-envelope prefix"></i>
-    <input mdbInputDirective [(ngModel)]="addressToShare.street" type="text" id="edit_street"
-           name="edit_street"
-           class="form-control"
-           aria-required="true"
-           required>
-    <label for="edit_street">{{'profile.street' | translate}}</label>
+    <ng-select class="own-input" id="edit_street" [(ngModel)]="addressToShare.street"
+               placeholder="{{'profile.street' | translate}}"
+               [items]="streets"
+               [loading]="streetsLoading"
+               [selectOnTab]="true">
+    </ng-select>
   </div>
 
   <!--HOUSE NUMBER-->

@@ -1,11 +1,9 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
 import * as Izitoast from 'izitoast';
 import {errorSaveToaster, successSaveToaster} from '../../../../../config/toasters/toasters';
 import {Address} from '../../../../../models/address.model';
-import {RemoveConfirmationModalComponent} from '../../../../../components/modals/remove-confirmation-modal/remove-confirmation-modal.component';
-import {ModalDirective} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-delivery-listing',
@@ -17,9 +15,6 @@ export class DeliveryListingComponent implements OnInit, AfterViewInit {
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Output() emitAddressEvent = new EventEmitter<Address>();
   @Output() emitAddressNumber = new EventEmitter<Number>();
-  @ViewChildren(RemoveConfirmationModalComponent) removeConfirmationModal: RemoveConfirmationModalComponent;
-  @ViewChildren('frame') confirmationModal: ModalDirective;
-  @ViewChild('myModal') myModal: RemoveConfirmationModalComponent;
 
   public user: User;
   public isEditable = false;
@@ -68,10 +63,5 @@ export class DeliveryListingComponent implements OnInit, AfterViewInit {
   public openDeleteAddressConfirmationModal(index) {
     this.indexOfAddressToDelete = index;
     // this.removeConfirmationModal.openModal();
-  }
-  public test(index) {
-    this.indexOfAddressToDelete = index;
-    // this.confirmationModal.nativeElement.show();
-    this.confirmationModal.show();
   }
 }

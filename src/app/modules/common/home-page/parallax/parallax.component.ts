@@ -7,6 +7,7 @@ import * as $ from 'jquery';
 })
 export class ParallaxComponent implements OnInit, OnDestroy {
 
+
   constructor() { }
 
   ngOnInit() {

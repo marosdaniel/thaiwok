@@ -14,7 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {UserIdleModule} from 'angular-user-idle';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 // COMPONENTS
 import {FooterComponent} from './footer/footer.component';
@@ -45,7 +45,6 @@ import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {CurrencyService} from './services/currency/currency.service';
-import { SuccessOrderModalComponent } from './components/modals/success-order-modal/success-order-modal.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,7 @@ import { SuccessOrderModalComponent } from './components/modals/success-order-mo
     MainComponent,
     HeaderComponent,
     NavbarComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +64,6 @@ import { SuccessOrderModalComponent } from './components/modals/success-order-mo
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     HttpClientModule,
     FormsModule,
-    NgbModule,
 
     // OWN MODULES
     AuthModule,
@@ -77,6 +75,8 @@ import { SuccessOrderModalComponent } from './components/modals/success-order-mo
 
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
+    NgSelectModule,
+
 
     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
     // Default values: `idle` is 600 (10 minutes), `timeout` is 600 (10 minutes)

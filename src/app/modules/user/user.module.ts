@@ -15,6 +15,7 @@ import { DeliveryListingComponent } from './profile-page/profile-delivery-info/d
 import {DeliveryEditComponent} from './profile-page/profile-delivery-info/delivery-edit/delivery-edit.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SharedModule} from '../shared/shared.module';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {SharedModule} from '../shared/shared.module';
       }
     }),
     MDBBootstrapModule.forRoot(),
-    SharedModule
+    SharedModule,
+    NgSelectModule
   ]
 })
 export class UserModule {

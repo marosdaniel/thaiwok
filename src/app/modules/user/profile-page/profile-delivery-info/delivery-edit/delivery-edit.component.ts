@@ -16,7 +16,8 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   @Output() isEditingAddress = new EventEmitter<boolean>();
   @Input() addressToShare: Address;
   @Input() index: number;
-
+  streets: any;
+  streetsLoading = false;
   private user: User;
   public cities: any[];
 
@@ -27,23 +28,21 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
     this.auth.user.subscribe(user => {
       this.user = user;
     });
+    this.initLocations();
+  }
+
+  ngAfterViewInit() {
+
+  }
+
+  private initLocations() {
     this.cities = [
       {id: 1, name: 'Szeged'},
       {id: 2, name: 'Tápé'}
     ];
-  }
-
-  ngAfterViewInit() {
-    // this.location.getStreets().then(streets => {
-    //   ($('.autocomplete') as any).autocomplete({
-    //     data: streets,
-    //     limit: 8,
-    //     minlength: 3,
-    //     onAutocomplete: (street) => {
-    //       this.addressToShare.street = street;
-    //     }
-    //   });
-    // });
+    this.streetsLoading = true;
+    this.streets = this.location.getStreets();
+    this.streetsLoading = false;
   }
 
   private updateUser() {
@@ -86,11 +85,4 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   public closeEditAddressField() {
     this.isEditingAddress.emit(false);
   }
-
-  private addActiveClassToLabels() {
-    // if ($('input').text() !== '') {
-    //   $('label').addClass('active');
-    // }
-  }
-
 }

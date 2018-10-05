@@ -18,6 +18,7 @@ import {ListingItemComponent} from './listing/listing-item/listing-item.componen
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FormsModule} from '@angular/forms';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {FormsModule} from '@angular/forms';
     }),
     SharedModule,
     MDBBootstrapModule.forRoot(),
+    NgSelectModule
   ]
 })
 export class MenuModule {

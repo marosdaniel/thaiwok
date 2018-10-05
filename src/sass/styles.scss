@@ -4,7 +4,7 @@
 @import "variables";
 @import "mixins";
 @import "bootstrapOverwrite";
-
+@import "~@ng-select/ng-select/themes/material.theme.css";
 
 //
 //COMMON CSS RULES - OVERWRITE MATERIALIZE CSS
@@ -57,8 +57,14 @@ a {
 
 
 //
-//CHECKBOX, RADIO
+// INPUTS, CHECKBOX, RADIO
 //
+
+.own-input {
+  margin-left: 2.5rem;
+  width: calc(100% - 2.5rem) !important;
+}
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
   position: absolute;
@@ -157,14 +163,10 @@ a {
   }
 }
 
-
-
 @media only screen and (max-width: 600px) {
-
   .s-block {
     display: block !important;
   }
-
   .s-center {
     text-align: center;
   }
@@ -174,6 +176,4 @@ a {
       flex-direction: column;
     }
   }
-
-
 }

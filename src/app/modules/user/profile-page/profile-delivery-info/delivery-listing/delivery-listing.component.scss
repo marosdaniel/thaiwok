@@ -15,3 +15,14 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.ng-dropdown-panel {
+  width: inherit !important;
+  max-width: 100% !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .address-item {
+    justify-content: space-between;
+  }
+}
