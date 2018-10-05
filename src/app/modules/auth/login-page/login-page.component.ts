@@ -5,6 +5,14 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth/auth.service';
 import {CommonService} from '../../../services/common/common.service';
+import {SnotifyConfigService} from '../../../services/snotify/snotify-config.service';
+import {LanguageService} from '../../../services/language/language.service';
+import {
+  errorEmailFormatToaster,
+  errorPasswordResetToaster,
+  noEmailToaster,
+  successPasswordResetToaster
+} from '../../../config/toaster.config';
 
 
 type FormErrors = { [u in UserFields]: string };
@@ -40,7 +48,9 @@ export class LoginPageComponent implements OnInit {
   constructor(public auth: AuthService,
               private router: Router,
               private fb: FormBuilder,
-              private commonService: CommonService) {
+              private commonService: CommonService,
+              private snotify: SnotifyConfigService,
+              private languageService: LanguageService) {
   }
 
   ngOnInit() {
@@ -61,24 +71,33 @@ export class LoginPageComponent implements OnInit {
 
   resetPassword() {
     if (this.userForm.value['email'] === '') {
-      // Izitoast.default.show(errorNoEmail);
+      this.snotify.onError(this.languageService.actualLanguage === 'hu' ? noEmailToaster.titleText.hu : noEmailToaster.titleText.en,
+        this.languageService.actualLanguage === 'hu' ? noEmailToaster.bodyText.hu : noEmailToaster.bodyText.en);
 
     } else {
       if (this.commonService.isValidMailFormat(this.userForm.value['email'])) {
-
         if (!this.passReset) {
-
           this.auth.resetPassword(this.userForm.value['email'])
-            .then(() => this.passReset = true);
+            .then(() => {
+              this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successPasswordResetToaster.titleText.hu : successPasswordResetToaster.titleText.en,
+                this.languageService.actualLanguage === 'hu' ? successPasswordResetToaster.bodyText.hu : successPasswordResetToaster.bodyText.en);
+              this.passReset = true;
+            })
+            .catch(() => {
+              this.snotify.onError(this.languageService.actualLanguage === 'hu' ? errorPasswordResetToaster.titleText.hu : errorPasswordResetToaster.titleText.en,
+                this.languageService.actualLanguage === 'hu' ? errorPasswordResetToaster.bodyText.hu : errorPasswordResetToaster.bodyText.en);
+            });
         } else {
-          // Izitoast.default.show(errorPassReset);
+          this.snotify.onError(this.languageService.actualLanguage === 'hu' ? errorPasswordResetToaster.titleText.hu : errorPasswordResetToaster.titleText.en,
+            this.languageService.actualLanguage === 'hu' ? errorPasswordResetToaster.bodyText.hu : errorPasswordResetToaster.bodyText.en);
           return;
         }
       } else {
         // Izitoast.default.show(errorEmailFormat);
+        this.snotify.onError(this.languageService.actualLanguage === 'hu' ? errorEmailFormatToaster.titleText.hu : errorEmailFormatToaster.titleText.en,
+          this.languageService.actualLanguage === 'hu' ? errorEmailFormatToaster.bodyText.hu : errorEmailFormatToaster.bodyText.en);
       }
     }
-
   }
 
   toggleForm() {

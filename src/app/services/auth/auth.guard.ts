@@ -10,6 +10,9 @@ import { map, take, tap } from 'rxjs/operators';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
+import {SnotifyConfigService} from '../snotify/snotify-config.service';
+import {LanguageService} from '../language/language.service';
+import {mustBeLoggedInToaster} from '../../config/toaster.config';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,9 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private snotify: SnotifyConfigService,
+    private languageService: LanguageService
   ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -28,8 +33,9 @@ export class AuthGuard implements CanActivate {
       map(user => !!user),
       tap(loggedIn => {
         if (!loggedIn) {
-          console.log('access denied');
-          // Izitoast.default.show(mustBeLoggedInToaster);
+          // console.log('access denied');
+          this.snotify.onWarning(this.languageService.actualLanguage === 'hu' ? mustBeLoggedInToaster.titleText.hu : mustBeLoggedInToaster.titleText.en,
+            this.languageService.actualLanguage === 'hu' ? mustBeLoggedInToaster.bodyText.hu : mustBeLoggedInToaster.bodyText.en);
           this.router.navigate(['/login']);
         }
       })

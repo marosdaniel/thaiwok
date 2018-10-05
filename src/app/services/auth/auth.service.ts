@@ -13,6 +13,9 @@ import {CartService} from '../cart/cart.service';
 import {StorageService} from '../storage/storage.service';
 import {CommonService} from '../common/common.service';
 import {User} from '../../models/user.model';
+import {SnotifyConfigService} from '../snotify/snotify-config.service';
+import {LanguageService} from '../language/language.service';
+import {successLoginToaster, successPasswordUpdateToaster, successSignupToaster} from '../../config/toaster.config';
 
 
 
@@ -30,7 +33,9 @@ export class AuthService {
     private router: Router,
     private storageService: StorageService,
     private cartService: CartService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private snotify: SnotifyConfigService,
+    private languageService: LanguageService
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -81,7 +86,9 @@ export class AuthService {
     return this.afAuth.auth
       .signInAnonymously()
       .then(credential => {
-        // Izitoast.default.show(successLoginToaster);
+        this.snotify
+          .onSuccess(this.languageService.actualLanguage === 'hu' ? successLoginToaster.titleText.hu : successLoginToaster.titleText.en,
+            this.languageService.actualLanguage === 'hu' ? successLoginToaster.bodyText.hu : successLoginToaster.bodyText.en);
         // return this.updateUserData(credential.user); // if using firestore
         // use own save functionality
         return this.updateUser(credential.user);
@@ -96,7 +103,9 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
-        // Izitoast.default.show(successSignupToaster);
+        this.snotify
+          .onSuccess(this.languageService.actualLanguage === 'hu' ? successSignupToaster.titleText.hu : successSignupToaster.titleText.en,
+            this.languageService.actualLanguage === 'hu' ? successSignupToaster.bodyText.hu : successSignupToaster.bodyText.en);
         this.navigateToProfile();
         // return this.updateUserData(credential.user); // if using firestore
         // use own save functionality
@@ -109,7 +118,9 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
-        // Izitoast.default.show(successLoginToaster);
+        this.snotify
+          .onSuccess(this.languageService.actualLanguage === 'hu' ? successLoginToaster.titleText.hu : successLoginToaster.titleText.en,
+            this.languageService.actualLanguage === 'hu' ? successLoginToaster.bodyText.hu : successLoginToaster.bodyText.en);
         this.navigateToProfile();
         // return this.updateUserData(credential.user);
         // use own save functionality
@@ -126,7 +137,11 @@ export class AuthService {
 
     return fbAuth
       .sendPasswordResetEmail(email)
-      // .then(() => Izitoast.default.show(successPasswordUpdateToaster))
+      .then(() => {
+        this.snotify
+          .onSuccess(this.languageService.actualLanguage === 'hu' ? successPasswordUpdateToaster.titleText.hu : successPasswordUpdateToaster.titleText.en,
+            this.languageService.actualLanguage === 'hu' ? successPasswordUpdateToaster.bodyText.hu : successPasswordUpdateToaster.bodyText.en);
+      })
       .catch(error => this.handleError(error));
   }
 
@@ -161,14 +176,8 @@ export class AuthService {
   // If error, console log and notify user
   private handleError(error: Error) {
     console.error(error);
-    // Izitoast.default.show({
-    //     title: 'ERROR',
-    //     class: 'iziToast-color-red',
-    //     message: error.message,
-    //     icon: 'fa fa-times-circle',
-    //     closeOnEscape: true,
-    //     timeout: 3000
-    // })
+    this.snotify
+      .onError(error.name, error.message);
   }
 
 

@@ -2,6 +2,9 @@ import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/c
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
 import {Address} from '../../../../../models/address.model';
+import {SnotifyConfigService} from '../../../../../services/snotify/snotify-config.service';
+import {LanguageService} from '../../../../../services/language/language.service';
+import {errorSaveToaster, successSaveToaster} from '../../../../../config/toaster.config';
 
 @Component({
   selector: 'app-delivery-listing',
@@ -20,7 +23,9 @@ export class DeliveryListingComponent implements OnInit, AfterViewInit {
   private indexOfAddressToDelete: number;
   public indexOfAddress;
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService,
+              private snotify: SnotifyConfigService,
+              private languageService: LanguageService) {
   }
 
   ngOnInit() {
@@ -29,7 +34,6 @@ export class DeliveryListingComponent implements OnInit, AfterViewInit {
       this.user = user;
     });
     this.newAddress = new Address();
-    // ($('#modal-delete-address')as any).modal();
   }
 
   ngAfterViewInit() {
@@ -38,17 +42,18 @@ export class DeliveryListingComponent implements OnInit, AfterViewInit {
   private updateUser() {
     this.auth.updateUser(this.user)
       .then(() => {
-        // Izitoast.default.show(successSaveToaster);
+        this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successSaveToaster.titleText.hu : successSaveToaster.titleText.en,
+          this.languageService.actualLanguage === 'hu' ? successSaveToaster.bodyText.hu : successSaveToaster.bodyText.en);
         this.isEditable = false;
       }).catch(() => {
-      // Izitoast.default.show(errorSaveToaster);
+      this.snotify.onError(this.languageService.actualLanguage === 'hu' ? errorSaveToaster.titleText.hu : errorSaveToaster.titleText.en,
+        this.languageService.actualLanguage === 'hu' ? errorSaveToaster.bodyText.hu : errorSaveToaster.bodyText.en);
     });
   }
 
   public deleteAddress() {
     this.user.addresses.splice(this.indexOfAddressToDelete, 1);
     this.updateUser();
-    // this.confirmationModal.nativeElement.hide();
   }
 
   public showEditAddressField(address: Address, index) {
@@ -60,6 +65,5 @@ export class DeliveryListingComponent implements OnInit, AfterViewInit {
 
   public openDeleteAddressConfirmationModal(index) {
     this.indexOfAddressToDelete = index;
-    // this.removeConfirmationModal.openModal();
   }
 }

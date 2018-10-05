@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {CartItem} from '../../models/cartItem.model';
 import {ShippingInfo} from '../../models/shippingInfo.model';
+import {LanguageService} from '../language/language.service';
+import {SnotifyConfigService} from '../snotify/snotify-config.service';
+import {successAddToCart} from '../../config/toaster.config';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,8 @@ import {ShippingInfo} from '../../models/shippingInfo.model';
 export class CartService {
   private nextId: number;
 
-  constructor() {
+  constructor(public languageService: LanguageService,
+              private snotify: SnotifyConfigService) {
     let cartItems = this.getCartItems();
 
     if (cartItems.length === 0) {
@@ -29,6 +33,8 @@ export class CartService {
 
     this.setLocalStorageCartItems(cartItems);
     this.nextId++;
+    this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successAddToCart.titleText.hu : successAddToCart.titleText.en,
+      this.languageService.actualLanguage === 'hu' ? successAddToCart.bodyText.hu : successAddToCart.bodyText.en);
   }
 
   public getCartItems(): CartItem[] {

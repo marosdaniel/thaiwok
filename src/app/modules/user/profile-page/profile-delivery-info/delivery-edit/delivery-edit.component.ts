@@ -3,6 +3,9 @@ import {Address} from '../../../../../models/address.model';
 import {LocationService} from '../../../../../services/location/location.service';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
+import {SnotifyConfigService} from '../../../../../services/snotify/snotify-config.service';
+import {LanguageService} from '../../../../../services/language/language.service';
+import {errorSaveToaster, successSaveToaster} from '../../../../../config/toaster.config';
 
 @Component({
   selector: 'app-delivery-edit',
@@ -19,7 +22,10 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   private user: User;
   public cities: any[];
 
-  constructor(private auth: AuthService, private location: LocationService) {
+  constructor(private auth: AuthService,
+              private location: LocationService,
+              private snotify: SnotifyConfigService,
+              private languageService: LanguageService) {
   }
 
   ngOnInit() {
@@ -46,9 +52,11 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   private updateUser() {
     this.auth.updateUser(this.user)
       .then(() => {
-        // Izitoast.default.show(successSaveToaster);
+        this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successSaveToaster.titleText.hu : successSaveToaster.titleText.en,
+          this.languageService.actualLanguage === 'hu' ? successSaveToaster.bodyText.hu : successSaveToaster.bodyText.en);
       }).catch(() => {
-      // Izitoast.default.show(errorSaveToaster);
+      this.snotify.onError(this.languageService.actualLanguage === 'hu' ? errorSaveToaster.titleText.hu : errorSaveToaster.titleText.en,
+        this.languageService.actualLanguage === 'hu' ? errorSaveToaster.bodyText.hu : errorSaveToaster.bodyText.en);
     });
   }
 
