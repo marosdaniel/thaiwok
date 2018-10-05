@@ -3,8 +3,6 @@ import {Address} from '../../../../../models/address.model';
 import {LocationService} from '../../../../../services/location/location.service';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user.model';
-import * as Izitoast from 'izitoast';
-import {errorSaveToaster, successSaveToaster} from '../../../../../config/toasters/toasters';
 
 @Component({
   selector: 'app-delivery-edit',
@@ -48,9 +46,9 @@ export class DeliveryEditComponent implements OnInit, AfterViewInit {
   private updateUser() {
     this.auth.updateUser(this.user)
       .then(() => {
-        Izitoast.default.show(successSaveToaster);
+        // Izitoast.default.show(successSaveToaster);
       }).catch(() => {
-      Izitoast.default.show(errorSaveToaster);
+      // Izitoast.default.show(errorSaveToaster);
     });
   }
 

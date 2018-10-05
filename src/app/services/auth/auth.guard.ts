@@ -10,8 +10,6 @@ import { map, take, tap } from 'rxjs/operators';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
-import * as Izitoast from 'iziToast';
-import {mustBeLoggedInToaster} from '../../config/toasters/toasters';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +29,7 @@ export class AuthGuard implements CanActivate {
       tap(loggedIn => {
         if (!loggedIn) {
           console.log('access denied');
-          Izitoast.default.show(mustBeLoggedInToaster);
+          // Izitoast.default.show(mustBeLoggedInToaster);
           this.router.navigate(['/login']);
         }
       })

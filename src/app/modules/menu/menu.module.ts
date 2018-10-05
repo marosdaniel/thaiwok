@@ -19,6 +19,7 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FormsModule} from '@angular/forms';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {SnotifyModule} from 'ng-snotify';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import {NgSelectModule} from '@ng-select/ng-select';
     }),
     SharedModule,
     MDBBootstrapModule.forRoot(),
-    NgSelectModule
+    NgSelectModule,
+    SnotifyModule
+
   ]
 })
 export class MenuModule {

@@ -1,6 +1,4 @@
 import {Injectable} from '@angular/core';
-import * as Izitoast from 'izitoast';
-import {successAddToCartToaster} from '../../config/toasters/toasters';
 import {CartItem} from '../../models/cartItem.model';
 import {ShippingInfo} from '../../models/shippingInfo.model';
 
@@ -31,7 +29,6 @@ export class CartService {
 
     this.setLocalStorageCartItems(cartItems);
     this.nextId++;
-    Izitoast.default.show(successAddToCartToaster);
   }
 
   public getCartItems(): CartItem[] {

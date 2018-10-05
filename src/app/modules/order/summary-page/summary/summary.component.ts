@@ -1,8 +1,6 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth/auth.service';
 import {CartService} from '../../../../services/cart/cart.service';
-import * as Izitoast from 'izitoast';
-import {successOrderToaster} from '../../../../config/toasters/toasters';
 import {CommonService} from '../../../../services/common/common.service';
 import {StorageService} from '../../../../services/storage/storage.service';
 import {User} from '../../../../models/user.model';

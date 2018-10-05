@@ -16,7 +16,7 @@ import { MapComponent } from './contact-page/map/map.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SharedModule} from '../shared/shared.module';
-import {ParallaxModule} from 'ngx-parallax';
+import {SnotifyModule} from 'ng-snotify';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import {ParallaxModule} from 'ngx-parallax';
     }),
     MDBBootstrapModule.forRoot(),
     SharedModule,
-    ParallaxModule
+    SnotifyModule
   ]
 })
 export class OwnCommonModule {

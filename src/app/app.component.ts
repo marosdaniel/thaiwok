@@ -8,6 +8,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import {Subscription} from 'rxjs/Subscription';
 import {StorageService} from './services/storage/storage.service';
+import {SnotifyService} from 'ng-snotify';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private language: LanguageService,
     private auth: AuthService,
     private userIdle: UserIdleService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private snotifyService: SnotifyService
   ) {
 
   }

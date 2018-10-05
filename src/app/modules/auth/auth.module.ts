@@ -11,6 +11,7 @@ import {LoginPageComponent} from './login-page/login-page.component';
 import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SharedModule} from '../shared/shared.module';
+import {SnotifyModule} from 'ng-snotify';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {SharedModule} from '../shared/shared.module';
       }
     }),
     MDBBootstrapModule.forRoot(),
-    SharedModule
+    SharedModule,
+    SnotifyModule
 
   ],
   exports: [

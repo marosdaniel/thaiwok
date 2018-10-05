@@ -14,6 +14,7 @@ import {HttpLoaderFactory} from '../../services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {SharedModule} from '../shared/shared.module';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {SnotifyModule} from 'ng-snotify';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
     }),
     MDBBootstrapModule.forRoot(),
     SharedModule,
-    NgSelectModule
+    NgSelectModule,
+    SnotifyModule
   ]
 })
 export class OrderModule {

@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CartService} from '../../../../services/cart/cart.service';
-import * as Izitoast from 'izitoast';
-import {errorNoSelectedItemToaster} from '../../../../config/toasters/toasters';
 import {CommonService} from '../../../../services/common/common.service';
 import {Item} from '../../../../models/item.model';
 import {MeatTypeEnum} from '../../../../models/enums/meatType.enum';
 import {LanguageService} from '../../../../services/language/language.service';
+import {SnotifyConfigService} from '../../../../services/snotify/snotify-config.service';
+import {noSelectedMealToaster} from '../../../../config/toaster.config';
 declare var $: any;
 
 
@@ -23,9 +23,12 @@ export class ListingItemComponent implements OnInit {
   public meatType: MeatTypeEnum;
   public selectedItem: boolean;
   public indexer: number;
-  // public currentLanguage: string;
 
-  constructor(private cartService: CartService, private commonService: CommonService, public languageService: LanguageService) {
+  constructor(
+    private cartService: CartService,
+    private commonService: CommonService,
+    public languageService: LanguageService,
+    private snotify: SnotifyConfigService) {
   }
 
   ngOnInit() {
@@ -37,7 +40,6 @@ export class ListingItemComponent implements OnInit {
         price: 0
     };
     this.indexer = 0;
-    // this.currentLanguage = this.languageService.actualLanguage;
   }
 
   public flip() {
@@ -46,8 +48,9 @@ export class ListingItemComponent implements OnInit {
 
   addToCart(): void {
     if (!this.selectedItem) {
-      // create toaster message for no selected item
-      Izitoast.default.show(errorNoSelectedItemToaster);
+      this.snotify
+        .onError(this.languageService.actualLanguage === 'hu' ? noSelectedMealToaster.titleText.hu : noSelectedMealToaster.titleText.en,
+          this.languageService.actualLanguage === 'hu' ? noSelectedMealToaster.bodyText.hu : noSelectedMealToaster.bodyText.en);
       return;
     }
     this.initializeCartItem();
@@ -60,10 +63,6 @@ export class ListingItemComponent implements OnInit {
   public selectItem() {
     this.selectedItem = true;
   }
-
-  // public backToItems() {
-  //   this.commonService.uncheckCheckedRadio();
-  // }
 
   public setIndex(index) {
     this.indexer = index;

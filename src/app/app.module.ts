@@ -45,6 +45,8 @@ import {OpenHoursService} from './services/open-hours/open-hours.service';
 import {HttpLoaderFactory} from './services/translate/translate.service';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {CurrencyService} from './services/currency/currency.service';
+import {SnotifyModule, SnotifyService, SnotifyToastConfig, ToastDefaults} from 'ng-snotify';
+import {SnotifyConfigService} from './services/snotify/snotify-config.service';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,7 @@ import {CurrencyService} from './services/currency/currency.service';
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     NgSelectModule,
+    SnotifyModule,
 
 
     // Optionally you can set time for `idle`, `timeout` and `ping` in seconds.
@@ -106,7 +109,10 @@ import {CurrencyService} from './services/currency/currency.service';
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
     OpenHoursService,
     HttpLoaderFactory,
-    CurrencyService
+    CurrencyService,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    SnotifyService,
+    SnotifyConfigService
   ],
   bootstrap: [AppComponent]
 })

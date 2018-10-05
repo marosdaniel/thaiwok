@@ -9,8 +9,6 @@ import 'rxjs/add/observable/of';
 import {switchMap} from 'rxjs/operators';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import * as Izitoast from 'iziToast';
-import {successLoginToaster, successPasswordUpdateToaster, successSignupToaster} from '../../config/toasters/toasters';
 import {CartService} from '../cart/cart.service';
 import {StorageService} from '../storage/storage.service';
 import {CommonService} from '../common/common.service';
@@ -70,7 +68,6 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithPopup(provider)
       .then(credential => {
-        Izitoast.default.show(successLoginToaster);
         // return this.updateUserData(credential.user);
         // use own save functionality
         // return this.updateUser(credential.user);
@@ -84,7 +81,7 @@ export class AuthService {
     return this.afAuth.auth
       .signInAnonymously()
       .then(credential => {
-        Izitoast.default.show(successLoginToaster);
+        // Izitoast.default.show(successLoginToaster);
         // return this.updateUserData(credential.user); // if using firestore
         // use own save functionality
         return this.updateUser(credential.user);
@@ -99,7 +96,7 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
-        Izitoast.default.show(successSignupToaster);
+        // Izitoast.default.show(successSignupToaster);
         this.navigateToProfile();
         // return this.updateUserData(credential.user); // if using firestore
         // use own save functionality
@@ -112,7 +109,7 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
-        Izitoast.default.show(successLoginToaster);
+        // Izitoast.default.show(successLoginToaster);
         this.navigateToProfile();
         // return this.updateUserData(credential.user);
         // use own save functionality
@@ -129,7 +126,7 @@ export class AuthService {
 
     return fbAuth
       .sendPasswordResetEmail(email)
-      .then(() => Izitoast.default.show(successPasswordUpdateToaster))
+      // .then(() => Izitoast.default.show(successPasswordUpdateToaster))
       .catch(error => this.handleError(error));
   }
 
@@ -164,14 +161,14 @@ export class AuthService {
   // If error, console log and notify user
   private handleError(error: Error) {
     console.error(error);
-    Izitoast.default.show({
-        title: 'ERROR',
-        class: 'iziToast-color-red',
-        message: error.message,
-        icon: 'fa fa-times-circle',
-        closeOnEscape: true,
-        timeout: 3000
-    })
+    // Izitoast.default.show({
+    //     title: 'ERROR',
+    //     class: 'iziToast-color-red',
+    //     message: error.message,
+    //     icon: 'fa fa-times-circle',
+    //     closeOnEscape: true,
+    //     timeout: 3000
+    // })
   }
 
 
