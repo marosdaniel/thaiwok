@@ -41,6 +41,17 @@ export const noEmailToaster = {
   }
 };
 
+export const alreadyAddedToFavoritesToaster = {
+  titleText: {
+    en: error.en,
+    hu: error.hu
+  },
+  bodyText: {
+    en: 'You\'ve already added it to your favorites',
+    hu: 'Már hozzáadtad a kedvencekhez'
+  }
+};
+
 export const errorEmailFormatToaster = {
   titleText: {
     en: error.en,
@@ -58,8 +69,8 @@ export const successLoginToaster = {
     hu: success.hu
   },
   bodyText: {
-    en: 'Sikeres bejelentkezés',
-    hu: 'Successful login'
+    en: 'Successful login',
+    hu: 'Sikeres bejelentkezés'
   }
 };
 
@@ -114,7 +125,7 @@ export const successSaveToaster = {
   },
   bodyText: {
     en: 'You have successfully changed your information',
-    hu: 'Sikeres módosította adatait'
+    hu: 'Sikeresen módosította adatait'
   }
 };
 
@@ -137,6 +148,28 @@ export const successAddToCart = {
   bodyText: {
     en: 'The meal has been added to your cart',
     hu: 'Az étel a kosárba került'
+  }
+};
+
+export const successAddToFavoritesToaster = {
+  titleText: {
+    en: success.en,
+    hu: success.hu
+  },
+  bodyText: {
+    en: 'The meal has been added to your favorites',
+    hu: 'Sikeresen hozzáadtad a kedvencekhez'
+  }
+};
+
+export const successRemoveFromFavoritesToaster = {
+  titleText: {
+    en: success.en,
+    hu: success.hu
+  },
+  bodyText: {
+    en: 'The meal has been removed from your favorites',
+    hu: 'Sikeresen törölted a kedvencekből'
   }
 };
 

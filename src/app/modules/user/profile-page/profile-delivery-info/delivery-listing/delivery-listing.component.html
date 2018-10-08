@@ -4,10 +4,16 @@
   <div class="">
     <div class="" *ngIf="user && user.addresses?.length > 0">
       <div class="" *ngFor="let address of user.addresses; let index = index">
-        <div class="address-item">
-          <span class="">{{address.street}} {{address.houseNumber}} - {{address.floor}}. emelet - {{address.door}}. ajtó - {{address.bell}}. csengő</span>
-          <div class="btn-group" mdbDropdown>
-            <i mdbDropdownToggle class="fa fa-cog clickable dropdown-toggle waves-light" mdbWavesEffect style="font-size: 1.3rem"></i>
+        <div class="address-item shadow-lg">
+          <div class="address-group px-3">
+            <p>utca: {{address.street}}</p>
+            <p>házszám: {{address.houseNumber}}</p>
+            <p>emelet: {{address.floor}}</p>
+            <p>ajtó: {{address.door}}</p>
+            <p>csengő: {{address.bell}}</p>
+          </div>
+          <div class="btn-group px-3" mdbDropdown>
+            <i mdbDropdownToggle class="fa fa-cog clickable dropdown-toggle waves-light" mdbWavesEffect style="font-size: 2.0rem"></i>
             <span class="dropdown-menu dropdown-menu-right fadeInDropdown dropdown-primary text-center animated fadeIn">
                 <button type="button" color="default" class="btn btn-lg dropdown-item waves-light"
                         mdbWavesEffect mdbBtn
@@ -24,9 +30,11 @@
       </div>
     </div>
   </div>
-  <div class="text-center">
-    <a *ngIf="isEditingAddress" class="text-center clickable" (click)="showEditAddressField(newAddress, index)"><i
-      class="fa fa-plus"></i> {{'profile.addNewAddress' | translate}}</a>
+  <div class="py-5 text-center">
+    <button *ngIf="isEditingAddress" class="btn btn-outline-light-blue px-3"
+            mdbTooltip="{{'tooltips.addNewAddress' | translate}}" placement="bottom"
+            (click)="showEditAddressField(newAddress, index)">
+      <mdb-icon  icon="plus-square-o" size="1x"></mdb-icon> {{'profile.addNewAddress' | translate}}</button>
   </div>
 </div>
 

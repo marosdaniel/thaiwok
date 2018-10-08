@@ -5,6 +5,11 @@ import {MenuRoutingModule} from '../../routing/menu.routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {SharedModule} from '../shared/shared.module';
+import {HttpLoaderFactory} from '../../services/translate/translate.service';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {FormsModule} from '@angular/forms';
+import {NgSelectModule} from '@ng-select/ng-select';
+import {SnotifyModule} from 'ng-snotify';
 
 // COMPONENTS
 import {MenuPageComponent} from './menu-page/menu-page.component';
@@ -15,11 +20,7 @@ import {MainDishesWithRicePageComponent} from './menu-page/main-dishes-with-rice
 import {SoupsPageComponent} from './menu-page/soups-page/soups-page.component';
 import {ListingComponent} from './listing/listing.component';
 import {ListingItemComponent} from './listing/listing-item/listing-item.component';
-import {HttpLoaderFactory} from '../../services/translate/translate.service';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
-import {FormsModule} from '@angular/forms';
-import {NgSelectModule} from '@ng-select/ng-select';
-import {SnotifyModule} from 'ng-snotify';
+import { FavoritesPageComponent } from './menu-page/favorites-page/favorites-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {SnotifyModule} from 'ng-snotify';
     SoupsPageComponent,
     ListingComponent,
     ListingItemComponent,
+    FavoritesPageComponent,
 
   ],
   imports: [

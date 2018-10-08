@@ -1,5 +1,13 @@
-.dropdown-toggle::after {
-  display: none;
+@import "../../../../../../sass/variables";
+
+.dropdown-toggle {
+  transition: color .1s ease-in;
+  &:hover {
+    color: $tw-yellow;
+  }
+  &:after {
+    display: none;
+  }
 }
 
 .dropdown-menu {
@@ -8,12 +16,17 @@
 }
 
 .btn.dropdown-item {
-  margin: 1rem;
+  margin: .3rem;
 }
 .address-item {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 1.2rem 0;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }
 
 .ng-dropdown-panel {

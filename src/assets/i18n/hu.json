@@ -14,14 +14,19 @@
     "personalInfo": "Személyes adatok",
     "deliveryInfo": "Szállítási adatok",
     "history": "Korábbi rendelések",
-    "cart": "Kosár"
+    "cart": "Kosár",
+    "favorites": "Kedvencek"
   },
   "menu-tab": {
     "appetizers": "Előételek",
     "soups": "Levesek",
     "friedRiceAndNoodles": "Sült rizs, sült tészták",
     "mainDishesWithRice": "Rizsköretes ételek",
-    "desserts": "Desszertek"
+    "desserts": "Desszertek",
+    "favorites": "Kedvencek"
+  },
+  "menu": {
+    "noFavorites": "Még nem jelöltél meg kedvenc ételt"
   },
   "login": {
     "login": "Bejelentkezés",
@@ -91,7 +96,9 @@
     "addNewEmail": "Új e-mail cím megadása",
     "cancel": "Mégse",
     "deleteConfirmation": "Biztosan törölni szeretnéd?",
-    "delete": "Törlés"
+    "delete": "Törlés",
+    "update": "Módosít",
+    "noHistory": "Még nem rendeltél semmit"
   },
   "listingItem": {
     "details": "Részletek",
@@ -130,5 +137,12 @@
     "backToTheHomePage": "Vissza a főoldalra",
     "noteForOrder": "Megjegyzés a rendeléshez",
     "noteForShipping": "Megjegyzés a szállításhoz"
+  },
+  "tooltips": {
+    "editPersonalData": "Ide kattintva módosíthatod személyes adataidat",
+    "updateEmail": "Az email-cím módosításához írd be új email címed, majd kattints a Módosít gombra",
+    "login": "Kattints ide a bejelentkezéshez",
+    "cart": "Kattints ide a kosár megtekintéséhez",
+    "addNewAddress": "Új cím megadásához kattints ide"
   }
 }

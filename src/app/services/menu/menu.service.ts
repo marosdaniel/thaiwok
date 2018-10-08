@@ -14,11 +14,7 @@ export class MenuService {
     SOUPS: 'soups'
   };
 
-  constructor(
-    private firebaseService: FirebaseService
-  ) {
-  }
-
+  constructor(private firebaseService: FirebaseService ) {}
   public getMenuItems(category: String) {
     return this.firebaseService.getMenuObservable(category);
   }

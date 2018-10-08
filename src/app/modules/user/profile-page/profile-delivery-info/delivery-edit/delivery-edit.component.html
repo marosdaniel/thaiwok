@@ -38,7 +38,7 @@
   <!--CITY-->
   <div class="md-form">
     <i class="fa fa-envelope prefix"></i>
-    <ng-select class="own-input" [searchable]="false" id="edit_city" placeholder="{{'profile.city' | translate}}" [selectOnTab]="true">
+    <ng-select class="own-input" [(ngModel)]="addressToShare.city" [searchable]="false" id="edit_city" placeholder="{{'profile.city' | translate}}" [selectOnTab]="true">
       <ng-option *ngFor="let city of cities" [value]="city.name">{{city.name}}</ng-option>
     </ng-select>
   </div>
@@ -100,10 +100,10 @@
   </div>
 
   <div class="button-section-flex">
-    <button type="button" class="btn btn-amber px-3 waves-light" (click)="closeEditAddressField()">{{'profile.cancel' |
+    <button type="button" class="btn btn-outline-unique px-3 waves-light" (click)="closeEditAddressField()">{{'profile.cancel' |
       translate}}
     </button>
-    <button *ngIf="isEditingAddress" type="button" class="btn btn-success px-3 waves-light" (click)="saveUserData()"
+    <button *ngIf="isEditingAddress" type="button" class="btn btn-outline-success px-3 waves-light" (click)="saveUserData()"
             aria-hidden="true">{{'profile.save' |
       translate}}
     </button>

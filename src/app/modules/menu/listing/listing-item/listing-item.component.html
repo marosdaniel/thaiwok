@@ -13,14 +13,24 @@
         <!--FRONT-->
         <div class="card__face card__face--front">
           <div class="card-content">
-            <h4 class="card-title">{{item.name}}</h4>
+            <div class="flex-space-between">
+              <h4 class="card-title">{{item.name}}</h4>
+              <mdb-icon class="clickable favorite-icon"
+                        *ngIf="user && variant!=='favorite'" icon="star" size="2x"
+                        (click)="updateFavorites(item)">
+              </mdb-icon>
+              <mdb-icon class="clickable trash-icon"
+                        *ngIf="user && variant==='favorite'" icon="trash" size="2x"
+                        (click)="updateFavorites(item)">
+              </mdb-icon>
+            </div>
             <h6 class="card-subtitle mb-2 text-muted">{{'listingItem.number' | translate}}: {{item.id}}</h6>
             <hr>
             <p>{{languageService.actualLanguage === 'en' ? item.details.en : item.details.hu}}</p>
           </div>
           <div class="btn-wrapper">
             <div *ngIf="!flipped" class="button">
-              <button mdbBtn type="button" class="btn btn-amber px-3 waves-light" mdbWavesEffect (click)="flip()" aria-hidden="true">{{'listingItem.details' | translate}}</button>
+              <button mdbBtn type="button" class="btn btn-outline-unique px-3 waves-light" mdbWavesEffect (click)="flip()" aria-hidden="true">{{'listingItem.details' | translate}}</button>
             </div>
           </div>
         </div>
@@ -38,8 +48,8 @@
           </div>
           <div class="btn-wrapper">
             <div *ngIf="flipped" class="button-section-flex">
-              <button type="button" class="btn btn-amber px-3 waves-light" (click)="flip()"><i class="fa fa-arrow-left white-text" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-success px-3 waves-light" (click)="addToCart()" aria-hidden="true">{{'listingItem.addToCart' | translate}}</button>
+              <button type="button" class="btn btn-outline-red px-3 waves-light" (click)="flip()"><i class="fa fa-arrow-left red-ic" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-outline-success px-3 waves-light" (click)="addToCart()" aria-hidden="true">{{'listingItem.addToCart' | translate}}</button>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="menu-category-title title">
+<div class="flex-space-between title">
   <mdb-icon routerLink="/profile/previous-orders" icon="arrow-left" size="2x"></mdb-icon>
   <h2 class="s-center" translate="">{{'profile.personalInfo' | translate}}</h2>
   <mdb-icon routerLink="/profile/delivery-info" icon="arrow-right" size="2x"></mdb-icon>
@@ -40,10 +40,15 @@
     <label for="phone-number">{{'profile.phoneNumber' | translate}}</label>
   </div>
 
-  <button type="button" class="btn btn-amber px-3 waves-light" (click)="editUser()"
+  <button type="button" *ngIf="!isEditable"
+          class="btn btn-outline-unique px-3 waves-light"
+          (click)="editUser()"
+          mdbTooltip="{{'tooltips.editPersonalData' | translate}}" placement="right"
           [attr.disabled]="isEditable ? 'disabled' : null">{{'profile.edit' | translate}}
   </button>
-  <button type="button" class="btn btn-amber px-3 waves-light" (click)="updateUser()"
+  <button type="button" *ngIf="isEditable"
+          class="btn btn-outline-success px-3 waves-light"
+          (click)="updateUser()"
           [attr.disabled]="!isEditable ? 'disabled' : null">{{'profile.save' | translate}}
   </button>
 
@@ -58,5 +63,7 @@
          class="form-control">
   <label for="new-email">{{'profile.addNewEmail' | translate}}</label>
   </div>
-  <button type="button" class="btn btn-info px-3 waves-light" (click)="updateEmail()">update</button>
+  <button type="button" class="btn btn-outline-info px-3 waves-light"
+          mdbTooltip="{{'tooltips.updateEmail' | translate}}" placement="right"
+          (click)="updateEmail()">update</button>
 </div>

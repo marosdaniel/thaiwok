@@ -5,7 +5,14 @@ import {Item} from '../../../../models/item.model';
 import {MeatTypeEnum} from '../../../../models/enums/meatType.enum';
 import {LanguageService} from '../../../../services/language/language.service';
 import {SnotifyConfigService} from '../../../../services/snotify/snotify-config.service';
-import {noSelectedMealToaster} from '../../../../config/toaster.config';
+import {
+  alreadyAddedToFavoritesToaster,
+  errorSaveToaster,
+  noSelectedMealToaster, successAddToFavoritesToaster, successRemoveFromFavoritesToaster,
+  successSaveToaster
+} from '../../../../config/toaster.config';
+import {AuthService} from '../../../../services/auth/auth.service';
+import {User} from '../../../../models/user.model';
 declare var $: any;
 
 
@@ -17,6 +24,8 @@ declare var $: any;
 export class ListingItemComponent implements OnInit {
   @Input() item: any;  // model kellene?
   @Input() variant: String;
+  public user: User;
+  private favorites: any[];
   public flipped = false;
   public cartItem: Item = {};
 
@@ -28,10 +37,14 @@ export class ListingItemComponent implements OnInit {
     private cartService: CartService,
     private commonService: CommonService,
     public languageService: LanguageService,
-    private snotify: SnotifyConfigService) {
+    private snotify: SnotifyConfigService,
+    public auth: AuthService) {
   }
 
   ngOnInit() {
+    this.auth.user.subscribe(user => {
+      this.user = user;
+    });
     this.selectedItem = false;
     this.cartItem = {
         number: 0,
@@ -42,10 +55,12 @@ export class ListingItemComponent implements OnInit {
     this.indexer = 0;
   }
 
+  // FLIPPING CARD
   public flip() {
     this.flipped = !this.flipped;
   }
 
+  // CART ACTIONS
   addToCart(): void {
     if (!this.selectedItem) {
       this.snotify
@@ -76,4 +91,52 @@ export class ListingItemComponent implements OnInit {
     this.cartItem.meatType = this.item.price[this.indexer].name;
   }
 
+  // FAVORITES
+  public updateFavorites(item) {
+    let canIPush = true;
+    if (!this.user.favorites) {
+      this.user.favorites = [];
+    }
+    if (this.user.favorites.length === 0) {
+      this.user.favorites.push(item);
+      this.updateUser();
+    } else {
+      for (let i = 0; i < this.user.favorites.length; i++) {
+        if (this.user.favorites[i]['name'] === item['name']) {
+          if (this.variant !== 'favorite') {
+            this.snotify.onError(this.languageService.actualLanguage === 'hu' ? alreadyAddedToFavoritesToaster.titleText.hu : alreadyAddedToFavoritesToaster.titleText.en,
+              this.languageService.actualLanguage === 'hu' ? alreadyAddedToFavoritesToaster.bodyText.hu : alreadyAddedToFavoritesToaster.bodyText.en);
+          }
+          canIPush = false;
+          if (this.variant === 'favorite') {
+            this.user.favorites.splice(i, 1);
+            this.updateUser();
+            this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successRemoveFromFavoritesToaster.titleText.hu : successRemoveFromFavoritesToaster.titleText.en,
+              this.languageService.actualLanguage === 'hu' ? successRemoveFromFavoritesToaster.bodyText.hu : successRemoveFromFavoritesToaster.bodyText.en);
+          }
+          break;
+        }
+      }
+      if (canIPush) {
+        this.user.favorites.push(item);
+        this.updateUser();
+        this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successAddToFavoritesToaster.titleText.hu : successAddToFavoritesToaster.titleText.en,
+          this.languageService.actualLanguage === 'hu' ? successAddToFavoritesToaster.bodyText.hu : successAddToFavoritesToaster.bodyText.en);
+      }
+    }
+  }
+
+
+  // SAVE USER
+  private updateUser() {
+    this.auth.updateUser(this.user)
+      .then(() => {
+        // this.snotify.onSuccess(this.languageService.actualLanguage === 'hu' ? successSaveToaster.titleText.hu : successSaveToaster.titleText.en,
+        //   this.languageService.actualLanguage === 'hu' ? successSaveToaster.bodyText.hu : successSaveToaster.bodyText.en);
+      })
+      .catch(() => {
+      this.snotify.onError(this.languageService.actualLanguage === 'hu' ? errorSaveToaster.titleText.hu : errorSaveToaster.titleText.en,
+        this.languageService.actualLanguage === 'hu' ? errorSaveToaster.bodyText.hu : errorSaveToaster.bodyText.en);
+    });
+  }
 }

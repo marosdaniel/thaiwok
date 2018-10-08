@@ -24,7 +24,7 @@ type UserFields = 'email' | 'password';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
-
+  canILogin = true;
   userForm: FormGroup;
   newUser = true; // to toggle login or signup form
   passReset = false; // set to true when password reset is triggered
@@ -66,7 +66,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password']);
+    this.canILogin = false;
+    this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password'])
+      .then(() => {
+        this.canILogin = true;
+      });
   }
 
   resetPassword() {
@@ -181,7 +185,7 @@ export class LoginPageComponent implements OnInit {
   /// Shared
   private afterSignIn() {
     // Do after login stuff here, such router redirects, toast messages, etc.
-    return this.router.navigate(['/profile']);
+    return this.router.navigate(['/profile/personal-info']);
   }
 
 

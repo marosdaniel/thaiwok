@@ -123,27 +123,22 @@
       </div>
 
       <!--CITY-->
-      <!--TODO - SELECT-OPTION-->
       <div class="md-form">
         <i class="fa fa-envelope prefix"></i>
-        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.city" type="text" id="city"
-               name="city"
-               class="form-control"
-               aria-required="true"
-               required>
-        <label for="city">{{'profile.city' | translate}}</label>
+        <ng-select class="own-input" [(ngModel)]="shippingInfo.shippingAddress.city" [searchable]="false" id="city" placeholder="{{'profile.city' | translate}}" [selectOnTab]="true">
+          <ng-option *ngFor="let city of cities" [value]="city.name">{{city.name}}</ng-option>
+        </ng-select>
       </div>
 
-      <!--STREET-->
-      <!--TODO - AUTOCOMPLETE-->
+      <!--STREETS-->
       <div class="md-form">
         <i class="fa fa-envelope prefix"></i>
-        <input mdbInputDirective [(ngModel)]="shippingInfo.shippingAddress.street" type="text" id="street"
-               name="street"
-               class="form-control"
-               aria-required="true"
-               required>
-        <label for="street">{{'profile.street' | translate}}</label>
+        <ng-select class="own-input" id="street" [(ngModel)]="shippingInfo.shippingAddress.street"
+                   placeholder="{{'profile.street' | translate}}"
+                   [items]="streets"
+                   [loading]="streetsLoading"
+                   [selectOnTab]="true">
+        </ng-select>
       </div>
 
       <!--HOUSE NUMBER-->

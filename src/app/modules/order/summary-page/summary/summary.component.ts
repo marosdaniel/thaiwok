@@ -9,6 +9,7 @@ import {ShippingInfo} from '../../../../models/shippingInfo.model';
 import * as firebase from 'firebase';
 import {LanguageService} from '../../../../services/language/language.service';
 import {Address} from '../../../../models/address.model';
+import {LocationService} from '../../../../services/location/location.service';
 
 @Component({
   selector: 'app-summary',
@@ -28,6 +29,8 @@ export class SummaryComponent implements OnInit {
   public shippingInfo: ShippingInfo;
   public newAddress: object;
   public cities: any[];
+  public streets: any;
+  public streetsLoading = false;
   public tempFirstName: string;
   public tempLastName: string;
   public tempPhoneNumber: string | number;
@@ -36,7 +39,8 @@ export class SummaryComponent implements OnInit {
               private cartService: CartService,
               private commonService: CommonService,
               private storageService: StorageService,
-              public languageService: LanguageService) {
+              public languageService: LanguageService,
+              private location: LocationService) {
   }
 
   ngOnInit() {
@@ -81,11 +85,7 @@ export class SummaryComponent implements OnInit {
       orderDate: ''
     };
     this.newAddress = new Address();
-    this.cities = [
-      {id: 1, name: 'Szeged'},
-      {id: 2, name: 'Tápé'}
-    ];
-    ($('#modal-success-order')as any).modal();
+    this.initLocations();
   }
 
   public finishOrderProcess() {
@@ -109,7 +109,7 @@ export class SummaryComponent implements OnInit {
       summ += cartItems[i].details['price'];
     }
     return summ;
-  }
+  };
 
   selectAddress(address) {
     this.isSelectedAddress = true;
@@ -161,9 +161,14 @@ export class SummaryComponent implements OnInit {
     this.shippingInfo.phoneNumber = this.user && this.user.phoneNumber ? this.user.phoneNumber : this.tempPhoneNumber;
   }
 
-  private openModal() {
-    // this.modalActions.emit({action:"modal",params:['open']});
-    ($('#modal-success-order')as any).modal('open');
+  private initLocations() {
+    this.cities = [
+      {id: 1, name: 'Szeged'},
+      {id: 2, name: 'Tápé'}
+    ];
+    this.streetsLoading = true;
+    this.streets = this.location.getStreets();
+    this.streetsLoading = false;
   }
 
   onHidden(event: any) {

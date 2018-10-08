@@ -1,0 +1,8 @@
+<div *ngIf="!isLoading" class="flex-space-between title">
+  <mdb-icon routerLink="/menu/desserts" icon="arrow-left" size="2x"></mdb-icon>
+  <h2 class="s-center" translate="">{{'menu-tab.favorites' | translate}}</h2>
+  <mdb-icon routerLink="/menu/appetizers" icon="arrow-right" size="2x"></mdb-icon>
+</div>
+<app-listing *ngIf="!isLoading && hasFavorites" [data]="user.favorites" [variant]="variant"></app-listing>
+<h2 *ngIf="!hasFavorites">{{'menu.noFavorites' | translate}}</h2>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

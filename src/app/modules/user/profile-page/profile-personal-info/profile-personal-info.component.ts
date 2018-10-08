@@ -21,7 +21,7 @@ export class ProfilePersonalInfoComponent implements OnInit {
   public currentUser;
   public validMailFormat: boolean;
 
-  constructor(public auth: AuthService,
+  constructor(private auth: AuthService,
               private commonService: CommonService,
               private snotify: SnotifyConfigService,
               private languageService: LanguageService) {}

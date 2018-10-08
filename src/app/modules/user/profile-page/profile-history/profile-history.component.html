@@ -1,31 +1,31 @@
 <div class="profile-history-container">
   <!--PERSONAL INFO NAVIGATOR-->
-  <div class="menu-category-title title">
+  <div class="flex-space-between title">
     <mdb-icon routerLink="/profile/delivery-info" icon="arrow-left" size="2x"></mdb-icon>
     <h2 class="s-center" translate="">{{'profile.history' | translate}}</h2>
     <mdb-icon routerLink="/profile/personal-info" icon="arrow-right" size="2x"></mdb-icon>
   </div>
   <!--ORDER HISTORY LIST-->
   <!-- has history-->
-  <div *ngIf="hasHistory" class="history-list">
-    <ul class="" *ngIf="user && user.history?.length > 0">
-      <li class="list-unstyled" *ngFor="let historyItem of user.history">
-        <h5>{{historyItem.orderDate}}</h5>
-        <ul>
-          <!--translate-->
-          <li>{{'profile.date' | translate}}: {{historyItem.orderDate}}</li>
-          <li>{{'profile.name' | translate}}: {{historyItem.firstName}} {{historyItem.lastName}}</li>
-          <li>{{'profile.address' | translate}}: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</li>
-          <li>{{'profile.phone' | translate}}: {{historyItem.phoneNumber}}</li>
-          <li>{{'profile.price' | translate}}: {{historyItem.fullPrice}} Ft</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <div *ngIf="hasHistory && user && user.history?.length > 0" class="history-list">
+  <mdb-card class="my-3" *ngFor="let historyItem of user.history">
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title> <h4>{{historyItem.orderDate}}</h4> </mdb-card-title>
 
+      <!--Text-->
+      <mdb-card-text>{{'profile.date' | translate}}: {{historyItem.orderDate}}</mdb-card-text>
+      <mdb-card-text>{{'profile.name' | translate}}: {{historyItem.firstName}} {{historyItem.lastName}}</mdb-card-text>
+      <mdb-card-text>{{'profile.address' | translate}}: {{historyItem.shippingAddress.street}} {{historyItem.shippingAddress.houseNumber}}</mdb-card-text>
+      <mdb-card-text>{{'profile.phone' | translate}}: {{historyItem.phoneNumber}}</mdb-card-text>
+      <mdb-card-text>{{'profile.price' | translate}}: {{historyItem.fullPrice}} Ft</mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
+  </div>
   <!--no history-->
   <div *ngIf="!hasHistory">
-    <h3>Még nem rendelt semmit :/</h3>
+    <h3>{{'profile.noHistory' | translate}}</h3>
   </div>
 
 </div>

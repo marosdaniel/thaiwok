@@ -17,6 +17,14 @@ body {
   font-family: $raleway-font;
 }
 
+.flex {
+  &-space-between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .no-margin {
   margin: 0 !important;
 }
@@ -133,13 +141,7 @@ a {
 //
 // COMMON FOR MENU-PAGES
 //
-.menu-category {
-  &-title {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-}
+
 .fa.fa-arrow-right,
 .fa.fa-arrow-left {
   color: $tw-grey;

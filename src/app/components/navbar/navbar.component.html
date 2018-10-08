@@ -51,8 +51,9 @@
       </li>
       <!--CART-->
       <li class="nav-item">
-        <a routerLink="/cart" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.cart' |
-          translate}}</a>
+        <a routerLink="/cart" class="nav-link autoCollapse"
+           mdbTooltip="{{'tooltips.cart' | translate}}" placement="bottom"
+           routerLinkActive="navbar-active">{{'navbar.cart' | translate}}</a>
       </li>
 
       <!--PROFILE-->
@@ -67,6 +68,8 @@
             translate}}</a>
           <a class="dropdown-item autoCollapse" routerLink="/profile/previous-orders">{{'navbar.history' |
             translate}}</a>
+          <a class="dropdown-item autoCollapse" routerLink="/menu/favorites">{{'navbar.favorites' |
+            translate}}</a>
           <a class="dropdown-item autoCollapse" (click)="logout()">{{'navbar.logout' |
             translate}}</a>
         </div>
@@ -74,8 +77,9 @@
 
       <!--LOGIN-->
       <li *ngIf="!user" class="nav-item">
-        <a routerLink="/login" class="nav-link autoCollapse" routerLinkActive="navbar-active">{{'navbar.login' |
-          translate}}</a>
+        <a routerLink="/login" class="nav-link autoCollapse"
+           mdbTooltip="{{'tooltips.login' | translate}}" placement="bottom"
+           routerLinkActive="navbar-active" mdbWavesEffect>{{'navbar.login' | translate}}</a>
       </li>
 
       <!--LANGUAGE SWITCHER-->

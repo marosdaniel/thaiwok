@@ -7,6 +7,8 @@ import {SoupsPageComponent} from '../modules/menu/menu-page/soups-page/soups-pag
 import {FriedRiceAndNoodlesPageComponent} from '../modules/menu/menu-page/fried-rice-and-noodles-page/fried-rice-and-noodles-page.component';
 import {MainDishesWithRicePageComponent} from '../modules/menu/menu-page/main-dishes-with-rice-page/main-dishes-with-rice-page.component';
 import {DessertsPageComponent} from '../modules/menu/menu-page/desserts-page/desserts-page.component';
+import {FavoritesPageComponent} from '../modules/menu/menu-page/favorites-page/favorites-page.component';
+import {AuthGuard} from '../services/auth/auth.guard';
 
 const menuRoutes: Routes = [
   {path: '', component: MenuPageComponent,
@@ -16,7 +18,8 @@ const menuRoutes: Routes = [
       {path: 'soups', component: SoupsPageComponent},
       {path: 'fried-rice-and-noodles', component: FriedRiceAndNoodlesPageComponent},
       {path: 'main-dishes-with-rice', component: MainDishesWithRicePageComponent},
-      {path: 'desserts', component: DessertsPageComponent}
+      {path: 'desserts', component: DessertsPageComponent},
+      {path: 'favorites', component: FavoritesPageComponent, canActivate: [AuthGuard]}
     ]
   }
 ];

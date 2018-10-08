@@ -12,4 +12,5 @@ export class User {
   paymentOption?: string;
   addresses?: Address[];
   history?: ShippingInfo[];
+  favorites?: any[];
 }

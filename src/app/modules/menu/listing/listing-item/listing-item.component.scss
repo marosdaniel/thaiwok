@@ -6,6 +6,19 @@
 .btn-wrapper {
 }
 
+.favorite-icon {
+  transition: color .13s ease-out;
+  &:hover {
+    color: #fff700;
+  }
+}
+.trash-icon {
+  transition: color .13s ease-out;
+  &:hover {
+    color: #DC143C
+  }
+}
+
 // FLIP
 .scene {
   height: 290px;

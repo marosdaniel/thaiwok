@@ -14,14 +14,19 @@
     "personalInfo": "Personal info",
     "deliveryInfo": "Delivery info",
     "history": "Previous orders",
-    "cart": "Cart"
+    "cart": "Cart",
+    "favorites": "Favorites"
   },
   "menu-tab": {
     "appetizers": "Appetizers",
     "soups": "Soups",
     "friedRiceAndNoodles": "Fried rice and noodles",
     "mainDishesWithRice": "Main dishes with rice",
-    "desserts": "Desserts"
+    "desserts": "Desserts",
+    "favorites": "Favorites"
+  },
+  "menu": {
+    "noFavorites": "You have not selected your favorite food yet"
   },
   "login": {
     "login": "Login",
@@ -91,7 +96,9 @@
     "addNewEmail": "Add new e-mail",
     "cancel": "Cancel",
     "deleteConfirmation": "Are you sure you want to delete?",
-    "delete": "Delete"
+    "delete": "Delete",
+    "update": "Update",
+    "noHistory": "You have not ordered anything yet"
   },
   "listingItem": {
     "details": "Details",
@@ -130,5 +137,12 @@
     "backToTheHomePage": "Back to the home page",
     "noteForOrder": "Note for order",
     "noteForShipping": "Note for shipping"
+  },
+  "tooltips": {
+    "editPersonalData": "Click here to change your personal data",
+    "updateEmail": "To change email address, type your new email then click on the Update button",
+    "login": "Click here to login",
+    "cart": "Click here to check your cart",
+    "addNewAddress": "Click here to add new address"
   }
 }
